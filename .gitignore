@@ -19,3 +19,5 @@ sysinfo.txt
 #Added by Matt to stop VS files adding
 UnityVS/
 UnityVS.meta
+*.suo
+*.sln
