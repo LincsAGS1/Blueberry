@@ -15,3 +15,7 @@
 
 #Unity3D Generated File On Crash Reports
 sysinfo.txt
+
+#Added by Matt to stop VS files adding
+UnityVS/
+UnityVS.meta

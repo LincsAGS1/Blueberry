@@ -51,11 +51,11 @@
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity 4.6.0f3/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
- <Reference Include="KinectWheels">
- <HintPath>C:/Users/Matt/Documents/GitHub/Blueberry/Blueberry/Assets/Plugins/KinectWheels.dll</HintPath>
- </Reference>
  <Reference Include="KinectNet20">
  <HintPath>C:/Users/Matt/Documents/GitHub/Blueberry/Blueberry/Assets/Plugins/KinectNet20.dll</HintPath>
+ </Reference>
+ <Reference Include="KinectWheels">
+ <HintPath>C:/Users/Matt/Documents/GitHub/Blueberry/Blueberry/Assets/Plugins/KinectWheels.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
