@@ -269,6 +269,7 @@ GameObject:
   - 54: {fileID: 255263856}
   - 114: {fileID: 255263857}
   - 114: {fileID: 255263858}
+  - 114: {fileID: 255263859}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -379,6 +380,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisions: 0
+--- !u!114 &255263859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 255263850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f580143caed6f3b4ebc2e26215f185e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1001 &285208312
 Prefab:
   m_ObjectHideFlags: 0
@@ -555,6 +568,7 @@ GameObject:
   - 114: {fileID: 1219939395}
   - 114: {fileID: 1219939396}
   - 114: {fileID: 1219939397}
+  - 114: {fileID: 1219939398}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: AI
@@ -675,6 +689,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisions: 0
+--- !u!114 &1219939398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1219939389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f580143caed6f3b4ebc2e26215f185e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1314708510
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,6 +884,7 @@ GameObject:
   - 54: {fileID: 1588746855}
   - 114: {fileID: 1588746856}
   - 114: {fileID: 1588746857}
+  - 114: {fileID: 1588746858}
   m_Layer: 0
   m_Name: Enemy 2
   m_TagString: AI
@@ -960,6 +987,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisions: 0
+--- !u!114 &1588746858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1588746850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f580143caed6f3b4ebc2e26215f185e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1874652544
 GameObject:
   m_ObjectHideFlags: 0
