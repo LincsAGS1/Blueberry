@@ -268,6 +268,7 @@ GameObject:
   - 114: {fileID: 255263855}
   - 54: {fileID: 255263856}
   - 114: {fileID: 255263857}
+  - 114: {fileID: 255263858}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -338,6 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 4
+  canMove: 1
 --- !u!54 &255263856
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -364,7 +366,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790e61db06c4d2447ac2f61498b7f3bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Blueberry: 0
+  Blueberry: 1
+--- !u!114 &255263858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 255263850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51705ff7409e1564ebb654ed31a2b7d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisions: 0
 --- !u!1001 &285208312
 Prefab:
   m_ObjectHideFlags: 0
@@ -540,8 +554,9 @@ GameObject:
   - 54: {fileID: 1219939390}
   - 114: {fileID: 1219939395}
   - 114: {fileID: 1219939396}
+  - 114: {fileID: 1219939397}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy 1
   m_TagString: AI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -629,7 +644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790e61db06c4d2447ac2f61498b7f3bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Blueberry: 1
+  Blueberry: 0
 --- !u!114 &1219939396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,6 +662,19 @@ MonoBehaviour:
   maxDistance: 0
   alertDistance: 10
   go: {fileID: 0}
+  canMove: 1
+--- !u!114 &1219939397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1219939389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51705ff7409e1564ebb654ed31a2b7d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisions: 0
 --- !u!1 &1314708510
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,7 +829,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ceb62aa487f6e624ca55f1d4bd05d947, type: 2}
       propertyPath: m_Name
-      value: Cube
+      value: Enemy 2
       objectReference: {fileID: 0}
     - target: {fileID: 5400000, guid: ceb62aa487f6e624ca55f1d4bd05d947, type: 2}
       propertyPath: m_UseGravity
@@ -829,8 +857,9 @@ GameObject:
   - 23: {fileID: 1588746851}
   - 54: {fileID: 1588746855}
   - 114: {fileID: 1588746856}
+  - 114: {fileID: 1588746857}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Enemy 2
   m_TagString: AI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -919,6 +948,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Blueberry: 0
+--- !u!114 &1588746857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1588746850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51705ff7409e1564ebb654ed31a2b7d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisions: 0
 --- !u!1 &1874652544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1162,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: ceb62aa487f6e624ca55f1d4bd05d947, type: 2}
       propertyPath: Blueberry
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ceb62aa487f6e624ca55f1d4bd05d947, type: 2}
+      propertyPath: m_Name
+      value: Enemy 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ceb62aa487f6e624ca55f1d4bd05d947, type: 2}

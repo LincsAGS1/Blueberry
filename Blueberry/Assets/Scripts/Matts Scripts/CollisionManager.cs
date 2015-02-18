@@ -22,7 +22,6 @@ public class CollisionManager : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-
         if (collision.collider.name.Contains("Enemy") || collision.collider.name.Contains("Player"))
         {
             if (this.GetComponent<VirusScript>().Blueberry == true)
@@ -40,6 +39,20 @@ public class CollisionManager : MonoBehaviour
                     virusScript.GetComponent<CollisionManager>().collisions = true;
 
                     StartCoroutine(virusScript.GetComponent<CollisionManager>().wait());
+
+                    if (virusScript.name.Contains("Player"))
+                    {
+                        virusScript.GetComponent<PlayerMove>().canMove = false;
+
+                        StartCoroutine(waitHolderPlayer(virusScript));
+                    }
+
+                    if (virusScript.name.Contains("Enemy"))
+                    {
+                        virusScript.GetComponent<EnemyAI>().canMove = false;
+
+                        StartCoroutine(waitHolderAI(virusScript));
+                    }
                 }
             }
         }
@@ -52,5 +65,19 @@ public class CollisionManager : MonoBehaviour
         collisions = false;
 
         Debug.Log(this.name + " Reset");
+    }
+
+    public IEnumerator waitHolderAI(GameObject virusScript) // Runs methods every 10 seconds
+    {
+        yield return new WaitForSeconds(6.0f);
+
+        virusScript.GetComponent<EnemyAI>().canMove = true;
+    }
+
+    public IEnumerator waitHolderPlayer(GameObject virusScript) // Runs methods every 10 seconds
+    {
+        yield return new WaitForSeconds(6.0f);
+
+        virusScript.GetComponent<PlayerMove>().canMove = true;
     }
 }
