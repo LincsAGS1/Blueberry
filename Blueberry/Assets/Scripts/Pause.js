@@ -59,7 +59,7 @@ GUI.skin.label.font = pauseMenuFont;
 		//Make Main Menu button
 		if(GUI.Button(Rect(Screen.width /2 - 100,Screen.height /2 - 50,250,50), "Main Menu"))
 		{
-			Application.LoadLevel(mainMenuSceneName);// This will need changing to reflect the correct level.
+			Application.LoadLevel(4);// This will need changing to reflect the correct level.
 		}
 		
 			//Make Change Graphics Quality button

@@ -6,6 +6,9 @@ var aTexture : Texture;
 var aTexture1 : Texture;	
 var aTexture2 : Texture;	
 var AI_Picker = 0;
+var Menu_Chooser = 0;
+private var optionsOn : boolean = true;
+var goBack = 0;
 
 		
 function Start()
@@ -35,19 +38,30 @@ GUI.DrawTexture(Rect(Screen.width /2.236 - 85 ,Screen.height /8,200,200), aTextu
 }
 
 
-function OnGUI()
+function LoadLevel()
 {
+		Application.LoadLevel(1);	
+}
 
+		function OnGUI()
+		{
+			// Sets font for all used GUI items
+			GUI.skin.box.font = pauseMenuFont;
+			GUI.skin.button.font = pauseMenuFont;
+			GUI.skin.label.font = pauseMenuFont;	
+			AIandAppearance();
+					
+		}
 
-// Sets font for all used GUI items
-GUI.skin.box.font = pauseMenuFont;
-GUI.skin.button.font = pauseMenuFont;
-GUI.skin.label.font = pauseMenuFont;
-
-		//*****************************************************************************************************************
-		// Different textures will need to be added to the inspector so that the final in game images/textures are correct.
-		//*****************************************************************************************************************
-
+		
+		
+		
+		function AIandAppearance()
+		{
+		
+		AI_1();
+	
+		Ai_Name = "AI Character: 1!";
 		
 		//If the first button is clicked, text is generated and AI function is ran
 		if(GUI.Button(Rect(Screen.width /3,Screen.height /2 ,150,50), "AI Character 1"))
@@ -69,7 +83,7 @@ GUI.skin.label.font = pauseMenuFont;
 		if(GUI.Button(Rect(Screen.width /2 - 160,Screen.height /2,150,50), "AI Character 2"))
 		{
 			AI_Picker = 3;
-				Ai_Name = "AI Character: 2!";
+			Ai_Name = "AI Character: 2!";
 			Screen.showCursor = true;	
 			
 		}
@@ -96,7 +110,7 @@ GUI.skin.label.font = pauseMenuFont;
 		// Loads the game.
 		if (GUI.Button (Rect (Screen.width /2.236 - 25 ,Screen.height /2 + 150,80,50), "Play"))
 		{
-			// Load the correct scene/application here.
+		Application.LoadLevel(0);	
 		}
 		
 		
@@ -122,9 +136,21 @@ GUI.skin.label.font = pauseMenuFont;
 			GUI.Label(Rect(Screen.width /2 - 90,Screen.height /2.4,150,50), Ai_Number );
 			
 			GUI.Label(Rect(Screen.width /2 - 130,Screen.height /2.59,150,50), "Number of AI" );
-	
-}
-		
-	
+			
+			
+			
+			if (GUI.Button(Rect(Screen.width /2 - 390,Screen.height /8.2,100,50), "Go Back" ))
+			{
+				goBack = 1;
+			}
+			
+			if (goBack == 1)
+			{
+			
+				Application.LoadLevel(4);
+				
+			}
+		}
+
 
 
