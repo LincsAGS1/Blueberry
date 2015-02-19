@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMove : MonoBehaviour {
+public class PlayerMove : MonoBehaviour 
+{
 
 
 
@@ -10,26 +11,33 @@ public class PlayerMove : MonoBehaviour {
 	float moveV;
 
 
+    public bool canMove = true;
+
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
 	
 	}
 
 
 	void FixedUpdate () 
 	{
-		moveH = Input.GetAxis ("Horizontal");
-		moveV = Input.GetAxis ("Vertical");
+        if (canMove == true)
+        {
+            moveH = Input.GetAxis("Horizontal");
+            moveV = Input.GetAxis("Vertical");
 
-	
-		transform.position += Vector3.right * moveH * maxSpeed * Time.deltaTime;
-		transform.position += Vector3.up * moveV * maxSpeed * Time.deltaTime;
-		rigidbody.velocity = Vector3.zero;
+
+            transform.position += Vector3.right * moveH * maxSpeed * Time.deltaTime;
+            transform.position += Vector3.up * moveV * maxSpeed * Time.deltaTime;
+            rigidbody.velocity = Vector3.zero;
+        }
 	}
 }
