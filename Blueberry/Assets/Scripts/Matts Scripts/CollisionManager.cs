@@ -20,7 +20,7 @@ public class CollisionManager : MonoBehaviour
 
 	}
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.name.Contains("Enemy") || collision.collider.name.Contains("Player"))
         {
@@ -42,7 +42,7 @@ public class CollisionManager : MonoBehaviour
 
                     if (virusScript.name.Contains("Player"))
                     {
-                        virusScript.GetComponent<PlayerMove>().canMove = false;
+                        virusScript.GetComponent<PlayerController>().canMove = false;
 
                         StartCoroutine(waitHolderPlayer(virusScript));
                     }

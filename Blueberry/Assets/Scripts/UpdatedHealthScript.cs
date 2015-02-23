@@ -17,7 +17,7 @@ public class UpdatedHealthScript : MonoBehaviour
 	{
 		if (this.GetComponent<VirusScript>().Blueberry == true && health > 0)
 		{
-			health -= 1.1f;
+			health -= 0.1f;
 		}
 		
 		if (health <=  0)

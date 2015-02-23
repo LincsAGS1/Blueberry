@@ -39,7 +39,7 @@ public class EnemyAI : MonoBehaviour {
         if (canMove == true)
         {
 
-            Debug.DrawLine(target.position, myTransform.position, Color.yellow);
+            //Debug.DrawLine(target.position, myTransform.position, Color.yellow);
             //distance = Vector3.Distance(target.position, myTransform.position);
 
             if (go.GetComponent<VirusScript>().Blueberry == false)
@@ -81,6 +81,5 @@ public class EnemyAI : MonoBehaviour {
             //Move towards the player's position.
             myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime;
         }
-    }
-		
-	}
+    }	
+}
