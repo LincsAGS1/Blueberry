@@ -268,6 +268,8 @@ GameObject:
   - 114: {fileID: 255263855}
   - 54: {fileID: 255263856}
   - 114: {fileID: 255263857}
+  - 114: {fileID: 255263859}
+  - 114: {fileID: 255263858}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -338,6 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 4
+  canMove: 1
 --- !u!54 &255263856
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -364,7 +367,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790e61db06c4d2447ac2f61498b7f3bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Blueberry: 0
+  Blueberry: 1
+--- !u!114 &255263858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 255263850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a90e12e1addb144cb4d929b0a94bae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+--- !u!114 &255263859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 255263850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51705ff7409e1564ebb654ed31a2b7d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisions: 0
 --- !u!1001 &285208312
 Prefab:
   m_ObjectHideFlags: 0
@@ -647,6 +674,7 @@ MonoBehaviour:
   maxDistance: 0
   alertDistance: 10
   go: {fileID: 0}
+  canMove: 1
 --- !u!1 &1314708510
 GameObject:
   m_ObjectHideFlags: 0
