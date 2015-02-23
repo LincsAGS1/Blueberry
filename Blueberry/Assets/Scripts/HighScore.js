@@ -12,6 +12,6 @@ function Update ()
 
 function OnGUI()
 {
-var ball Ball
+
 
 }
