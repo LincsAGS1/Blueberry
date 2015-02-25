@@ -6,12 +6,16 @@ public class HealthManager : MonoBehaviour
 
 	public float health = 100;
 
-
-
+	//public GameObject enemy;
+	
 	// Use this for initialization
 	void Start () 
     {
+		if (newUiAiPicker.aiCount == 1)
+		{
 
+
+		}
 
 	}
 	
@@ -26,6 +30,8 @@ public class HealthManager : MonoBehaviour
 			health -= 0.1f;		
 
         }
+
+
 
 
 

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\EnemyAI.cs" />
+     <Compile Include="Assets\Scripts\HighScore.cs" />
      <Compile Include="Assets\Scripts\InputController.cs" />
      <Compile Include="Assets\Scripts\Matts Scripts\CollisionManager.cs" />
      <Compile Include="Assets\Scripts\Matts Scripts\HealthManager.cs" />
@@ -55,6 +56,8 @@
      <Compile Include="Assets\Scripts\RandomVirus.cs" />
      <Compile Include="Assets\Scripts\UpdatedHealthScript.cs" />
      <Compile Include="Assets\Scripts\VirusScript.cs" />
+     <Compile Include="Assets\Scripts\colourChange.cs" />
+     <Compile Include="Assets\Scripts\newUiAiPicker.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>

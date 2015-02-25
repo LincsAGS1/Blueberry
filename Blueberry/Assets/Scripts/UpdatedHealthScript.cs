@@ -37,7 +37,7 @@ public class UpdatedHealthScript : MonoBehaviour
 	void OnGUI ()
 	{
 		//GUI.Label (new Rect (85, 100, 100, 30),"Player Health:"); 
-		GUI.Label (new Rect (480, 30, 300, 30),"Player Health:  " +health.ToString());    
+		GUI.Label (new Rect (480, 30, 200, 30),"Player Health:  " +health.ToString());    
 		
 	}
 }

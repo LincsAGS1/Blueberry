@@ -10,6 +10,7 @@ var Menu_Chooser = 0;
 private var optionsOn : boolean = true;
 var goBack = 0;
 
+
 		
 function Start()
 {
@@ -18,24 +19,15 @@ Screen.showCursor = true;
 
 function Update()
 {
+// var TestScript: testScript = GetComponent(testScipt); 
+
+	
 
 	
 }
 
-function AI_1()
-{
-GUI.DrawTexture(Rect(Screen.width /2.236 - 85 ,Screen.height /8,200,200), aTexture, ScaleMode.ScaleToFit, true, 1.50f);
-}
 
-function AI_2()
-{
-GUI.DrawTexture(Rect(Screen.width /2.236 - 85 ,Screen.height /8,200,200), aTexture1, ScaleMode.ScaleToFit, true, 1.50f);
-}
 
-function AI_3()
-{
-GUI.DrawTexture(Rect(Screen.width /2.236 - 85 ,Screen.height /8,200,200), aTexture2, ScaleMode.ScaleToFit, true, 1.50f);
-}
 
 
 function LoadLevel()
@@ -59,17 +51,10 @@ function LoadLevel()
 		function AIandAppearance()
 		{
 		
-		AI_1();
 	
 		Ai_Name = "AI Character: 1!";
 		
-		//If the first button is clicked, text is generated and AI function is ran
-		if(GUI.Button(Rect(Screen.width /3,Screen.height /2 ,150,50), "AI Character 1"))
-		{
-			AI_Picker = 1;
-			Ai_Name = "AI Character: 1!";
-			Screen.showCursor = true;	
-		}
+		
 		
 		//If the second button is clicked, text is generated and AI function is ran
 		if(GUI.Button(Rect((Screen.width /4 *2),Screen.height /2,150,50), "AI Character 3"))
@@ -114,21 +99,12 @@ function LoadLevel()
 		}
 		
 		
+		
+		
 			
-				if ( AI_Picker == 1)
-				{
-				AI_1();
-				}
 				
-				if ( AI_Picker == 2)
-				{
-				AI_2();
-				}
 				
-				if ( AI_Picker == 3)
-				{
-				AI_3();
-				}
+			
 			
 			// The  label for the name above the AI charcter.	
 			GUI.Label(Rect(Screen.width /2 - 140,Screen.height /8,150,50), Ai_Name );
