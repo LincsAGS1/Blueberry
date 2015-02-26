@@ -4,6 +4,10 @@
 TagManager:
   tags:
   - AI
+  - Invis
+  - SlowTime
+  - Pickup
+  - Invincible
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
