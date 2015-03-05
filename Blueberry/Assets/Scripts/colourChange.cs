@@ -1,16 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class colourChange : MonoBehaviour {
-
-
-	public static float redColour = 0;
+public class colourChange : MonoBehaviour 
+{
+    public static float redColour = 0;
 	public static float blueColour = 0;
 	public static float greenColour = 0;
-
-
-	
-
+    
 	// Use this for initialization
 	void Start () 
 	{
@@ -39,13 +35,9 @@ public class colourChange : MonoBehaviour {
 		{
 			gameObject.renderer.material.color = Color.green;
 			blueColour = 0;
-			redColour = 0;
-
-			
-		}
-	
+			redColour = 0;			
+		}	
 	}
-
 
 	void makeRed()
 	{
