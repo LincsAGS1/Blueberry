@@ -15,7 +15,7 @@ public class RandomVirus : MonoBehaviour {
 	public List<GameObject> playersList;
 	public GameObject powerup;
 	public Vector3 powerposition;
-	float pickuptimer = 5;
+	public float pickuptimer = 5;
 	public int[] highscores;
 	public string testname = "T. Est";
 	public GameObject[] powerups;
@@ -62,7 +62,7 @@ public class RandomVirus : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		
 		
-		if (player.GetComponent<CollisionManager>().infected == false)
+
 			InvokeRepeating("AddToPoints", 1.0f, 1.0f);
 		
 		
@@ -82,7 +82,7 @@ public class RandomVirus : MonoBehaviour {
 		powerposition = new Vector3(Random.Range (-5f, 5f), Random.Range (-5f, 5f), 0f);
 		
 		timer += Time.deltaTime;
-		if (player.GetComponent<CollisionManager>().infected == false)		
+		//if (player.GetComponent<CollisionManager>().infected == false)		
 			//	points += (int)Time.deltaTime;
 			
 			
@@ -155,6 +155,7 @@ public class RandomVirus : MonoBehaviour {
 	}
 	
 	void AddToPoints () {
+		if (player.GetComponent<CollisionManager>().infected == false)
 		points += 5;
 	}
 	

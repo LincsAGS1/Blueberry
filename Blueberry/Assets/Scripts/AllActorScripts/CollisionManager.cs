@@ -127,11 +127,11 @@ public class CollisionManager : MonoBehaviour
 		{
 			Destroy (collision.gameObject);
 			//Checks that the person who picked up the powerup has the virus, then finds the closest player/AI next to them, and gives the new guy the virus.
-			if (this.gameObject.GetComponent<VirusScript>().Blueberry == true)
+			if (this.gameObject.GetComponent<CollisionManager>().infected == true && this.gameObject.GetComponent<CollisionManager>().blueberry == false)
 			{
 				
-				this.gameObject.GetComponent<VirusScript>().Blueberry = false;
-				newinfected.gameObject.GetComponent<VirusScript>().Blueberry = true;
+				this.gameObject.GetComponent<CollisionManager>().infected = false;
+				newinfected.gameObject.GetComponent<CollisionManager>().infected = true;
 			}
 		}
 
