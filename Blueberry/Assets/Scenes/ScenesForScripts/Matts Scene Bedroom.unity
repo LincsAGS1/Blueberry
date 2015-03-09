@@ -291,7 +291,7 @@ MonoBehaviour:
   poweruplist: []
   prefab: {fileID: 100000, guid: f806e73c202c1894f9f5da2ea838e35a, type: 2}
   prefab1: {fileID: 100000, guid: fca30e7564dd85f4d80cd9d6cbe54e61, type: 2}
-  prefab2: {fileID: 185024, guid: 73b95ac10a8e2f746ab6a9ac0462043c, type: 2}
+  prefab2: {fileID: 100000, guid: 88a8c62c0754d1f42b254bb6fead2cb2, type: 2}
   prefab3: {fileID: 100000, guid: 1ff8b9020b5eba04d81ff75b21bfbb6a, type: 2}
   prefab4: {fileID: 100000, guid: 952a0637b56aae84aaf8c5e99ffb1e53, type: 2}
   chosenpower: 0

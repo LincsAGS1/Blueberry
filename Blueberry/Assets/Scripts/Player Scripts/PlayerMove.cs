@@ -47,7 +47,7 @@ public class PlayerMove : MonoBehaviour
         }
 	}
 
-	void OnCollisionEnter(Collision col)
+	void OnCollisionEnter2D(Collision2D col)
 	{
 		if (col.gameObject.tag == "Pickup") 
 		{

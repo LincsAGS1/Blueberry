@@ -5,6 +5,11 @@ TagManager:
   tags:
   - AI
   - Obstacle
+  - Vaccine
+  - Invincible
+  - Invis
+  - SlowTime
+  - Pickup
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
