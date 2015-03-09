@@ -582,6 +582,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  dontFeelGood: {fileID: 0}
+  feelingBlue: {fileID: 0}
+  helpMe: {fileID: 0}
+  deathSound: {fileID: 0}
 --- !u!114 &1463764747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,6 +735,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  dontFeelGood: {fileID: 0}
+  feelingBlue: {fileID: 0}
+  helpMe: {fileID: 0}
+  deathSound: {fileID: 0}
 --- !u!61 &1502652205
 BoxCollider2D:
   m_ObjectHideFlags: 0
