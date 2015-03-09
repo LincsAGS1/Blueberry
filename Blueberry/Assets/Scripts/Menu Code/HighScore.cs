@@ -8,6 +8,7 @@ public class HighScore : MonoBehaviour {
 	float highScore = 0;
 	string stringToEdit = "Enter Your Name Here!";
 
+
 	void Start () 
 	{
 
@@ -22,13 +23,13 @@ public class HighScore : MonoBehaviour {
 	void Update ()
 	{
 
-		if (RandomVirus.points >= highScore)
+		if (gameObject.GetComponent<RandomVirus>().points >= highScore)
 		{
-			highScore = RandomVirus.points;
+			highScore = gameObject.GetComponent<RandomVirus>().points;
 			
 		}
 		
-		if (RandomVirus.points <= highScore)
+		if (gameObject.GetComponent<RandomVirus>().points <= highScore)
 		{
 			//Do nothing
 		}

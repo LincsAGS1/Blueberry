@@ -53,6 +53,8 @@
      <Compile Include="Assets\Scripts\Menu Code\HighScore.cs" />
      <Compile Include="Assets\Scripts\Menu Code\MainMenuKinnectScript.cs" />
      <Compile Include="Assets\Scripts\Music.cs" />
+     <Compile Include="Assets\Scripts\My Scripts\UpdatedHealthScript.cs" />
+     <Compile Include="Assets\Scripts\My Scripts\VirusScript.cs" />
      <Compile Include="Assets\Scripts\Need Explained\AiChooserKinnectScript.cs" />
      <Compile Include="Assets\Scripts\Need Explained\RandomVirus.cs" />
      <Compile Include="Assets\Scripts\Need Explained\newUiAiPicker.cs" />

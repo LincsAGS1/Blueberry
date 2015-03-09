@@ -140,7 +140,7 @@ Transform:
   m_Children:
   - {fileID: 1026854044}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!1 &353122582
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ Transform:
   - {fileID: 1680721774}
   - {fileID: 1731399672}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
 --- !u!1 &359020548
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +280,22 @@ MonoBehaviour:
   InitBlueberry: 0
   Startvirus: {fileID: 0}
   blueberry: 0
+  points: 0
+  pointsthisround: 0
   playersList: []
+  powerup: {fileID: 0}
+  powerposition: {x: 0, y: 0, z: 0}
+  highscores: 
+  testname: T. Est
+  powerups: []
+  poweruplist: []
+  prefab: {fileID: 100000, guid: f806e73c202c1894f9f5da2ea838e35a, type: 2}
+  prefab1: {fileID: 100000, guid: fca30e7564dd85f4d80cd9d6cbe54e61, type: 2}
+  prefab2: {fileID: 185024, guid: 73b95ac10a8e2f746ab6a9ac0462043c, type: 2}
+  prefab3: {fileID: 100000, guid: 1ff8b9020b5eba04d81ff75b21bfbb6a, type: 2}
+  prefab4: {fileID: 100000, guid: 952a0637b56aae84aaf8c5e99ffb1e53, type: 2}
+  chosenpower: 0
+  player: {fileID: 0}
 --- !u!4 &1026854044
 Transform:
   m_ObjectHideFlags: 0
@@ -340,11 +355,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .504021645, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1463764740}
-  - {fileID: 1502652198}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
 --- !u!1 &1139478191
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +441,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &1463764738
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,10 +494,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1463764738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.97402167, y: 0, z: 0}
+  m_LocalPosition: {x: -2.47000003, y: 0, z: 0}
   m_LocalScale: {x: .200000003, y: .200000003, z: 1}
   m_Children: []
-  m_Father: {fileID: 1048381494}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &1463764741
 MonoBehaviour:
@@ -498,6 +511,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
+  invinctimer: 0
+  GameManager: {fileID: 0}
+  Virustimer: 0
   canMove: 1
 --- !u!61 &1463764742
 BoxCollider2D:
@@ -577,6 +593,18 @@ MonoBehaviour:
   collisions: 0
   blueberry: 0
   infected: 0
+  powertimer: 0
+  invinctimer: 0
+  speedtimer: 0
+  Players: []
+  slowtimer: 0
+  gamecontroller: {fileID: 0}
+  holder: {fileID: 0}
+  invistimer: 0
+  invis: 0
+  Playerslocation: []
+  newinfected: {fileID: 0}
+  playersList1: []
 --- !u!1 &1502652197
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,11 +633,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1502652197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 2, z: 0}
+  m_LocalPosition: {x: 5.50402164, y: 2, z: 0}
   m_LocalScale: {x: .200000003, y: .200000003, z: 1}
   m_Children: []
-  m_Father: {fileID: 1048381494}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
 --- !u!114 &1502652200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,6 +652,18 @@ MonoBehaviour:
   collisions: 0
   blueberry: 0
   infected: 1
+  powertimer: 0
+  invinctimer: 0
+  speedtimer: 0
+  Players: []
+  slowtimer: 0
+  gamecontroller: {fileID: 0}
+  holder: {fileID: 0}
+  invistimer: 0
+  invis: 0
+  Playerslocation: []
+  newinfected: {fileID: 0}
+  playersList1: []
 --- !u!114 &1502652201
 MonoBehaviour:
   m_ObjectHideFlags: 0
