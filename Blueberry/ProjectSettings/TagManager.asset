@@ -4,11 +4,22 @@
 TagManager:
   tags:
   - AI
+<<<<<<< HEAD
   - Invis
   - SlowTime
   - Pickup
   - Invincible
   - Player2
+=======
+  - Obstacle
+  - Vaccine
+  - Invincible
+  - Invisible
+  - SlowTime
+  - Pickup
+  - 
+  - Invis
+>>>>>>> origin/Merging
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

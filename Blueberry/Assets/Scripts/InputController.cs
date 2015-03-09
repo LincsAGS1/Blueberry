@@ -60,52 +60,53 @@ public class InputController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+        if (this.sensor != null)
+        {
+            // Retrieve skeleton data
+            using (SkeletonFrame frame = this.sensor.SkeletonStream.OpenNextFrame(0))
+            {
+                if (frame != null)
+                {
+                    // Allocate memory if needed
+                    if (skeletonData == null || skeletonData.Length != frame.SkeletonArrayLength)
+                    {
+                        skeletonData = new Skeleton[frame.SkeletonArrayLength];
+                    }
 
-		// Retrieve skeleton data
-		using(SkeletonFrame frame = this.sensor.SkeletonStream.OpenNextFrame(0))
-		{
-			if(frame != null)
-			{
-				// Allocate memory if needed
-				if(skeletonData == null || skeletonData.Length != frame.SkeletonArrayLength)
-				{
-					skeletonData = new Skeleton[frame.SkeletonArrayLength];
+                    frame.CopySkeletonDataTo(skeletonData);
                 }
-                
-                frame.CopySkeletonDataTo(skeletonData);
             }
-		}
 
 
-		if (skeletonData == null)
-			return;
+            if (skeletonData == null)
+                return;
 
-		// Compute seated infos
-		SeatedInfo[] seatedInfos = this.inputProcessor.ComputeSeatedInfos (skeletonData);
+            // Compute seated infos
+            SeatedInfo[] seatedInfos = this.inputProcessor.ComputeSeatedInfos(skeletonData);
 
-		// Get seated skeleton
-		int skeletonIndex = -1;
-		for (int i=0; i<skeletonData.Length; i++)
-		{
-			if(seatedInfos[i].Posture == Posture.Seated)
-				skeletonIndex = i;
-		}
+            // Get seated skeleton
+            int skeletonIndex = -1;
+            for (int i = 0; i < skeletonData.Length; i++)
+            {
+                if (seatedInfos[i].Posture == Posture.Seated)
+                    skeletonIndex = i;
+            }
 
-		// Compute seated info
-		if (skeletonIndex != -1)
-		{
-			this.InputInfo = seatedInfos[skeletonIndex];
-			Debug.Log ("Tracking skeleton.");
-		}
+            // Compute seated info
+            if (skeletonIndex != -1)
+            {
+                this.InputInfo = seatedInfos[skeletonIndex];
+                Debug.Log("Tracking skeleton.");
+            }
 
-		/*
-		if (this.InputInfo != null)
-			Debug.Log ("Have info." + this.InputInfo.Posture);
+            /*
+            if (this.InputInfo != null)
+                Debug.Log ("Have info." + this.InputInfo.Posture);
 
-		if (this.InputInfo != null && this.InputInfo.Features != null)
-			Debug.Log ("Have seated info.");
-		*/
-		return;
-	}
-
+            if (this.InputInfo != null && this.InputInfo.Features != null)
+                Debug.Log ("Have seated info.");
+            */
+        }
+        return;
+    }
 }

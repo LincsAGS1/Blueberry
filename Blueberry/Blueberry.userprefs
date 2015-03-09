@@ -1,11 +1,19 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerController.cs">
     <Files>
       <File FileName="Assets\Scripts\PlayerController.cs" Line="13" Column="41" />
       <File FileName="Assets\Scripts\PlayerMove.cs" Line="58" Column="1" />
       <File FileName="Assets\Scripts\InputController.cs" Line="29" Column="1" />
       <File FileName="Assets\Scripts\VirusScript.cs" Line="8" Column="1" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Music.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Music.cs" Line="18" Column="17" />
+      <File FileName="Assets\Scripts\Player Scripts\PlayerController.cs" Line="34" Column="14" />
+      <File FileName="Assets\Scripts\AllActorScripts\HealthScript.cs" Line="18" Column="3" />
+>>>>>>> origin/Merging
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
