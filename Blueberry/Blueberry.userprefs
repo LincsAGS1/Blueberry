@@ -1,9 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\newUiAiPicker.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BedroomGenerator.cs">
     <Files>
-      <File FileName="Assets\Scripts\RandomVirus.cs" Line="57" Column="1" />
-      <File FileName="Assets\Scripts\newUiAiPicker.cs" Line="118" Column="17" />
+      <File FileName="Assets\Scripts\BedroomGenerator.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

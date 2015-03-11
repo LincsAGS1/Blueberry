@@ -30,7 +30,7 @@ public class PlayerMove : MonoBehaviour
             
             transform.position += Vector3.right * moveH * maxSpeed * Time.deltaTime;
             transform.position += Vector3.up * moveV * maxSpeed * Time.deltaTime;
-            rigidbody2D.velocity = Vector3.zero;
+            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         }
 	}
 }

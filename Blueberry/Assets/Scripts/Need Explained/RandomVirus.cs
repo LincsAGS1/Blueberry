@@ -36,7 +36,7 @@ public class RandomVirus : MonoBehaviour
     {
 		timer += Time.deltaTime;
 		points = 5 * (int)timer;
-		guiText.text = (int)timer + "    seconds                  " + points + "   points";
+		GetComponent<GUIText>().text = (int)timer + "    seconds                  " + points + "   points";
 	
 	}
 }
