@@ -296,7 +296,7 @@ MonoBehaviour:
   prefab2: {fileID: 100000, guid: 88a8c62c0754d1f42b254bb6fead2cb2, type: 2}
   prefab3: {fileID: 100000, guid: 1ff8b9020b5eba04d81ff75b21bfbb6a, type: 2}
   prefab4: {fileID: 100000, guid: 952a0637b56aae84aaf8c5e99ffb1e53, type: 2}
-  prefab5: {fileID: 0}
+  prefab5: {fileID: 159462, guid: 0195d5fc94a8cc64fa2a923dfc79a971, type: 2}
   chosenpower: 0
   player: {fileID: 0}
 --- !u!4 &1026854044
