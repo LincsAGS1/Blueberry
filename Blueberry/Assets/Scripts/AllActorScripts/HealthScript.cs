@@ -28,7 +28,7 @@ public class HealthScript : MonoBehaviour
 
 
 			
-			pos = Camera.main.WorldToScreenPoint(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z));
+			pos = Camera.main.WorldToScreenPoint(new Vector3(transform.position.x-1, transform.position.y + 1, transform.position.z));
 			                                     pos.y = Screen.height - pos.y; 
 
 				}
