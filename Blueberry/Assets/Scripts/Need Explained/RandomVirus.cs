@@ -25,6 +25,7 @@ public class RandomVirus : MonoBehaviour {
 	public GameObject prefab2;
 	public GameObject prefab3;
 	public GameObject prefab4;
+	public GameObject prefab5;
 	public int chosenpower;
 	public GameObject player;
 	
@@ -50,6 +51,7 @@ public class RandomVirus : MonoBehaviour {
 		poweruplist.Add (prefab2);
 		poweruplist.Add (prefab3);
 		poweruplist.Add (prefab4);
+		poweruplist.Add (prefab5);
 		powerups = poweruplist.ToArray();
 		players = playersList.ToArray();
 		

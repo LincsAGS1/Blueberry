@@ -89,6 +89,16 @@ public class CollisionManager : MonoBehaviour
 			speedtimer = 9.5f;
 			powertimer = 10f;
 		}
+
+		if (collision.gameObject.tag == "Bandage") 
+		{
+			Destroy (collision.gameObject);
+			//this.gameObject.GetComponent<VirusScript>().
+			this.gameObject.GetComponent<HealthScript>().health += 25;
+			if (this.gameObject.GetComponent<HealthScript>().health > 100)
+				this.gameObject.GetComponent<HealthScript>().health = 100;
+
+		}
 		
 		if (collision.gameObject.tag == "Invincible") 
 		{

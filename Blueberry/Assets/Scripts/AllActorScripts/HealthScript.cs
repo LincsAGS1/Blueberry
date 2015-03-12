@@ -9,7 +9,8 @@ public class HealthScript : MonoBehaviour
 	public AudioClip feelingBlue;
 	public AudioClip helpMe;
 	public AudioClip deathSound;
-	
+	public Vector3 pos;
+	public Texture healthbar;
 	
 	
 	
@@ -22,6 +23,16 @@ public class HealthScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+
+		if (this.gameObject.tag == "AI") {
+
+
+			
+			pos = Camera.main.WorldToScreenPoint(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z));
+			                                     pos.y = Screen.height - pos.y; 
+
+				}
+
 		//Lose health if infected
 		if (this.GetComponent<CollisionManager>().infected == true && health > 0)
 		{
@@ -72,5 +83,9 @@ public class HealthScript : MonoBehaviour
 			//GUI.Label (new Rect (85, 100, 100, 30),"Player Health:"); 
 			GUI.Label (new Rect (480, 30, 200, 30),"Player Health:  " +health.ToString());
 		}
+
+			if (this.tag == "AI")
+			GUI.DrawTexture(new Rect(pos.x,pos.y,1*this.health/2,40),healthbar, ScaleMode.ScaleToFit, true, 10.0F);
+
 	}
 }
