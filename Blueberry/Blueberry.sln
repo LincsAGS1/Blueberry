@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{45015DE0-4257-B741-9A7D-8B5DDF7E86AE}") = "Blueberry", "Assembly-CSharp.csproj", "{098F730A-3A0F-2952-BCFA-BCC262119079}"
 EndProject
-Project("{45015DE0-4257-B741-9A7D-8B5DDF7E86AE}") = "Blueberry", "Assembly-UnityScript.unityproj", "{7C2705EC-C54F-ACFB-B304-ABFDD5315D96}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,15 +13,15 @@ Global
 		{098F730A-3A0F-2952-BCFA-BCC262119079}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{098F730A-3A0F-2952-BCFA-BCC262119079}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{098F730A-3A0F-2952-BCFA-BCC262119079}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C2705EC-C54F-ACFB-B304-ABFDD5315D96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C2705EC-C54F-ACFB-B304-ABFDD5315D96}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C2705EC-C54F-ACFB-B304-ABFDD5315D96}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C2705EC-C54F-ACFB-B304-ABFDD5315D96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+<<<<<<< HEAD
 																																																																									GlobalSection(MonoDevelopProperties) = preSolution
+=======
+																																																						GlobalSection(MonoDevelopProperties) = preSolution
+>>>>>>> origin/Conner's-Branch
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

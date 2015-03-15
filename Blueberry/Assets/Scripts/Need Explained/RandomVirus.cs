@@ -84,6 +84,7 @@ public class RandomVirus : MonoBehaviour {
 		powerposition = new Vector3(Random.Range (-5f, 5f), Random.Range (-5f, 5f), 0f);
 		
 		timer += Time.deltaTime;
+<<<<<<< HEAD
 		//if (player.GetComponent<CollisionManager>().infected == false)		
 			//	points += (int)Time.deltaTime;
 			
@@ -100,6 +101,10 @@ public class RandomVirus : MonoBehaviour {
 		AddScore (testname, points);
 		GetHighScores();
 	}
+=======
+		points = 5 * (int)timer;
+		GetComponent<GUIText>().text = (int)timer + "    seconds                  " + points + "   points";
+>>>>>>> origin/Conner's-Branch
 	
 	void AddScore(string name, int score)
 	{

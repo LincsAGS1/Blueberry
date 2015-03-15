@@ -57,7 +57,7 @@ public class newUiAiPicker : MonoBehaviour
 				{
 						AI_Picker = 1;
 						Ai_Name = "AI Character: 1!";
-						Screen.showCursor = true;	
+						Cursor.visible = true;	
 
 				 Ai_Picker = 1;
 
@@ -69,7 +69,7 @@ public class newUiAiPicker : MonoBehaviour
 				{
 						AI_Picker = 2;
 						Ai_Name = "AI Character: 3!";
-						Screen.showCursor = true;	
+						Cursor.visible = true;	
 
 				Ai_Picker = 2;
 				}
@@ -79,7 +79,7 @@ public class newUiAiPicker : MonoBehaviour
 				{
 						AI_Picker = 3;
 						Ai_Name = "AI Character: 2!";
-						Screen.showCursor = true;	
+						Cursor.visible = true;	
 
 			Ai_Picker = 3;
 			
@@ -123,20 +123,20 @@ public class newUiAiPicker : MonoBehaviour
 		if(GUI.Button(new Rect(Screen.width /2 - 155,Screen.height /2+ 100,40,40), "1"))
 		{
 			Ai_Number = "1";
-			Screen.showCursor = true;	
+			Cursor.visible = true;	
 			aiCount = 1;
 
 		}
 		if(GUI.Button(new Rect(Screen.width /2 - 105,Screen.height /2+ 100,40,40), "2"))
 		{
 			Ai_Number = "2";
-			Screen.showCursor = true;	
+			Cursor.visible = true;	
 			aiCount = 2;
 		}
 		if(GUI.Button(new Rect(Screen.width /2 - 55,Screen.height /2+ 100,40,40), "3"))
 		{
 			Ai_Number = "3";	
-			Screen.showCursor = true;	
+			Cursor.visible = true;	
 			aiCount = 3;
 		}
 
