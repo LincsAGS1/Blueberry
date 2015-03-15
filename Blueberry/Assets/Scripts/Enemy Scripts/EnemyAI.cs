@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyAI : MonoBehaviour 
 {
-	public Transform target;
+	//public Transform target;
 	public int moveSpeed;
 	public float rotationLerpScale;
     public bool canMove = true;
