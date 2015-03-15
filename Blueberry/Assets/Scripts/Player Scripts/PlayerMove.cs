@@ -29,6 +29,7 @@ public class PlayerMove : MonoBehaviour
 		if (Virustimer <= 0f)
 		{
 			Virustimer = 0f;
+			if (this.gameObject.GetComponent<CollisionManager>().speedtimer <= 0f)
 			maxSpeed = 5f;
 		}
 		

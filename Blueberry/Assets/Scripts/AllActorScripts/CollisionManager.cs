@@ -48,7 +48,7 @@ public class CollisionManager : MonoBehaviour
 		speedtimer -= Time.deltaTime;
 		powertimer -= Time.deltaTime;
 		invinctimer -= Time.deltaTime;
-		if (speedtimer == 0.1f && this.tag == ("Player"))
+		if (speedtimer <= 0.1f && this.tag == ("Player"))
 			this.GetComponent<PlayerMove>().maxSpeed = 5f;	
 		
 		else if (speedtimer > 0f && this.tag == ("Player"))
@@ -62,6 +62,7 @@ public class CollisionManager : MonoBehaviour
 				{
 					Players[i].GetComponent<EnemyAI>().moveSpeed = 2;
 				}
+				if (speedtimer <= 0f)
 				this.GetComponent<PlayerMove>().maxSpeed = 5f;
 			}
 		}
