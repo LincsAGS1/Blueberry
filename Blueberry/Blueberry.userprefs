@@ -1,21 +1,14 @@
 ﻿<Properties>
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player Scripts\PlayerMove.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy Scripts\EnemyAI.cs">
     <Files>
-      <File FileName="Assets\Scripts\AllActorScripts\CollisionManager.cs" Line="65" Column="26" />
+      <File FileName="Assets\Scripts\Enemy Scripts\EnemyAI.cs" Line="30" Column="120" />
+      <File FileName="Assets\Scripts\AllActorScripts\CollisionManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Music.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Player Scripts\PlayerController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\AllActorScripts\HealthScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Need Explained\RandomVirus.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemy Scripts\EnemyAI.cs" Line="208" Column="69" />
-      <File FileName="Assets\Scripts\Player Scripts\PlayerMove.cs" Line="3" Column="1" />
-=======
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BedroomGenerator.cs">
-    <Files>
-      <File FileName="Assets\Scripts\BedroomGenerator.cs" Line="1" Column="1" />
->>>>>>> origin/Conner's-Branch
+      <File FileName="Assets\Scripts\Player Scripts\PlayerMove.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
