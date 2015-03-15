@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AllActorScripts\CollisionManager.cs" />
      <Compile Include="Assets\Scripts\AllActorScripts\HealthScript.cs" />
+     <Compile Include="Assets\Scripts\BedroomGenerator.cs" />
      <Compile Include="Assets\Scripts\Enemy Scripts\EnemyAI.cs" />
      <Compile Include="Assets\Scripts\InputController.cs" />
      <Compile Include="Assets\Scripts\Menu Code\HighScore.cs" />
