@@ -54,13 +54,13 @@ public class CollisionManager : MonoBehaviour
 		else if (speedtimer > 0f && this.tag == ("Player"))
 			this.GetComponent<PlayerMove>().maxSpeed = 10f;
 		
-		if (slowtimer == 0.1f)
+		if (slowtimer <= 0.1f)
 		{
 			for (int i = 0; i < Players.Length; i ++)
 			{	
 				if (Players[i].tag == ("AI"))
 				{
-					Players[i].GetComponent<EnemyAI>().moveSpeed = 4;
+					Players[i].GetComponent<EnemyAI>().moveSpeed = 2;
 				}
 				this.GetComponent<PlayerMove>().maxSpeed = 5f;
 			}
@@ -118,7 +118,7 @@ public class CollisionManager : MonoBehaviour
 				powertimer = 10f;
 				if (Players[i].tag == ("AI"))
 				{
-					Players[i].GetComponent<EnemyAI>().moveSpeed = 2;
+					Players[i].GetComponent<EnemyAI>().moveSpeed = 1;
 				}
 				this.GetComponent<PlayerMove>().maxSpeed = 5f;
 			}
@@ -159,6 +159,8 @@ public class CollisionManager : MonoBehaviour
                     Debug.Log("pass 3");
                     GameObject otherObject = collision.collider.gameObject;
 
+					if (otherObject.GetComponent<CollisionManager>().invinctimer <= 0f)
+					{
                     otherObject.GetComponent<CollisionManager>().infected = true;
 
                     //Only lose infected status 
@@ -170,6 +172,8 @@ public class CollisionManager : MonoBehaviour
                     otherObject.GetComponent<CollisionManager>().collisions = true;
 
                     StartCoroutine(otherObject.GetComponent<CollisionManager>().wait());
+
+					
 
                     if (otherObject.name.Contains("Player"))
                     {
@@ -184,6 +188,7 @@ public class CollisionManager : MonoBehaviour
 
                         StartCoroutine(waitHolderAI(otherObject));
                     }
+					}
                 }
             }
         }
