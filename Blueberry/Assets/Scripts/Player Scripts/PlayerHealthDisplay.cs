@@ -8,10 +8,7 @@ public class PlayerHealthDisplay : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-		if (newUiAiPicker.aiCount == 1)
-		{
-            
-		}
+	
 	}
 	
 	// Update is called once per frame
