@@ -64,7 +64,7 @@ public class BedroomGenerator : MonoBehaviour
             if (bedSide == 1)
             {
                 bed.transform.position = new Vector3(5.15f, centralPosition, 0);
-                bed.transform.eulerAngles = new Vector3(0, 0, 90);
+                bed.transform.eulerAngles = new Vector3(0, 0, 270);
                 if (centralPosition + bedsideTableOffset + 1 < 5)
                 { bedsideTable.transform.position = new Vector3(7, (centralPosition + bedsideTableOffset), 0); }
                 else
@@ -73,7 +73,7 @@ public class BedroomGenerator : MonoBehaviour
             else
             {
                 bed.transform.position = new Vector3(-5.15f, centralPosition, 0);
-                bed.transform.eulerAngles = new Vector3(0, 0, 270);
+                bed.transform.eulerAngles = new Vector3(0, 0, 90);
                 if (centralPosition - bedsideTableOffset - 1 > -5)
                 { bedsideTable.transform.position = new Vector3(-7, (centralPosition - bedsideTableOffset), 0); }
                 else
@@ -138,7 +138,7 @@ public class BedroomGenerator : MonoBehaviour
                 { bin.transform.position = new Vector3(-7.5f, (centralPosition + bedsideTableOffset), 0); }
             }
         }
-
+        /*
         bool player1Pos = false;
         //generate random position for player, face center of room.
         while (player1Pos == false)
@@ -159,7 +159,7 @@ public class BedroomGenerator : MonoBehaviour
                 Vector3 centerVector = -1 * player1.transform.position;
                 player1.transform.up = centerVector;
             }
-        }
+        }*/
         
         
         //generate random position for player 2 (IF PRESENT) facing centre of room
@@ -186,7 +186,7 @@ public class BedroomGenerator : MonoBehaviour
                 }
             }
         }*/
-
+        /*
         //generate random positions & rotations for the AI
         bool AIpos = false;
 
@@ -276,7 +276,7 @@ public class BedroomGenerator : MonoBehaviour
                 enemy4.transform.up = centerVector;
             }
         }
-        AIpos = false;
+        AIpos = false;*/
 	}
 	
 	// Update is called once per frame

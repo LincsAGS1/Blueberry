@@ -22,8 +22,8 @@ public class PlayerMove : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update () 
+    {		
 		Virustimer -= Time.deltaTime;
 		
 		if (Virustimer <= 0f)
@@ -37,7 +37,7 @@ public class PlayerMove : MonoBehaviour
 
 	void FixedUpdate () 
 	{
-        if (canMove == true)
+        /*if (canMove == true)
         {
             moveH = Input.GetAxis("Horizontal");
             moveV = Input.GetAxis("Vertical");
@@ -45,7 +45,7 @@ public class PlayerMove : MonoBehaviour
             transform.position += Vector3.right * moveH * maxSpeed * Time.deltaTime;
             transform.position += Vector3.up * moveV * maxSpeed * Time.deltaTime;
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        }
+        }*/
 	}
 
 	void OnCollisionEnter2D(Collision2D col)

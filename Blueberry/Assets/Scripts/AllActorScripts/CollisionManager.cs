@@ -62,8 +62,12 @@ public class CollisionManager : MonoBehaviour
 				{
 					Players[i].GetComponent<EnemyAI>().moveSpeed = 2;
 				}
-				if (speedtimer <= 0f)
-				this.GetComponent<PlayerMove>().maxSpeed = 5f;
+                else
+                {
+                    if (speedtimer <= 0f)
+                        this.GetComponent<PlayerMove>().maxSpeed = 5f;
+                }
+                
 			}
 		}
 		
