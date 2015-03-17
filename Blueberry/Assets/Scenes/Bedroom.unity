@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 294680840}
-  kinectEnabled: 1
+  kinectEnabled: 0
   controllerEnabled: 1
   speed: .0500000007
   canMove: 1
