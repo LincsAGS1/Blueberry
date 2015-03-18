@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
+
+
+[RequireComponent(typeof(AudioSource))]
 public class RandomVirus : MonoBehaviour {
 	
 	
@@ -28,10 +31,16 @@ public class RandomVirus : MonoBehaviour {
 	public GameObject prefab5;
 	public int chosenpower;
 	public GameObject player;
+//	public AudioClip backgroundmusic;
+	public float musicvolume = 0.5f;
 	
 	
 	// Use this for initialization
 	void Start () {
+
+
+		//AudioSource.PlayClipAtPoint(backgroundmusic,transform.position);
+
 		
 		//VirusScript virus;
 		if (PlayerPrefs.HasKey("Score"))
@@ -159,7 +168,7 @@ public class RandomVirus : MonoBehaviour {
 		for(int i = 0; i < 10; i++)
 		{
 			//Display the high score. Use this after the AddScore function
-			GetComponent<GUIText>().text = (int)timer + "    seconds                  " + points + "   points \n" + PlayerPrefs.GetString(i + "HScoreName") + " has a high score of: " + PlayerPrefs.GetInt(i + "HScore");
+			//GetComponent<GUIText>().text = (int)timer + "    seconds                  " + points + "   points \n" + PlayerPrefs.GetString(i + "HScoreName") + " has a high score of: " + PlayerPrefs.GetInt(i + "HScore");
 			
 		}
 		if (Input.GetKeyDown("j"))

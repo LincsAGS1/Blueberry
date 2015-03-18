@@ -12,6 +12,7 @@ public class HealthScript : MonoBehaviour
 	public Vector3 pos;
 	public Texture healthbar;
 	public Texture BlueberryHealthbar;
+	public float soundplayer = 5f;
 	
 	
 	
@@ -24,6 +25,7 @@ public class HealthScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		soundplayer -= Time.deltaTime;
 
 		if (this.gameObject.tag == "AI") {
 
@@ -41,28 +43,32 @@ public class HealthScript : MonoBehaviour
 		}
 		
 		
-		if (this.GetComponent<CollisionManager>().infected == true && health > 75 && health < 80)
+		if (this.GetComponent<CollisionManager>().infected == true && health > 75 && health < 80 && soundplayer <= 0f)
 		{
 			AudioSource.PlayClipAtPoint(dontFeelGood,transform.position);
+			soundplayer = 5f;
 		}
 		
-		if (this.GetComponent<CollisionManager>().infected == true && health > 45 && health <50)
+		if (this.GetComponent<CollisionManager>().infected == true && health > 45 && health <50 && soundplayer <= 0f)
 		{
 			AudioSource.PlayClipAtPoint(feelingBlue,transform.position);
+			soundplayer = 5f;
 		}
 		
 		
-		if (this.GetComponent<CollisionManager>().infected == true && health > 25 && health <30)
+		if (this.GetComponent<CollisionManager>().infected == true && health > 25 && health <30 && soundplayer <= 0f)
 		{
 			AudioSource.PlayClipAtPoint(helpMe,transform.position);
+			soundplayer = 5f;
 		}
 		
-		if (this.GetComponent<CollisionManager>().infected == true && health > 0 && health <5)
+		if (this.GetComponent<CollisionManager>().infected == true && health > 0 && health <5 && soundplayer <= 0f)
 		{
 			AudioSource.PlayClipAtPoint(deathSound,transform.position);
+			soundplayer = 5f;
 		}
 		
-		if (this.GetComponent<CollisionManager>().infected == true && health > 0)
+	//	if (this.GetComponent<CollisionManager>().infected == true && health > 0)
 			
 			
 			

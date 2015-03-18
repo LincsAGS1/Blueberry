@@ -326,13 +326,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  dontFeelGood: {fileID: 0}
-  feelingBlue: {fileID: 0}
-  helpMe: {fileID: 0}
-  deathSound: {fileID: 0}
+  dontFeelGood: {fileID: 8300000, guid: dddfb63b53cdf094e90a5247602cb435, type: 3}
+  feelingBlue: {fileID: 8300000, guid: bbd7b77ddd10c0a4f89ed19bcf081d70, type: 3}
+  helpMe: {fileID: 8300000, guid: 6c2ffea218cbe954aba2002d8f2ed8d3, type: 3}
+  deathSound: {fileID: 8300000, guid: f6f6c1d902357cd40ab13275f9f2396d, type: 3}
   pos: {x: 0, y: 0, z: 0}
   healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
   BlueberryHealthbar: {fileID: 0}
+  soundplayer: 2
 --- !u!114 &294680844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,13 +590,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  dontFeelGood: {fileID: 0}
-  feelingBlue: {fileID: 0}
-  helpMe: {fileID: 0}
-  deathSound: {fileID: 0}
+  dontFeelGood: {fileID: 8300000, guid: 2870628fdfa09f6449816ab6ebb2f9a6, type: 3}
+  feelingBlue: {fileID: 8300000, guid: bbd7b77ddd10c0a4f89ed19bcf081d70, type: 3}
+  helpMe: {fileID: 8300000, guid: ca81e3dbe036df84e940021b169bd97f, type: 3}
+  deathSound: {fileID: 8300000, guid: f6f6c1d902357cd40ab13275f9f2396d, type: 3}
   pos: {x: 0, y: 0, z: 0}
   healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
   BlueberryHealthbar: {fileID: 0}
+  soundplayer: 2
 --- !u!114 &708445796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,7 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd2b7dc092572c47ad2ae507e80169d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 2
   rotationLerpScale: .200000003
   canMove: 1
 --- !u!114 &842316442
@@ -752,6 +754,7 @@ MonoBehaviour:
   pos: {x: 0, y: 0, z: 0}
   healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
   BlueberryHealthbar: {fileID: 2800000, guid: 74a250afe95bdb642a0878d3f65939f1, type: 3}
+  soundplayer: 2
 --- !u!114 &842316443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,7 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd2b7dc092572c47ad2ae507e80169d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 2
   rotationLerpScale: .200000003
   canMove: 1
 --- !u!114 &1049228529
@@ -916,6 +919,7 @@ MonoBehaviour:
   pos: {x: 0, y: 0, z: 0}
   healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
   BlueberryHealthbar: {fileID: 2800000, guid: 74a250afe95bdb642a0878d3f65939f1, type: 3}
+  soundplayer: 2
 --- !u!114 &1049228530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1092,7 +1096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd2b7dc092572c47ad2ae507e80169d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 2
   rotationLerpScale: .200000003
   canMove: 1
 --- !u!114 &1136851201
@@ -1114,6 +1118,7 @@ MonoBehaviour:
   pos: {x: 0, y: 0, z: 0}
   healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
   BlueberryHealthbar: {fileID: 2800000, guid: 74a250afe95bdb642a0878d3f65939f1, type: 3}
+  soundplayer: 2
 --- !u!114 &1136851202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,7 +1194,7 @@ GameObject:
   - 4: {fileID: 1152950474}
   - 212: {fileID: 1152950473}
   - 114: {fileID: 1152950475}
-  - 132: {fileID: 1152950476}
+  - 82: {fileID: 1152950476}
   m_Layer: 0
   m_Name: Background
   m_TagString: GameController
@@ -1268,29 +1273,76 @@ MonoBehaviour:
   prefab5: {fileID: 100000, guid: 88a8c62c0754d1f42b254bb6fead2cb2, type: 2}
   chosenpower: 0
   player: {fileID: 0}
---- !u!132 &1152950476
-GUIText:
+  musicvolume: .5
+--- !u!82 &1152950476
+AudioSource:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1152950472}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Text: 
-  m_Anchor: 0
-  m_Alignment: 0
-  m_PixelOffset: {x: -1000, y: .5}
-  m_LineSpacing: 1
-  m_TabSize: 4
-  m_Font: {fileID: 12800000, guid: 90ba53e7b0ce7f64fb601b745147d643, type: 3}
-  m_Material: {fileID: 0}
-  m_FontSize: 1400
-  m_FontStyle: 0
-  m_Color:
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 22b02d32d62b5aa479636a291f545096, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
     serializedVersion: 2
-    rgba: 4294967295
-  m_PixelCorrect: 1
-  m_RichText: 1
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1170308171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,7 +1578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd2b7dc092572c47ad2ae507e80169d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 2
   rotationLerpScale: .200000003
   canMove: 1
 --- !u!114 &1956529750
@@ -1548,6 +1600,7 @@ MonoBehaviour:
   pos: {x: 0, y: 0, z: 0}
   healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
   BlueberryHealthbar: {fileID: 2800000, guid: 74a250afe95bdb642a0878d3f65939f1, type: 3}
+  soundplayer: 2
 --- !u!114 &1956529751
 MonoBehaviour:
   m_ObjectHideFlags: 0
