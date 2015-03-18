@@ -18,7 +18,7 @@ public class colourChange : MonoBehaviour
 	{
 		if (redColour == 1)
 		{
-			gameObject.renderer.material.color = Color.red;
+			gameObject.GetComponent<Renderer>().material.color = Color.red;
 			blueColour = 0;
 			greenColour = 0;
 			
@@ -26,14 +26,14 @@ public class colourChange : MonoBehaviour
 		
 		if (blueColour == 1)
 		{
-			gameObject.renderer.material.color = Color.blue;
+			gameObject.GetComponent<Renderer>().material.color = Color.blue;
 			greenColour = 0;
 			redColour = 0;
 		}
 		
 		if (greenColour == 1)
 		{
-			gameObject.renderer.material.color = Color.green;
+			gameObject.GetComponent<Renderer>().material.color = Color.green;
 			blueColour = 0;
 			redColour = 0;			
 		}	

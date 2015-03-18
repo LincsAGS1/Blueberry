@@ -5,15 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ScenesForScripts/OptionsScene.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ScenesForScripts/UI Scripts.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ScenesForScripts/AiChooserScene.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu Scene.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ScenesForScripts/Highscore Scene.unity

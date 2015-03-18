@@ -17,7 +17,7 @@ public class Music : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if(audio.isPlaying == false)
+		if(GetComponent<AudioSource>().isPlaying == false)
 		{
 			currentsong++;
 			if (currentsong >= songs.Length)
@@ -25,8 +25,8 @@ public class Music : MonoBehaviour
 				currentsong = 0;
 			}
 
-		    audio.clip = songs[currentsong];
-		    audio.Play();
+		    GetComponent<AudioSource>().clip = songs[currentsong];
+		    GetComponent<AudioSource>().Play();
 		}
 	}
 }

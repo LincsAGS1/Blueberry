@@ -84,6 +84,7 @@ public class RandomVirus : MonoBehaviour {
 		powerposition = new Vector3(Random.Range (-5f, 5f), Random.Range (-5f, 5f), 0f);
 		
 		timer += Time.deltaTime;
+
 		//if (player.GetComponent<CollisionManager>().infected == false)		
 			//	points += (int)Time.deltaTime;
 			
@@ -99,6 +100,10 @@ public class RandomVirus : MonoBehaviour {
 		
 		AddScore (testname, points);
 		GetHighScores();
+	
+
+		points = 5 * (int)timer;
+		GetComponent<GUIText>().text = (int)timer + "    seconds                  " + points + "   points";
 	}
 	
 	void AddScore(string name, int score)
@@ -146,7 +151,7 @@ public class RandomVirus : MonoBehaviour {
 		for(int i = 0; i < 10; i++)
 		{
 			//Display the high score. Use this after the AddScore function
-			guiText.text = (int)timer + "    seconds                  " + points + "   points \n" + PlayerPrefs.GetString(i + "HScoreName") + " has a high score of: " + PlayerPrefs.GetInt(i + "HScore");
+			GetComponent<GUIText>().text = (int)timer + "    seconds                  " + points + "   points \n" + PlayerPrefs.GetString(i + "HScoreName") + " has a high score of: " + PlayerPrefs.GetInt(i + "HScore");
 			
 		}
 		if (Input.GetKeyDown("j"))
