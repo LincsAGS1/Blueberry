@@ -11,6 +11,7 @@ public class HealthScript : MonoBehaviour
 	public AudioClip deathSound;
 	public Vector3 pos;
 	public Texture healthbar;
+	public Texture BlueberryHealthbar;
 	
 	
 	
@@ -81,11 +82,24 @@ public class HealthScript : MonoBehaviour
 		if (this.tag.Equals("Player"))
 		{
 			//GUI.Label (new Rect (85, 100, 100, 30),"Player Health:"); 
-			GUI.Label (new Rect (480, 30, 200, 30),"Player Health:  " +health.ToString());
+
+			if (this.name == "Player 1")
+			{
+				GUI.Label (new Rect (50, 12, 200, 30),"Player 1 Health");
+				GUI.DrawTexture(new Rect(50,10,1*this.health,80),healthbar, ScaleMode.ScaleToFit, true, 10.0F);
+			}
+			if (this.name == "Player 2")
+			{
+				GUI.DrawTexture(new Rect(250,10,1*this.health,80),healthbar, ScaleMode.ScaleToFit, true, 10.0F);
+				GUI.Label (new Rect (250, 12, 200, 30),"Player 2 Health");
+			}
 		}
 
 			if (this.tag == "AI")
+			if (this.GetComponent<CollisionManager>().infected == true)
+			GUI.DrawTexture(new Rect(pos.x,pos.y,1*this.health/2,40),BlueberryHealthbar, ScaleMode.ScaleToFit, true, 10.0F);
+			
+			else
 			GUI.DrawTexture(new Rect(pos.x,pos.y,1*this.health/2,40),healthbar, ScaleMode.ScaleToFit, true, 10.0F);
-
 	}
 }

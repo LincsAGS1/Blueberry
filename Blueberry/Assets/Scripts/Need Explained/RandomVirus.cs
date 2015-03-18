@@ -103,7 +103,15 @@ public class RandomVirus : MonoBehaviour {
 	
 
 		points = 5 * (int)timer;
-		GetComponent<GUIText>().text = (int)timer + "    seconds                  " + points + "   points";
+		//GetComponent<GUIText>().text = (int)timer + "    seconds                  " + points + "   points";
+
+	}
+
+	void OnGUI()
+	{
+		GUI.Label (new Rect (400, 12, 400, 100),(int)timer + "    seconds                  " + points + "   points");
+		//GUI.Label (new Rect (270, 12, 200, 30),"hi");
+
 	}
 	
 	void AddScore(string name, int score)

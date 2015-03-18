@@ -331,7 +331,8 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
+  BlueberryHealthbar: {fileID: 0}
 --- !u!114 &294680844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,7 +492,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 393068662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: -.0199999996, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -593,7 +594,8 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
+  BlueberryHealthbar: {fileID: 0}
 --- !u!114 &708445796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,7 +714,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 842316439}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.9099998, y: -.680000007, z: 23.7900009}
+  m_LocalPosition: {x: -1.82000005, y: -1.77999997, z: 1}
   m_LocalScale: {x: .200000003, y: .200000003, z: 1}
   m_Children: []
   m_Father: {fileID: 954805725}
@@ -748,7 +750,8 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: 74a250afe95bdb642a0878d3f65939f1, type: 3}
 --- !u!114 &842316443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,7 +878,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1049228526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.75, y: -.400000006, z: 23.7900009}
+  m_LocalPosition: {x: 3.98000002, y: -.400000006, z: 1}
   m_LocalScale: {x: .200000003, y: .200000003, z: 1}
   m_Children: []
   m_Father: {fileID: 954805725}
@@ -911,7 +914,8 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: 74a250afe95bdb642a0878d3f65939f1, type: 3}
 --- !u!114 &1049228530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1072,7 +1076,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1136851198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.98999977, y: -.49000001, z: 23.7900009}
+  m_LocalPosition: {x: -2.9000001, y: 1.75999999, z: -1}
   m_LocalScale: {x: .200000003, y: .200000003, z: 1}
   m_Children: []
   m_Father: {fileID: 954805725}
@@ -1108,7 +1112,8 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: 74a250afe95bdb642a0878d3f65939f1, type: 3}
 --- !u!114 &1136851202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1184,6 +1189,7 @@ GameObject:
   - 4: {fileID: 1152950474}
   - 212: {fileID: 1152950473}
   - 114: {fileID: 1152950475}
+  - 132: {fileID: 1152950476}
   m_Layer: 0
   m_Name: Background
   m_TagString: GameController
@@ -1262,6 +1268,29 @@ MonoBehaviour:
   prefab5: {fileID: 100000, guid: 88a8c62c0754d1f42b254bb6fead2cb2, type: 2}
   chosenpower: 0
   player: {fileID: 0}
+--- !u!132 &1152950476
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1152950472}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: 
+  m_Anchor: 0
+  m_Alignment: 0
+  m_PixelOffset: {x: -1000, y: .5}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 12800000, guid: 90ba53e7b0ce7f64fb601b745147d643, type: 3}
+  m_Material: {fileID: 0}
+  m_FontSize: 1400
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_PixelCorrect: 1
+  m_RichText: 1
 --- !u!1 &1170308171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,7 +1510,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1956529747}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.9700003, y: -.519999981, z: 23.7900009}
+  m_LocalPosition: {x: 1.27999997, y: 1.80999994, z: 1}
   m_LocalScale: {x: .200000003, y: .200000003, z: 1}
   m_Children: []
   m_Father: {fileID: 954805725}
@@ -1517,7 +1546,8 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: 74a250afe95bdb642a0878d3f65939f1, type: 3}
 --- !u!114 &1956529751
 MonoBehaviour:
   m_ObjectHideFlags: 0

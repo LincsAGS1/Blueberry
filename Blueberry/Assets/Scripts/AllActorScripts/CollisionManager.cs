@@ -64,8 +64,11 @@ public class CollisionManager : MonoBehaviour
 				}
                 else
                 {
-                    if (speedtimer <= 0f)
-                        this.GetComponent<PlayerMove>().maxSpeed = 5f;
+					if (this.tag == "Player")
+					{
+                    	if (speedtimer <= 0f)
+                        	this.GetComponent<PlayerMove>().maxSpeed = 5f;
+					}
                 }
                 
 			}
