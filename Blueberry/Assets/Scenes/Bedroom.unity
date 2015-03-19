@@ -297,7 +297,7 @@ MonoBehaviour:
   pos: {x: 0, y: 0, z: 0}
   healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
   BlueberryHealthbar: {fileID: 2800000, guid: 74a250afe95bdb642a0878d3f65939f1, type: 3}
-  soundplayer: 2
+  soundplayer: 5
 --- !u!114 &294680844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,14 +537,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  dontFeelGood: {fileID: 8300000, guid: 2870628fdfa09f6449816ab6ebb2f9a6, type: 3}
+  dontFeelGood: {fileID: 8300000, guid: dddfb63b53cdf094e90a5247602cb435, type: 3}
   feelingBlue: {fileID: 8300000, guid: bbd7b77ddd10c0a4f89ed19bcf081d70, type: 3}
   helpMe: {fileID: 8300000, guid: ca81e3dbe036df84e940021b169bd97f, type: 3}
   deathSound: {fileID: 8300000, guid: f6f6c1d902357cd40ab13275f9f2396d, type: 3}
   pos: {x: 0, y: 0, z: 0}
   healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
   BlueberryHealthbar: {fileID: 2800000, guid: 74a250afe95bdb642a0878d3f65939f1, type: 3}
-  soundplayer: 2
+  soundplayer: 5
 --- !u!114 &708445796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,7 +697,7 @@ MonoBehaviour:
   pos: {x: 0, y: 0, z: 0}
   healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
   BlueberryHealthbar: {fileID: 2800000, guid: 74a250afe95bdb642a0878d3f65939f1, type: 3}
-  soundplayer: 2
+  soundplayer: 5
 --- !u!114 &842316443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -872,7 +872,7 @@ MonoBehaviour:
   pos: {x: 0, y: 0, z: 0}
   healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
   BlueberryHealthbar: {fileID: 2800000, guid: 74a250afe95bdb642a0878d3f65939f1, type: 3}
-  soundplayer: 2
+  soundplayer: 5
 --- !u!114 &1049228530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,7 +1076,7 @@ MonoBehaviour:
   pos: {x: 0, y: 0, z: 0}
   healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
   BlueberryHealthbar: {fileID: 2800000, guid: 74a250afe95bdb642a0878d3f65939f1, type: 3}
-  soundplayer: 2
+  soundplayer: 5
 --- !u!114 &1136851202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1248,7 +1248,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 22b02d32d62b5aa479636a291f545096, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .280999988
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1564,7 +1564,7 @@ MonoBehaviour:
   pos: {x: 0, y: 0, z: 0}
   healthbar: {fileID: 2800000, guid: 0768e7f6f718cb142a168573daab3e71, type: 3}
   BlueberryHealthbar: {fileID: 2800000, guid: 74a250afe95bdb642a0878d3f65939f1, type: 3}
-  soundplayer: 2
+  soundplayer: 5
 --- !u!114 &1956529751
 MonoBehaviour:
   m_ObjectHideFlags: 0

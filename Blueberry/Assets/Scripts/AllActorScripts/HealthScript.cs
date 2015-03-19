@@ -39,7 +39,7 @@ public class HealthScript : MonoBehaviour
 		//Lose health if infected
 		if (this.GetComponent<CollisionManager>().infected == true && health > 0)
 		{
-			health -= 0.01f;		
+			health -= 0.03f;		
 		}
 		
 		
