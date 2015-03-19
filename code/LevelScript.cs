@@ -15,22 +15,22 @@ public class LevelScript : MonoBehaviour {
 	{
 
 
-		bool playerOne = GameObject.FindGameObjectWithTag("Player");
-		bool playerTwo = GameObject.FindGameObjectWithTag("player2");
+		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag ("AI");
 
 		//float newHealth = this.GetComponent<HealthScript>().health;
 
 		//check playone and playertwo are dead and if so reload level 
 		
-		if (this.GetComponent<CollisionManager>().blueberry = true && playerOne == false && playerTwo == false)
+		if (players[0].GetComponent<CollisionManager>().blueberry == false && players[1].GetComponent<CollisionManager>().blueberry == false)
 		{
 			Application.LoadLevel (Application.loadedLevel);
-
 		}
+		else 
 
 		//if either playerone or playertwo are still alive and theres no more A.I then load nextlevel
 
-		if (playerOne == true || playerTwo == true && this.GetComponent<CollisionManager>().blueberry == false)
+			if (enemies[0].GetComponent<CollisionManager>().blueberry == true && enemies[1].GetComponent<CollisionManager>().blueberry == true && enemies[2].GetComponent<CollisionManager>().blueberry == true && enemies[3].GetComponent<CollisionManager>().blueberry == true)
 		{
 			Application.LoadLevel (Application.loadedLevel + 1);
 
