@@ -1,14 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Need Explained\RandomVirus.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AllActorScripts\CollisionManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\AllActorScripts\HealthScript.cs" Line="30" Column="37" />
-      <File FileName="Assets\Scripts\Music.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemy Scripts\EnemyAI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AllActorScripts\CollisionManager.cs" Line="63" Column="4" />
-      <File FileName="Assets\Scripts\Player Scripts\PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Need Explained\RandomVirus.cs" Line="61" Column="29" />
-      <File FileName="Assets\Scripts\Player Scripts\PlayerMove.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BedroomGenerator.cs" Line="144" Column="38" />
+      <File FileName="Assets\Scripts\AllActorScripts\CollisionManager.cs" Line="195" Column="55" />
+      <File FileName="Assets\Scripts\Player Scripts\PlayerController.cs" Line="57" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -92,10 +92,18 @@ public class HealthScript : MonoBehaviour
 			if (this.name == "Player 1")
 			{
 				GUI.Label (new Rect (50, 12, 200, 30),"Player 1 Health");
+
+				if (this.GetComponent<CollisionManager>().infected == true)
+					GUI.DrawTexture(new Rect(50,10,1*this.health,80),BlueberryHealthbar, ScaleMode.ScaleToFit, true, 10.0F);
+				else
 				GUI.DrawTexture(new Rect(50,10,1*this.health,80),healthbar, ScaleMode.ScaleToFit, true, 10.0F);
 			}
 			if (this.name == "Player 2")
 			{
+
+				if (this.GetComponent<CollisionManager>().infected == true)
+					GUI.DrawTexture(new Rect(250,12,1*this.health,80),BlueberryHealthbar, ScaleMode.ScaleToFit, true, 10.0F);
+				else
 				GUI.DrawTexture(new Rect(250,10,1*this.health,80),healthbar, ScaleMode.ScaleToFit, true, 10.0F);
 				GUI.Label (new Rect (250, 12, 200, 30),"Player 2 Health");
 			}

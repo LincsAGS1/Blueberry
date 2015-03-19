@@ -7,6 +7,9 @@ public class CollisionManager : MonoBehaviour
     public bool collisions = false;
     public bool blueberry = false;
     public bool infected = false;
+
+	public Sprite blueberrySprite;
+
 	public float powertimer = 0f;
 	public float invinctimer = 0f;
 	GameObject pickerupper;
@@ -35,7 +38,8 @@ public class CollisionManager : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		
 		invistimer -= Time.deltaTime;
 		if (invistimer <= 0f)
@@ -73,15 +77,18 @@ public class CollisionManager : MonoBehaviour
                 
 			}
 		}
+
+		//Change the agent to look like a blueberry if they've turned
+		if (blueberry) 
+		{
+			this.GetComponent<SpriteRenderer>().sprite = blueberrySprite;
+		}
 		
 		for (int i = 0; i < Players.Length; i++)
-		{
-			
+		{		
 			Playerslocation[i] = Players[i].transform;
-			
 		}
 		newinfected = GetClosestEnemy(Playerslocation);
-		
 	}
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -156,19 +163,19 @@ public class CollisionManager : MonoBehaviour
 
 
         Debug.Log("pass 0");
-        if (collision.collider.name.Contains("Enemy") || collision.collider.name.Contains("Player"))
+        if (collision.collider.tag.Contains("AI") || collision.collider.tag.Contains("Player"))
         {
-            Debug.Log("pass 1");
+           
             if (infected == true)
             {
-                Debug.Log("pass 2");
+             
                 if (collisions == false)
                 {
-                    Debug.Log("pass 3");
+                   
                     GameObject otherObject = collision.collider.gameObject;
 
-					if (otherObject.GetComponent<CollisionManager>().invinctimer <= 0f)
-					{
+					//if (otherObject.GetComponent<CollisionManager>().invinctimer <= 0f)
+					//{
                     otherObject.GetComponent<CollisionManager>().infected = true;
 
                     //Only lose infected status 
@@ -196,7 +203,7 @@ public class CollisionManager : MonoBehaviour
 
                         StartCoroutine(waitHolderAI(otherObject));
                     }
-					}
+					//}
                 }
             }
         }
