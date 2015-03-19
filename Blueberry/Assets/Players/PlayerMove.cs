@@ -31,8 +31,7 @@ public class PlayerMove : MonoBehaviour
 			Virustimer = 0f;
 			if (this.gameObject.GetComponent<CollisionManager>().speedtimer <= 0f)
 			maxSpeed = 5f;
-		}
-		
+		}		
 	}
 
 	void FixedUpdate () 
@@ -81,7 +80,5 @@ public class PlayerMove : MonoBehaviour
 			
 			GameManager.GetComponent<RandomVirus>().points += 15;
 		}
-		
 	}
-
 }

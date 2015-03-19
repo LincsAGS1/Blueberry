@@ -49,11 +49,19 @@
      <Compile Include="Assets\AI\EnemyAI.cs" />
      <Compile Include="Assets\AllActors\CollisionManager.cs" />
      <Compile Include="Assets\AllActors\HealthScript.cs" />
+     <Compile Include="Assets\AllActors\UpdatedHealthScript.cs" />
+     <Compile Include="Assets\AllActors\VirusScript.cs" />
      <Compile Include="Assets\Levels\Bedroom\BedroomGenerator.cs" />
+     <Compile Include="Assets\Levels\RoomGenerator.cs" />
      <Compile Include="Assets\Players\PlayerController.cs" />
      <Compile Include="Assets\Players\PlayerHealthDisplay.cs" />
      <Compile Include="Assets\Players\PlayerMove.cs" />
      <Compile Include="Assets\Powerups\Powerup.cs" />
+     <Compile Include="Assets\Scripts\HighScore.cs" />
+     <Compile Include="Assets\Scripts\InputController.cs" />
+     <Compile Include="Assets\Scripts\Music.cs" />
+     <Compile Include="Assets\Scripts\RandomVirus.cs" />
+     <Compile Include="Assets\Scripts\colourChange.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll</HintPath>
  </Reference>

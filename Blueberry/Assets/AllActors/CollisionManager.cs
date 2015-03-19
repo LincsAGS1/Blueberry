@@ -7,47 +7,54 @@ public class CollisionManager : MonoBehaviour
     public bool collisions = false;
     public bool blueberry = false;
     public bool infected = false;
+
 	public float powertimer = 0f;
 	public float invinctimer = 0f;
-	GameObject pickerupper;
-	public float speedtimer = 0f;
-	public GameObject[] Players;
-	public float slowtimer = 0f;
+    public float speedtimer = 0f;
+    public float slowtimer = 0f;
+    public float invistimer = 0f;
+    public bool invis = false;
+
+	private GameObject pickerupper;
 	public GameObject gamecontroller;
 	public GameObject holder;
-	public float invistimer = 0f;
-	public bool invis = false;
+    public Transform newinfected;
+    public List<GameObject> playersList;
+	
+    public GameObject[] Players;
 	public Transform[] Playerslocation;
-	public Transform newinfected;
-	public List<GameObject> playersList1;
 
-	void Start () {
+
+
+	void Start () 
+    {
 		//this.SendMessage ("Blueberry", false);
 		gamecontroller = GameObject.FindGameObjectWithTag("GameController");
 		//Players = gamecontroller.GetComponent<RandomVirus>().players;
 		
-		
-		playersList1 = new List<GameObject>();
-		playersList1.AddRange(GameObject.FindGameObjectsWithTag ("Player"));
-		playersList1.AddRange(GameObject.FindGameObjectsWithTag ("AI"));
-		Players = playersList1.ToArray();
+		playersList = new List<GameObject>();
+		playersList.AddRange(GameObject.FindGameObjectsWithTag ("Player"));
+		playersList.AddRange(GameObject.FindGameObjectsWithTag ("AI"));
+		Players = playersList.ToArray();
 		Playerslocation = new Transform[Players.Length];
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update () 
+    {		
 		invistimer -= Time.deltaTime;
 		if (invistimer <= 0f)
 		{
 			invistimer = 0f;
 			invis = false;
 		}
+
 		//Players = gamecontroller.GetComponent<RandomVirus>().players;
 		slowtimer -= Time.deltaTime;
 		speedtimer -= Time.deltaTime;
 		powertimer -= Time.deltaTime;
 		invinctimer -= Time.deltaTime;
+
 		if (speedtimer <= 0.1f && this.tag == ("Player"))
 			this.GetComponent<PlayerMove>().maxSpeed = 5f;	
 		
@@ -67,24 +74,19 @@ public class CollisionManager : MonoBehaviour
                     if (speedtimer <= 0f)
                         this.GetComponent<PlayerMove>().maxSpeed = 5f;
                 }
-                
 			}
 		}
 		
 		for (int i = 0; i < Players.Length; i++)
 		{
-			
 			Playerslocation[i] = Players[i].transform;
-			
 		}
+
 		newinfected = GetClosestEnemy(Playerslocation);
-		
 	}
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
-
 		if (collision.gameObject.tag == "Pickup") 
 		{
 			Destroy (collision.gameObject);
@@ -150,8 +152,6 @@ public class CollisionManager : MonoBehaviour
 			}
 		}
 
-
-
         Debug.Log("pass 0");
         if (collision.collider.name.Contains("Enemy") || collision.collider.name.Contains("Player"))
         {
@@ -166,33 +166,29 @@ public class CollisionManager : MonoBehaviour
 
 					if (otherObject.GetComponent<CollisionManager>().invinctimer <= 0f)
 					{
-                    otherObject.GetComponent<CollisionManager>().infected = true;
+                        otherObject.GetComponent<CollisionManager>().infected = true;
 
-                    //Only lose infected status 
-                    if (!blueberry)
-                    { infected = false; } 
+                        //Only lose infected status 
+                        if (!blueberry)
+                        { infected = false; } 
 
-                    Debug.Log("Passing to " + collision.collider.name.ToString());
+                        Debug.Log("Passing to " + collision.collider.name.ToString());
+                        otherObject.GetComponent<CollisionManager>().collisions = true;
+                        StartCoroutine(otherObject.GetComponent<CollisionManager>().wait());
 
-                    otherObject.GetComponent<CollisionManager>().collisions = true;
+                        if (otherObject.name.Contains("Player"))
+                        {
+                            otherObject.GetComponent<PlayerMove>().canMove = false;
 
-                    StartCoroutine(otherObject.GetComponent<CollisionManager>().wait());
+                            StartCoroutine(waitHolderPlayer(otherObject));
+                        }
 
-					
+                        if (otherObject.name.Contains("Enemy"))
+                        {
+                            otherObject.GetComponent<EnemyAI>().canMove = false;
 
-                    if (otherObject.name.Contains("Player"))
-                    {
-                        otherObject.GetComponent<PlayerMove>().canMove = false;
-
-                        StartCoroutine(waitHolderPlayer(otherObject));
-                    }
-
-                    if (otherObject.name.Contains("Enemy"))
-                    {
-                        otherObject.GetComponent<EnemyAI>().canMove = false;
-
-                        StartCoroutine(waitHolderAI(otherObject));
-                    }
+                            StartCoroutine(waitHolderAI(otherObject));
+                        }
 					}
                 }
             }
@@ -201,7 +197,6 @@ public class CollisionManager : MonoBehaviour
 
 	Transform GetClosestEnemy(Transform[] enemies)
 	{
-		;
 		Transform tMin = null;
 		float minDist = Mathf.Infinity;
 		Vector3 currentPos = transform.position;
