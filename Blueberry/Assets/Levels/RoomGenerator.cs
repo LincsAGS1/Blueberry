@@ -20,6 +20,7 @@ namespace Assets.Scripts.LevelGenerators
         void Start()
         {
             //Object Positioning
+            Debug.Log("Object Positioning Begin");
             for (int i = 0; i < objects.Length; i++)
             {
                 if (nearWall[i])
@@ -30,10 +31,12 @@ namespace Assets.Scripts.LevelGenerators
                 if (randomRot[i])
                 { objects[i].transform.up = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0); }
             }
+            Debug.Log("Object Positions Done");
             
             #region Player Positioning
             bool player1Pos = false;
             //generate random position for player, face center of room.
+            Debug.Log("Player 1 Position Begin");
             while (player1Pos == false)
             {
                 Vector2 playerPos = new Vector2(Random.Range(-8, 8), Random.Range(-5, 5));
@@ -53,6 +56,7 @@ namespace Assets.Scripts.LevelGenerators
                     player1.transform.up = centerVector;
                 }
             }
+            Debug.Log("Player 1 Position Done");
 
 
             //generate random position for player 2 (IF PRESENT) facing centre of room
@@ -79,6 +83,7 @@ namespace Assets.Scripts.LevelGenerators
             #endregion
 
             //Enemy Positioning
+            Debug.Log("Enemy Positions Begin");
             for (int i = 0; i < enemies.Length; i++)
             {
                 //generate random positions & rotations for the AI
@@ -104,27 +109,31 @@ namespace Assets.Scripts.LevelGenerators
                     }
                 }
             }
+            Debug.Log("Enemy Positions Done");
         }
 
         private void PositionObject(GameObject obj)
         {
             bool posFound = false;
+            int mask = 1 << 8;
+            mask = ~mask;
 
             while (!posFound)
             {
                 Vector2 randomPos = new Vector2(Random.Range(-8, 8), Random.Range(-5, 5));
                 Collider2D[] collisions;
-
+                
                 //get all colliders in that region
                 if ( obj.GetComponent<SpriteRenderer>().bounds.extents.x >
                      obj.GetComponent<SpriteRenderer>().bounds.extents.y)
-                { collisions = Physics2D.OverlapCircleAll(randomPos, obj.GetComponent<SpriteRenderer>().bounds.extents.x); } 
+                { collisions = Physics2D.OverlapCircleAll(randomPos, obj.GetComponent<SpriteRenderer>().bounds.extents.x, mask); } 
                 else
-                { collisions = Physics2D.OverlapCircleAll(randomPos, obj.GetComponent<SpriteRenderer>().bounds.extents.y); }
+                { collisions = Physics2D.OverlapCircleAll(randomPos, obj.GetComponent<SpriteRenderer>().bounds.extents.y, mask); }
 
                 if (collisions.Length == 0)
                 {
                     obj.transform.position = new Vector3(randomPos.x, randomPos.y, 0);
+                    posFound = true;
                 }
             }
         }
@@ -132,6 +141,8 @@ namespace Assets.Scripts.LevelGenerators
         private void PositionObjectByWall(GameObject obj)
         {
             bool posFound = false;
+            int mask = 1 << 8;
+            mask = ~mask;
 
             while (!posFound)
             {
@@ -193,14 +204,15 @@ namespace Assets.Scripts.LevelGenerators
                 //get all colliders in that region
                 if (obj.GetComponent<SpriteRenderer>().bounds.extents.x >
                      obj.GetComponent<SpriteRenderer>().bounds.extents.y)
-                { collisions = Physics2D.OverlapCircleAll(newPos, obj.GetComponent<SpriteRenderer>().bounds.extents.x); }
+                { collisions = Physics2D.OverlapCircleAll(newPos, obj.GetComponent<SpriteRenderer>().bounds.extents.x, mask); }
                 else
-                { collisions = Physics2D.OverlapCircleAll(newPos, obj.GetComponent<SpriteRenderer>().bounds.extents.y); }
+                { collisions = Physics2D.OverlapCircleAll(newPos, obj.GetComponent<SpriteRenderer>().bounds.extents.y, mask); }
 
                 //So long as there's no collisions, move the object there.
                 if (collisions.Length == 0)
                 {
-                    obj.transform.position = new Vector3(newPos.x, newPos.y, 0); 
+                    obj.transform.position = new Vector3(newPos.x, newPos.y, 0);
+                    posFound = true;
                 }
             }
         }

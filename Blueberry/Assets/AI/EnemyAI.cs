@@ -3,7 +3,9 @@ using System.Collections;
 
 public class EnemyAI : MonoBehaviour 
 {
-    public int moveSpeed;
+
+	//public Transform target;
+	public int moveSpeed;
 	public float rotationLerpScale;
     public bool canMove = true;
 
@@ -38,7 +40,7 @@ public class EnemyAI : MonoBehaviour
             //Debug.DrawLine(target.position, this.transform.position, Color.yellow);
             //distance = Vector3.Distance(target.position, myTransform.position);
 
-            if (this.GetComponent<CollisionManager>().infected == false)
+            if (this.GetComponent<AgentManager>().infected == false)
             {
                 //If NOT a carrier
                 ArrayList infected = new ArrayList();
@@ -113,7 +115,7 @@ public class EnemyAI : MonoBehaviour
                  *} */
             }
 
-            if (this.GetComponent<CollisionManager>().infected == true)
+            if (this.GetComponent<AgentManager>().infected == true)
             {
                 //If infected
                 ArrayList targets = new ArrayList();
@@ -132,7 +134,7 @@ public class EnemyAI : MonoBehaviour
                 //Add all uninfected targets to list of vectors FROM agent TO target
                 foreach (GameObject obj in targets)
                 {
-                    if (obj.GetComponent<CollisionManager>().infected != true)
+                    if (obj.GetComponent<AgentManager>().infected != true)
                     {
                         Vector2 newVec = new Vector2(obj.transform.position.x - this.transform.position.x,
                                                      obj.transform.position.y - this.transform.position.y);

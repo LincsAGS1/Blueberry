@@ -282,15 +282,15 @@ MonoBehaviour:
   powertimer: 0
   invinctimer: 0
   speedtimer: 0
-  Players: []
   slowtimer: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
   invistimer: 0
   invis: 0
-  Playerslocation: []
+  gamecontroller: {fileID: 0}
+  holder: {fileID: 0}
   newinfected: {fileID: 0}
-  playersList1: []
+  playersList: []
+  Players: []
+  Playerslocation: []
 --- !u!61 &265313862
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -410,15 +410,15 @@ MonoBehaviour:
   powertimer: 0
   invinctimer: 0
   speedtimer: 0
-  Players: []
   slowtimer: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
   invistimer: 0
   invis: 0
-  Playerslocation: []
+  gamecontroller: {fileID: 0}
+  holder: {fileID: 0}
   newinfected: {fileID: 0}
-  playersList1: []
+  playersList: []
+  Players: []
+  Playerslocation: []
 --- !u!61 &267890349
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -624,8 +624,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 4, y: 2}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: 2.78999996, y: 2.37763405}
+  m_Center: {x: 0, y: .0811829567}
 --- !u!212 &572427892
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -816,15 +816,15 @@ MonoBehaviour:
   powertimer: 0
   invinctimer: 0
   speedtimer: 0
-  Players: []
   slowtimer: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
   invistimer: 0
   invis: 0
-  Playerslocation: []
+  gamecontroller: {fileID: 0}
+  holder: {fileID: 0}
   newinfected: {fileID: 0}
-  playersList1: []
+  playersList: []
+  Players: []
+  Playerslocation: []
 --- !u!61 &1038099458
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1094,15 +1094,15 @@ MonoBehaviour:
   powertimer: 0
   invinctimer: 0
   speedtimer: 0
-  Players: []
   slowtimer: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
   invistimer: 0
   invis: 0
-  Playerslocation: []
+  gamecontroller: {fileID: 0}
+  holder: {fileID: 0}
   newinfected: {fileID: 0}
-  playersList1: []
+  playersList: []
+  Players: []
+  Playerslocation: []
 --- !u!61 &1469107349
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1258,15 +1258,15 @@ MonoBehaviour:
   powertimer: 0
   invinctimer: 0
   speedtimer: 0
-  Players: []
   slowtimer: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
   invistimer: 0
   invis: 0
-  Playerslocation: []
+  gamecontroller: {fileID: 0}
+  holder: {fileID: 0}
   newinfected: {fileID: 0}
-  playersList1: []
+  playersList: []
+  Players: []
+  Playerslocation: []
 --- !u!114 &1483966000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1438,15 +1438,15 @@ MonoBehaviour:
   powertimer: 0
   invinctimer: 0
   speedtimer: 0
-  Players: []
   slowtimer: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
   invistimer: 0
   invis: 0
-  Playerslocation: []
+  gamecontroller: {fileID: 0}
+  holder: {fileID: 0}
   newinfected: {fileID: 0}
-  playersList1: []
+  playersList: []
+  Players: []
+  Playerslocation: []
 --- !u!114 &1493859000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1702,7 +1702,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1719438613}
   - 212: {fileID: 1719438615}
-  - 58: {fileID: 1719438614}
+  - 61: {fileID: 1719438614}
   m_Layer: 0
   m_Name: Countertop
   m_TagString: Obstacle
@@ -1722,8 +1722,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1522508406}
   m_RootOrder: 4
---- !u!58 &1719438614
-CircleCollider2D:
+--- !u!61 &1719438614
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -1731,7 +1731,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .800000012
+  m_Size: {x: 2.76999998, y: 2.6500001}
   m_Center: {x: 0, y: 0}
 --- !u!212 &1719438615
 SpriteRenderer:
@@ -1951,6 +1951,10 @@ MonoBehaviour:
   - {fileID: 1719438612}
   nearWall: 0101010101
   randomRot: 0000000000
-  enemies: []
-  player1: {fileID: 0}
-  player2: {fileID: 0}
+  enemies:
+  - {fileID: 267890344}
+  - {fileID: 1038099453}
+  - {fileID: 265313857}
+  - {fileID: 1469107344}
+  player1: {fileID: 1493858994}
+  player2: {fileID: 1483965993}

@@ -47,15 +47,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\AI\EnemyAI.cs" />
-     <Compile Include="Assets\AllActors\CollisionManager.cs" />
+     <Compile Include="Assets\AllActors\AgentManager.cs" />
      <Compile Include="Assets\AllActors\HealthScript.cs" />
-     <Compile Include="Assets\AllActors\UpdatedHealthScript.cs" />
-     <Compile Include="Assets\AllActors\VirusScript.cs" />
      <Compile Include="Assets\Levels\Bedroom\BedroomGenerator.cs" />
      <Compile Include="Assets\Levels\RoomGenerator.cs" />
      <Compile Include="Assets\Players\PlayerController.cs" />
      <Compile Include="Assets\Players\PlayerHealthDisplay.cs" />
-     <Compile Include="Assets\Players\PlayerMove.cs" />
      <Compile Include="Assets\Powerups\Powerup.cs" />
      <Compile Include="Assets\Scripts\HighScore.cs" />
      <Compile Include="Assets\Scripts\InputController.cs" />

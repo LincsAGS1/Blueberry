@@ -5,7 +5,6 @@ using KinectForWheelchair;
 
 public class PlayerController : MonoBehaviour
 {
-
 	public InputController inputController;
 
     public bool kinectEnabled = true;
@@ -13,8 +12,8 @@ public class PlayerController : MonoBehaviour
 	
     public float speed;
 
-    public bool player1 = true;
-	public bool player2 = true;
+    public bool canMove = true;
+	public bool p2CanMove = true;
 
 	// Use this for initialization
 	void Start ()
@@ -25,7 +24,7 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
     void Update()
     {
-        if (player1 == true)
+        if (canMove == true)
         {
             this.transform.Translate(Vector3.up * speed);
 
@@ -38,7 +37,6 @@ public class PlayerController : MonoBehaviour
                 {
                     if (kinectEnabled == true)
                     {
-
                         if (inputInfo.Features.Angle > 5)
                         {
                             //this.transform.rotation = new Quaternion(0, 0, this.transform.rotation.z + inputInfo.Features.Angle, 0.1f);
@@ -55,23 +53,24 @@ public class PlayerController : MonoBehaviour
 
                 }
             }
-        }
-        else if (player2 == true)
-        {
-            if (controllerEnabled == true)
-            {
-                if (Input.GetAxis("Joystick Triggers") > 0.05)
-                {
-                    //this.transform.up = Vector3.up * (Input.GetAxis("Joystick Triggers") * 5);
-                    this.transform.Rotate(Vector3.forward * (Input.GetAxis("Joystick Triggers") * 5));
-                }
-                else if (Input.GetAxis("Joystick Triggers") < -0.05)
-                {
-                    this.transform.Rotate(Vector3.forward * (Input.GetAxis("Joystick Triggers") * 5));
-                }
-                //Debug.Log(Input.GetAxis("Joystick Triggers"));
+            
+			if (p2CanMove == true)
+			{			
+				if (controllerEnabled == true)
+				{
+                    if (Input.GetAxis("Joystick Triggers") > 0.05)
+					{
+					    //this.transform.up = Vector3.up * (Input.GetAxis("Joystick Triggers") * 5);
+                        this.transform.Rotate(Vector3.forward * (Input.GetAxis("Joystick Triggers") * 5));
+					}
+					else if (Input.GetAxis("Joystick Triggers") < -0.05)
+					{
+                        this.transform.Rotate(Vector3.forward * (Input.GetAxis("Joystick Triggers") * 5));
+					}
+					//Debug.Log(Input.GetAxis("Joystick Triggers"));
+				}
+                return;
             }
-            return;
         }
     }
 }

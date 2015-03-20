@@ -1,21 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HighScore : MonoBehaviour {
-
-
+public class HighScore : MonoBehaviour 
+{
 	float goBack = 0;
 	float highScore = 0;
-	string stringToEdit = "Enter Your Name Here!";
-
+	string nameString = "Enter Your Name Here!";
 
 	void Start () 
 	{
-
-	
-
-	
-
 
 	}
 	
@@ -26,14 +19,11 @@ public class HighScore : MonoBehaviour {
 		if (gameObject.GetComponent<RandomVirus>().points >= highScore)
 		{
 			highScore = gameObject.GetComponent<RandomVirus>().points;
-			
-		}
-		
-		if (gameObject.GetComponent<RandomVirus>().points <= highScore)
+        }		
+		else 
 		{
 			//Do nothing
 		}
-	
 	}
 
 	void OnGUI()
@@ -42,9 +32,11 @@ public class HighScore : MonoBehaviour {
 
 		GUI.Box(new Rect(Screen.width /2 - 225,Screen.height /2 - 270,300,450), "" );
 
-
 		GUI.Label(new Rect(Screen.width /2 - 205,Screen.height /2 - 140,300,700), "HighScore: " + highScore.ToString() );
 		
+        
+        //CAN'T USE GUI BUTTONS, KINEKT CONTROLS ONLY
+        //NOT SURE WHAT THESE DO, ARE THEY NECCESARY NOW?
 		if (GUI.Button(new Rect(Screen.width /2 - 390,Screen.height /2 + 250,100,50), "Go Back" ))
 		{
 			goBack = 1;
@@ -56,17 +48,11 @@ public class HighScore : MonoBehaviour {
 			Application.LoadLevel(5);
 		}
 
-
-		stringToEdit = GUI.TextField(new Rect(Screen.width /2 - 92,Screen.height /2 - 140,145,25), stringToEdit, 25);
+        nameString = GUI.TextField(new Rect(Screen.width / 2 - 92, Screen.height / 2 - 140, 145, 25), nameString, 25);
 		if (goBack == 1)
 		{
-			
 			Application.LoadLevel(4);
-			
 		}
-
 	}
-
-
 }
 
