@@ -52,7 +52,7 @@ public class PlayerMove : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Pickup") 
 		{
-			Destroy (col.gameObject);
+			//Destroy (col.gameObject);
 			//this.gameObject.GetComponent<PlayerMove>().maxSpeed = 8f;
 			//this.gameObject.GetComponent<PlayerMove>().maxSpeed = 7f;
 			GameManager.GetComponent<RandomVirus>().points += 15;
@@ -61,7 +61,7 @@ public class PlayerMove : MonoBehaviour
 		
 		if (col.gameObject.tag == "Invincible") 
 		{
-			Destroy (col.gameObject);
+			//Destroy (col.gameObject);
 			//this.gameObject.GetComponent<PlayerMove>().
 			powertimer = 10f;
 			invinctimer = 10f;
@@ -70,14 +70,14 @@ public class PlayerMove : MonoBehaviour
 		
 		if (col.gameObject.tag == "Invisible") 
 		{
-			Destroy (col.gameObject);
+			//Destroy (col.gameObject);
 			
 			GameManager.GetComponent<RandomVirus>().points += 15;
 		}
 		
 		if (col.gameObject.tag == "SlowTime") 
 		{
-			Destroy (col.gameObject);
+			//Destroy (col.gameObject);
 			
 			GameManager.GetComponent<RandomVirus>().points += 15;
 		}
