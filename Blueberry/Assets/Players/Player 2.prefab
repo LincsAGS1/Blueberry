@@ -30,7 +30,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.1899996, y: 1.63, z: 0}
+  m_LocalPosition: {x: 9.77999973, y: 1.5, z: 2}
   m_LocalScale: {x: .100000001, y: .100000001, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,8 +74,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 11403750}
   speed: .0500000007
-  playerNo: 0
-  debugControls: 0
+  playerNo: 2
+  debugControls: 1
 --- !u!114 &11403750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,8 +115,8 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
-  BlueberryHealthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
   soundplayer: 5
 --- !u!114 &11403758
 MonoBehaviour:
@@ -132,7 +132,7 @@ MonoBehaviour:
   collisions: 1
   blueberry: 0
   infected: 0
-  blueberrySprite: {fileID: 0}
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
   currentSpeed: 1
   canMove: 1
   speedUp: 0

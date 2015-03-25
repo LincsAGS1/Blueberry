@@ -159,28 +159,28 @@ public class BedroomGenerator : MonoBehaviour
         
         //generate random position for player 2 (IF PRESENT) facing centre of room
         /*if (player2present)
-        {
+        {*/
             bool player2Pos = false;
             while (player2Pos == false)
             {
                 Vector2 playerPos = new Vector2(Random.Range(-8, 8), Random.Range(-5, 5));
-                locationChecker.transform.position = new Vector3(playerPos.x, playerPos.y, 0);
-                Collider2D locationCollider = locationChecker.GetComponent<Collider2D>();
+
+                //get all colliders in that region
+                Collider2D[] collisions = Physics2D.OverlapCircleAll(playerPos, 0.5f);
 
                 //if no obstacles within circle around that point, we've found the player's position
-                if (!locationCollider.IsTouchingLayers())
+                if (collisions.Length == 0)
                 {
                     //move the player there
                     player2.transform.position = new Vector3(playerPos.x, playerPos.y, 0);
-                    locationChecker.transform.position = new Vector3(14, 0, 0);
                     player2Pos = true;
 
                     //rotate the player towards the middle
-                    Vector3 centerVector = -1 * player2.transform.position;
+                    Vector3 centerVector = -1 * player1.transform.position;
                     player2.transform.up = centerVector;
                 }
             }
-        }*/
+        //}
 
         //Enemy Positioning
         for (int i = 0; i < enemies.Length; i++)

@@ -29,7 +29,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.4200001, y: .730000019, z: 0}
+  m_LocalPosition: {x: 12.75, y: -.400000006, z: 23.7900009}
   m_LocalScale: {x: .100000001, y: .100000001, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,7 +85,7 @@ MonoBehaviour:
   collisions: 1
   blueberry: 0
   infected: 0
-  blueberrySprite: {fileID: 0}
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
   currentSpeed: 1
   canMove: 1
   speedUp: 0
@@ -116,8 +116,8 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
-  BlueberryHealthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
   soundplayer: 5
 --- !u!114 &11497826
 MonoBehaviour:

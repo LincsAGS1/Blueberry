@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 {
 	public InputController inputController;
 
-	
     public float speed;
 
     public int playerNo;
@@ -22,23 +21,22 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
     void Update()
     {
+        this.transform.Translate(Vector3.up * speed);
+        
         if (playerNo == 1)
         {
-            this.transform.Translate(Vector3.up * speed);
-
             if (debugControls)
             {
                 if (Input.GetKey(KeyCode.A))
                 {
-                    this.transform.Rotate(Vector3.forward * (Input.GetAxis("Joystick Triggers") * 5));
+                    this.transform.eulerAngles = new Vector3(0, 0, this.transform.eulerAngles.z - 5);
                 }
                 else if (Input.GetKey(KeyCode.D))
                 {
-                    this.transform.Rotate(Vector3.forward * (Input.GetAxis("Joystick Triggers") * 5));
+                    this.transform.eulerAngles = new Vector3(0, 0, this.transform.eulerAngles.z + 5);
                 }
             }
-
-
+            
             // Get the input info
             SeatedInfo inputInfo = this.inputController.InputInfo;
             if (inputInfo != null)
@@ -68,18 +66,17 @@ public class PlayerController : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.J))
                 {
-                    this.transform.Rotate(Vector3.forward * (Input.GetAxis("Joystick Triggers") * 5));
+                    this.transform.eulerAngles = new Vector3(0, 0, this.transform.eulerAngles.z - 5); 
                 }
                 else if (Input.GetKey(KeyCode.L))
                 {
-                    this.transform.Rotate(Vector3.forward * (Input.GetAxis("Joystick Triggers") * 5));
+                    this.transform.eulerAngles = new Vector3(0, 0, this.transform.eulerAngles.z + 5);
                 }
             }
 
 
             if (Input.GetAxis("Joystick Triggers") > 0.05)
 			{
-				//this.transform.up = Vector3.up * (Input.GetAxis("Joystick Triggers") * 5);
                 this.transform.Rotate(Vector3.forward * (Input.GetAxis("Joystick Triggers") * 5));
 			}
 			else if (Input.GetAxis("Joystick Triggers") < -0.05)

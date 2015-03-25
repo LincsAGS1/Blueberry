@@ -224,15 +224,4 @@ public class AgentManager : MonoBehaviour
 		}
         return minPos;
 	}
-
-    //What ARE these?
-    public IEnumerator wait() // Runs methods every 10 seconds
-    {
-        yield return new WaitForSeconds(1.0f);
-
-        collisions = false;
-        canMove = true;
-
-        Debug.Log(this.name + " Reset");
-    }
 }
