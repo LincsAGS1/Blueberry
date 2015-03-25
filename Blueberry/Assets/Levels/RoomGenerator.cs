@@ -19,14 +19,17 @@ namespace Assets.Scripts.LevelGenerators
         // Use this for initialization
         void Start()
         {
+            int mask = 1 << 8;
+            mask = ~mask;
+
             //Object Positioning
             Debug.Log("Object Positioning Begin");
             for (int i = 0; i < objects.Length; i++)
             {
                 if (nearWall[i])
-                { PositionObject(objects[i]); }
-                else
                 { PositionObjectByWall(objects[i]); }
+                else
+                { PositionObject(objects[i]); }
 
                 if (randomRot[i])
                 { objects[i].transform.up = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0); }
@@ -42,7 +45,7 @@ namespace Assets.Scripts.LevelGenerators
                 Vector2 playerPos = new Vector2(Random.Range(-8, 8), Random.Range(-5, 5));
 
                 //get all colliders in that region
-                Collider2D[] collisions = Physics2D.OverlapCircleAll(playerPos, 0.5f);
+                Collider2D[] collisions = Physics2D.OverlapCircleAll(playerPos, 0.5f, mask);
 
                 //if no obstacles within circle around that point, we've found the player's position
                 if (collisions.Length == 0)
@@ -82,6 +85,7 @@ namespace Assets.Scripts.LevelGenerators
             }*/
             #endregion
 
+            
             //Enemy Positioning
             Debug.Log("Enemy Positions Begin");
             for (int i = 0; i < enemies.Length; i++)
@@ -94,7 +98,7 @@ namespace Assets.Scripts.LevelGenerators
                     Vector2 randomPos = new Vector2(Random.Range(-8, 8), Random.Range(-5, 5));
 
                     //get all colliders in that region
-                    Collider2D[] collisions = Physics2D.OverlapCircleAll(randomPos, 0.5f);
+                    Collider2D[] collisions = Physics2D.OverlapCircleAll(randomPos, 0.5f, mask);
 
                     //if no obstacles within circle around that point, we've found the player's position
                     if (collisions.Length == 0)
@@ -146,73 +150,80 @@ namespace Assets.Scripts.LevelGenerators
 
             while (!posFound)
             {
-                Vector2 newPos = new Vector2(Random.Range(-8, 8), Random.Range(-5, 5));
-                float[] wallDistance = new float[4];
+                Vector2 newPos = new Vector2(   Random.Range(-8 + obj.GetComponent<Collider2D>().bounds.extents.x, 8 - obj.GetComponent<Collider2D>().bounds.extents.x),
+                                                Random.Range(-5 + obj.GetComponent<Collider2D>().bounds.extents.y, 5 * obj.GetComponent<Collider2D>().bounds.extents.y));
                 Collider2D[] collisions;
                 int wall = 0;
 
                 //Select the nearest wall, and use the position on that wall
-                wallDistance[0] = 5 - newPos.y;
-                wallDistance[1] = 8 - newPos.x;
-                wallDistance[2] = -5 - newPos.y;
-                wallDistance[3] = -8 - newPos.x;
-
-                //Adjust the position to be close to the wall
-                for (int i = 0; i < 4; i++)
+                if (Mathf.Abs(newPos.x)/8 > Mathf.Abs(newPos.y)/5)
                 {
-                    if (wallDistance[i] < wallDistance[wall])
-                    { wall = i; }
+                    if (newPos.x >= 0)  { wall = 1; }
+                    else                { wall = 3; }
+                }
+                else
+                {
+                    if (newPos.y >= 0)  { wall = 0; }
+                    else                { wall = 2; }
                 }
 
+                //Adjust the position to be close to the wall              
                 switch (wall)
                 {
-                    case 0: if (obj.GetComponent<SpriteRenderer>().bounds.extents.x >
-                                obj.GetComponent<SpriteRenderer>().bounds.extents.y)
-                        { newPos = new Vector2(8 - obj.GetComponent<SpriteRenderer>().bounds.extents.x, newPos.y); }
-                        else
-                        { newPos = new Vector2(8 - obj.GetComponent<SpriteRenderer>().bounds.extents.y, newPos.y); }
-
-                        obj.transform.eulerAngles = new Vector3(0, 0, 0);
-                        break;
-                    case 1: if (obj.GetComponent<SpriteRenderer>().bounds.extents.x >
-                                obj.GetComponent<SpriteRenderer>().bounds.extents.y)
-                        { newPos = new Vector2(newPos.x, 5 - obj.GetComponent<SpriteRenderer>().bounds.extents.x); }
-                        else
-                        { newPos = new Vector2(newPos.x, 5 - obj.GetComponent<SpriteRenderer>().bounds.extents.y); }
-                        
-                        obj.transform.eulerAngles = new Vector3(0, 0, 0);
-                        break;
-                    case 2: if (obj.GetComponent<SpriteRenderer>().bounds.extents.x >
-                                 obj.GetComponent<SpriteRenderer>().bounds.extents.y)
-                        { newPos = new Vector2(-8 + obj.GetComponent<SpriteRenderer>().bounds.extents.x, newPos.y); }
-                        else
-                        { newPos = new Vector2(-8 + obj.GetComponent<SpriteRenderer>().bounds.extents.y, newPos.y); }
-                        
-                        obj.transform.eulerAngles = new Vector3(0, 0, 0);
-                        break;
-                    case 3: if (obj.GetComponent<SpriteRenderer>().bounds.extents.x >
-                                 obj.GetComponent<SpriteRenderer>().bounds.extents.y)
-                        { newPos = new Vector2(newPos.x, -5 + obj.GetComponent<SpriteRenderer>().bounds.extents.x); }
-                        else
-                        { newPos = new Vector2(newPos.x, -5 + obj.GetComponent<SpriteRenderer>().bounds.extents.y); }
-                        
-                        obj.transform.eulerAngles = new Vector3(0, 0, 0);
-                        break;
+                    case 0: obj.transform.eulerAngles = new Vector3(0, 0, 0); 
+                            newPos = new Vector2(newPos.x, 4.9f - obj.GetComponent<Collider2D>().bounds.extents.y);
+                            break;
+                    case 1: obj.transform.eulerAngles = new Vector3(0, 0, 270); 
+                            newPos = new Vector2(7.9f - obj.GetComponent<Collider2D>().bounds.extents.x, newPos.y); 
+                            break;
+                    case 2: obj.transform.eulerAngles = new Vector3(0, 0, 180); 
+                            newPos = new Vector2(newPos.x, -4.9f + obj.GetComponent<Collider2D>().bounds.extents.y); 
+                            break;
+                    case 3: obj.transform.eulerAngles = new Vector3(0, 0, 90); 
+                            newPos = new Vector2(-7.9f + obj.GetComponent<Collider2D>().bounds.extents.x, newPos.y); 
+                            break;
                 }
-
+                
                 //if that's a valid position, move the object there
-                //get all colliders in that region
-                if (obj.GetComponent<SpriteRenderer>().bounds.extents.x >
-                     obj.GetComponent<SpriteRenderer>().bounds.extents.y)
-                { collisions = Physics2D.OverlapCircleAll(newPos, obj.GetComponent<SpriteRenderer>().bounds.extents.x, mask); }
-                else
+                //get all colliders in that region (use OverlapCircle all for Circle Colliders, or OverlapAreaAll for anything else
+                if (this.GetComponent<CircleCollider2D>() == null)
                 { collisions = Physics2D.OverlapCircleAll(newPos, obj.GetComponent<SpriteRenderer>().bounds.extents.y, mask); }
+                else
+                {
+                    if (wall == 0 || wall == 2)
+                    {
+                        Vector2 topLeft =       new Vector2(newPos.x - obj.GetComponent<Collider2D>().bounds.extents.x, newPos.y + obj.GetComponent<Collider2D>().bounds.extents.y);
+                        Vector2 bottomRight =   new Vector2(newPos.x + obj.GetComponent<Collider2D>().bounds.extents.x, newPos.y - obj.GetComponent<Collider2D>().bounds.extents.y);
+                        collisions = Physics2D.OverlapAreaAll(topLeft, bottomRight, mask);
+                    }
+                    else
+                    {
+                        Vector2 topLeft =       new Vector2(newPos.x - obj.GetComponent<Collider2D>().bounds.extents.y, newPos.y + obj.GetComponent<Collider2D>().bounds.extents.x);
+                        Vector2 bottomRight =   new Vector2(newPos.x + obj.GetComponent<Collider2D>().bounds.extents.y, newPos.y - obj.GetComponent<Collider2D>().bounds.extents.x);
+                        collisions = Physics2D.OverlapAreaAll(topLeft, bottomRight, mask);
+                    }
+                }
 
                 //So long as there's no collisions, move the object there.
                 if (collisions.Length == 0)
                 {
-                    obj.transform.position = new Vector3(newPos.x, newPos.y, 0);
+                    Debug.Log(obj.name + " placed at " + newPos.x + ", " + newPos.y);
+                    obj.transform.localPosition = new Vector3(newPos.x, newPos.y, 0);
                     posFound = true;
+                }
+                else
+                {
+                    string debugString = newPos.x + ", " +  newPos.y + " Rejected for " + obj.name + " because of collisions with: ";
+
+                    for (int i = 0; i < collisions.Length; i++)
+                    {
+                        if (i != (collisions.Length - 1))
+                        { debugString += (collisions[i].gameObject.name + " & "); }
+                        else
+                        { debugString += collisions[i].gameObject.name; }
+                    }
+
+                    Debug.Log(debugString); 
                 }
             }
         }

@@ -15,7 +15,6 @@ GameObject:
   - 114: {fileID: 11403758}
   - 114: {fileID: 11403756}
   - 114: {fileID: 11403748}
-  - 114: {fileID: 11403754}
   - 114: {fileID: 11403752}
   m_Layer: 0
   m_Name: Player 2
@@ -31,7 +30,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.77999973, y: 1.5, z: 2}
+  m_LocalPosition: {x: 11.1899996, y: 1.63, z: 0}
   m_LocalScale: {x: .100000001, y: .100000001, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,11 +73,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 11403750}
-  kinectEnabled: 0
-  controllerEnabled: 1
   speed: .0500000007
-  player1: 1
-  player2: 1
+  playerNo: 0
+  debugControls: 0
 --- !u!114 &11403750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,22 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2492af1257e3d03409de1f40a837b5b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11403754
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f51a4c513bfe3c4a8fd67550ce1eaf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 5
-  invinctimer: 0
-  GameManager: {fileID: 0}
-  Virustimer: 0
-  canMove: 1
 --- !u!114 &11403756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,6 +116,8 @@ MonoBehaviour:
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
   healthbar: {fileID: 0}
+  BlueberryHealthbar: {fileID: 0}
+  soundplayer: 5
 --- !u!114 &11403758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,24 +126,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 103748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bcb22fc1eab7934683cb0180f9226fa, type: 3}
+  m_Script: {fileID: 11500000, guid: efd38093e2f375c4293d099fb98416b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisions: 0
+  collisions: 1
   blueberry: 0
   infected: 0
-  powertimer: 0
-  invinctimer: 0
-  speedtimer: 0
-  Players: []
-  slowtimer: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
-  invistimer: 0
+  blueberrySprite: {fileID: 0}
+  currentSpeed: 1
+  canMove: 1
+  speedUp: 0
+  slowDown: 0
+  powerTimer: 0
+  invincTimer: 0
+  speedTimer: 0
+  slowTimer: 0
+  invisTimer: 0
+  stallTimer: 0
   invis: 0
-  Playerslocation: []
-  newinfected: {fileID: 0}
-  playersList1: []
+  agents: []
+  agentList: []
 --- !u!212 &21203748
 SpriteRenderer:
   m_ObjectHideFlags: 1

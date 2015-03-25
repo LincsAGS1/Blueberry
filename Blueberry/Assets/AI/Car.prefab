@@ -9,10 +9,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 497694}
   - 212: {fileID: 21297694}
+  - 50: {fileID: 5039012}
   - 61: {fileID: 6197694}
+  - 58: {fileID: 5893476}
   - 114: {fileID: 11497698}
-  - 114: {fileID: 11497696}
   - 114: {fileID: 11497694}
+  - 114: {fileID: 11497696}
   m_Layer: 0
   m_Name: Car
   m_TagString: AI
@@ -27,11 +29,37 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.9099998, y: -.680000007, z: 23.7900009}
-  m_LocalScale: {x: .200000003, y: .200000003, z: 1}
+  m_LocalPosition: {x: 12.5799999, y: .449999988, z: 0}
+  m_LocalScale: {x: .100000001, y: .100000001, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5039012
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197694}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+--- !u!58 &5893476
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197694}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: 2
+  m_Center: {x: 0, y: 0}
 --- !u!61 &6197694
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -54,9 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd2b7dc092572c47ad2ae507e80169d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   rotationLerpScale: .200000003
-  canMove: 1
 --- !u!114 &11497696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -75,6 +101,8 @@ MonoBehaviour:
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
   healthbar: {fileID: 0}
+  BlueberryHealthbar: {fileID: 0}
+  soundplayer: 5
 --- !u!114 &11497698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -83,24 +111,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 197694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bcb22fc1eab7934683cb0180f9226fa, type: 3}
+  m_Script: {fileID: 11500000, guid: efd38093e2f375c4293d099fb98416b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisions: 0
+  collisions: 1
   blueberry: 0
   infected: 0
-  powertimer: 0
-  invinctimer: 0
-  speedtimer: 0
-  Players: []
-  slowtimer: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
-  invistimer: 0
+  blueberrySprite: {fileID: 0}
+  currentSpeed: 1
+  canMove: 1
+  speedUp: 0
+  slowDown: 0
+  powerTimer: 0
+  invincTimer: 0
+  speedTimer: 0
+  slowTimer: 0
+  invisTimer: 0
+  stallTimer: 0
   invis: 0
-  Playerslocation: []
-  newinfected: {fileID: 0}
-  playersList1: []
+  agents: []
+  agentList: []
 --- !u!212 &21297694
 SpriteRenderer:
   m_ObjectHideFlags: 1

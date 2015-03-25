@@ -5,9 +5,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(AudioSource))]
 public class RandomVirus : MonoBehaviour 
 {
-	public int InitBlueberry;
-	public GameObject Startvirus;
-	public bool blueberry;
+    public int InitInfected;
 	float timer = 0f;
     
 	public int points = 0;
@@ -15,25 +13,17 @@ public class RandomVirus : MonoBehaviour
     public int[] highscores;
 	
 	public string testname = "T. Est";
-	
-    public List<GameObject> playersList;
+
     public GameObject[] players;
     public GameObject player;
-    
-    public GameObject powerup;
+        
 	public Vector3 powerposition;
 	public float pickuptimer = 5;
     
-    public List<GameObject> poweruplist;
+    public GameObject powerup;
     public GameObject[] powerups;
-	public GameObject prefab;
-	public GameObject prefab1;
-	public GameObject prefab2;
-	public GameObject prefab3;
-	public GameObject prefab4;
-	public GameObject prefab5;
     
-	public int chosenpower;
+	public int chosenPower;
 	
 //	public AudioClip backgroundmusic;
 	public float musicvolume = 0.5f;
@@ -48,26 +38,10 @@ public class RandomVirus : MonoBehaviour
 		{
 			points = PlayerPrefs.GetInt("Score");
 		}
-		
-		//powerposition = new Vector3 (0, 0, -0.5);
-		playersList = new List<GameObject>();
-		poweruplist = new List<GameObject>();
-				
-		playersList.AddRange(GameObject.FindGameObjectsWithTag ("Player"));
-		playersList.AddRange(GameObject.FindGameObjectsWithTag ("AI"));
-		poweruplist.Add(prefab);
-		poweruplist.Add(prefab1);
-		poweruplist.Add(prefab2);
-		poweruplist.Add(prefab3);
-		poweruplist.Add(prefab4);
-		poweruplist.Add(prefab5);
-		powerups = poweruplist.ToArray();
-		players = playersList.ToArray();
-				
+								
 		//players = players + GameObject.FindGameObjectsWithTag ("Player");
-		InitBlueberry = ChooseAtRandom(players);
-		Startvirus = players[InitBlueberry];
-		Startvirus.GetComponent<AgentManager>().infected = true;
+        InitInfected = Random.Range(0, players.Length-1);
+		players[InitInfected].GetComponent<AgentManager>().infected = true;
 		player = GameObject.FindGameObjectWithTag ("Player");
 		
         InvokeRepeating("AddToPoints", 1.0f, 1.0f);
@@ -80,8 +54,9 @@ public class RandomVirus : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-		chosenpower = ChooseAtRandom(powerups);
-		powerup = powerups[chosenpower];
+        chosenPower = Random.Range(0, powerups.Length-1);
+        Debug.Log("ChosenPower = " + chosenPower);
+		powerup = powerups[chosenPower];
 		powerposition = new Vector3(Random.Range (-5f, 5f), Random.Range (-5f, 5f), 0f);
 		
 		timer += Time.deltaTime;
@@ -163,9 +138,4 @@ public class RandomVirus : MonoBehaviour
 		if (player.GetComponent<AgentManager>().infected == false)
 		points += 5;
 	}
-	
-	public static int ChooseAtRandom (GameObject[] array)
-	{
-		return Random.Range(0, array.Length);
-	}	
 }

@@ -10,11 +10,13 @@ public class AgentManager : MonoBehaviour
 
 	public Sprite blueberrySprite;
 
-    public float normalSpeed = 1.0f;
+    private float normalSpeed = 1.0f;
     public float currentSpeed = 1.0f;
-    public float virusSpeed = 1.2f;
-    public float spdUpMultiplier = 1.2f;
-    public float spdDownMultiplier = 0.8f;
+    private float virusSpeed = 1.2f;
+    private float spdUpMultiplier = 1.2f;
+    private float spdDownMultiplier = 0.8f;
+
+    private float stallTime = 5.0f;
 
     public bool canMove = true;
     public bool speedUp = false;
@@ -25,6 +27,7 @@ public class AgentManager : MonoBehaviour
     public float speedTimer = 0f;
     public float slowTimer = 0f;
     public float invisTimer = 0f;
+    public float stallTimer = 0f;
     public bool invis = false;
 
     public GameObject[] agents;
@@ -50,26 +53,32 @@ public class AgentManager : MonoBehaviour
         powerTimer -= Time.deltaTime;
         invincTimer -= Time.deltaTime;
         invisTimer -= Time.deltaTime;
+        stallTimer -= Time.deltaTime;
 
-        #region SpeedManagement
-        if (this.GetComponent<AgentManager>().infected)
+        #region Speed Management
+        if (canMove)
         {
-            currentSpeed = virusSpeed;
+            if (this.GetComponent<AgentManager>().infected)
+            {
+                currentSpeed = virusSpeed;
+            }
+            else
+            {
+                currentSpeed = normalSpeed;
+            }
+
+            if (speedUp)
+            {
+                currentSpeed *= spdUpMultiplier;
+            }
+
+            if (slowDown)
+            {
+                currentSpeed *= spdDownMultiplier;
+            }
         }
         else
-        {
-            currentSpeed = normalSpeed;
-        }
-
-        if (speedUp)
-        {
-            currentSpeed *= spdUpMultiplier;
-        }
-
-        if (slowDown)
-        {
-            currentSpeed *= spdDownMultiplier;
-        }
+        { currentSpeed = 0.0f; }
         #endregion
 
         #region Powerup Handling
@@ -89,26 +98,24 @@ public class AgentManager : MonoBehaviour
         {
             for (int i = 0; i < agents.Length; i++)
             {
-                if (agents[i].tag == ("AI"))
-                {
-                    agents[i].GetComponent<EnemyAI>().moveSpeed = 2;
-                }
-                else
-                {
-                    if (this.tag == "Player")
-                    {
-                        if (speedTimer <= 0f)
-                            slowDown = false;
-                    }
-                }
+                slowDown = false;
             }
         }
         #endregion
+
+        if (stallTimer <= 0)
+        {
+            canMove = true;
+            collisions = true;
+        }
 
         //Change the agent to look like a blueberry if they've turned
         if (blueberry)
         {
             this.GetComponent<SpriteRenderer>().sprite = blueberrySprite;
+            this.GetComponent<BoxCollider2D>().enabled = false;
+            this.GetComponent<CircleCollider2D>().enabled = true;
+            this.GetComponent<CircleCollider2D>().radius = 2.0f;
         }
     }
 
@@ -150,12 +157,7 @@ public class AgentManager : MonoBehaviour
 			{
 				slowTimer = 9.5f;
 				powerTimer = 10f;
-                if (agents[i].tag == ("AI"))
-                {
-                    agents[i].GetComponent<EnemyAI>().moveSpeed = 1;
-                }
-                else
-                { slowDown = true; }
+                slowDown = true;
 			}
 		}
 
@@ -163,7 +165,6 @@ public class AgentManager : MonoBehaviour
 		{
 			Destroy (collision.gameObject);
 			//this.gameObject.GetComponent<VirusScript>().
-			
 			invis = true;
 			invisTimer = 10f;
 			powerTimer = 10f;
@@ -185,7 +186,7 @@ public class AgentManager : MonoBehaviour
         {
             if (infected == true)
             {
-                if (collisions == false)
+                if (collisions == true)
                 {
                    GameObject otherObject = collision.collider.gameObject;
 
@@ -198,22 +199,10 @@ public class AgentManager : MonoBehaviour
                     { infected = false; } 
 
                     Debug.Log("Passing to " + collision.collider.name.ToString());
-
-                    otherObject.GetComponent<AgentManager>().collisions = true;
-                    StartCoroutine(otherObject.GetComponent<AgentManager>().wait());
                     
-                    if (otherObject.name.Contains("Player"))
-                    {
-                        otherObject.GetComponent<AgentManager>().canMove = false;
-                        StartCoroutine(waitHolderPlayer(otherObject));
-                    }
-
-                    if (otherObject.name.Contains("AI"))
-                    {
-                        otherObject.GetComponent<AgentManager>().canMove = false;
-                        StartCoroutine(waitHolderAI(otherObject));
-                    }
-					//}
+                    otherObject.GetComponent<AgentManager>().canMove = false;
+                    otherObject.GetComponent<AgentManager>().collisions = false;
+                    otherObject.GetComponent<AgentManager>().stallTimer = stallTime;
                 }
             }
         }
@@ -242,21 +231,8 @@ public class AgentManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         collisions = false;
+        canMove = true;
 
         Debug.Log(this.name + " Reset");
-    }
-
-    public IEnumerator waitHolderAI(GameObject virusScript) // Runs methods every 10 seconds
-    {
-        yield return new WaitForSeconds(1.0f);
-
-        virusScript.GetComponent<EnemyAI>().canMove = true;
-    }
-
-    public IEnumerator waitHolderPlayer(GameObject virusScript) // Runs methods every 10 seconds
-    {
-        yield return new WaitForSeconds(1.0f);
-
-        canMove = true;
     }
 }

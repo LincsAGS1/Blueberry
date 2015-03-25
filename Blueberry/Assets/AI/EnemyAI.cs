@@ -3,39 +3,23 @@ using System.Collections;
 
 public class EnemyAI : MonoBehaviour 
 {
-
-	//public Transform target;
-	public int moveSpeed;
 	public float rotationLerpScale;
-    public bool canMove = true;
-
-    //public Transform target;
-    //public float rotationSpeed;
-	//float distance;
-    //private Transform myTransform;
-    //public int maxDistance;
-    //public int alertDistance;
-    //public GameObject go;	
-	//int alertDistance = 11;
-	//int alertDistance = 14;
-    
+        
 	void Awake() 
     {
-		//myTransform = transform;
+
 	}
 	
 	// Use this for initialization
 	void Start () 
     {
-		//go = GameObject.FindGameObjectWithTag("Player");
-		//target = go.transform;
-		//Find the player and get their position. Will need to be made more advanced later as other people may get the virus.
+
 	}
 	
 	// Update is called once per frame
     void Update()
     {
-        if (canMove == true)
+        if (this.GetComponent<AgentManager>().canMove == true)
         {
             //Debug.DrawLine(target.position, this.transform.position, Color.yellow);
             //distance = Vector3.Distance(target.position, myTransform.position);
@@ -47,7 +31,6 @@ public class EnemyAI : MonoBehaviour
                 ArrayList obstacles = new ArrayList();
                 ArrayList avoidVectors = new ArrayList();
 
-                //Conner's new code
                 //Avoid things that ARE blueberries with highest priority
                     //Get all enemies & Add each infected to a list of infected
                     infected.AddRange(GameObject.FindGameObjectsWithTag("AI"));
@@ -96,23 +79,6 @@ public class EnemyAI : MonoBehaviour
 
                 //Set forward vector to a Lerp between current forward vector and new vector
                 transform.up = Vector3.Slerp(transform.up, new Vector3(resultantVector.x, resultantVector.y, 0), rotationLerpScale);
-
-                //Connor's Old Code
-
-                /*if (Vector3.Distance(target.position, myTransform.position) < alertDistance)
-                 *{
-                 *    //If the AI is close enough to notice the player. Will be used for selecting of who to chase after, when that feature is implemented.
-                 *    //This ensure the AI locks onto the player and moves towards him correctly.
-                 *    bool needsWeirdAngThing = Vector3.Angle(Vector3.right, target.position - this.transform.position) > 90;
-                 *    transform.rotation = Quaternion.Lerp(myTransform.rotation, Quaternion.RotateTowards(myTransform.rotation, Quaternion.LookRotation(target.position - transform.position), 90), rotationSpeed);
-                 *    //transform.LookAt(target.position);
-                 *    transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, 90, 270);
-                 *
-                 *    if (needsWeirdAngThing == true)
-                 *        transform.eulerAngles = new Vector3(transform.eulerAngles.x, 270, 90);
-                 *    else
-                 *        transform.eulerAngles = new Vector3(transform.eulerAngles.x, 90, 270);
-                 *} */
             }
 
             if (this.GetComponent<AgentManager>().infected == true)
@@ -121,7 +87,7 @@ public class EnemyAI : MonoBehaviour
                 ArrayList targets = new ArrayList();
                 ArrayList obstacles = new ArrayList();
                 ArrayList avoidVectors = new ArrayList();
-                Vector2 closestTarget = new Vector2(1000.0f,1000.0f);
+                Vector2 closestTarget = new Vector2(1000.0f, 1000.0f);
 
                 //Conner's new code//Avoid things that ARE blueberries with highest priority
                 //Get all enemies & Add each infected to a list of infected
@@ -185,29 +151,10 @@ public class EnemyAI : MonoBehaviour
 
                 //Set forward vector to a Lerp between current forward vector and new vector
                 transform.up = Vector3.Slerp(transform.up, new Vector3(resultantVector.x, resultantVector.y, 0), rotationLerpScale);
-
-                //Connor's old code
-                //Problem was with using quaternions for rotation - Doesn't work in 2D
-                /*if (Vector3.Distance(target.position, myTransform.position) < alertDistance)
-                 *{
-                 *    //If the AI is close enough to notice the player. Will be used for selecting of who to chase after, when that feature is implemented.
-                 *    //This ensure the AI locks onto the player and moves towards him correctly.
-                 *    bool needsWeirdAngThing = Vector3.Angle(Vector3.right, target.position - this.transform.position) > 90;
-                 *    transform.rotation = Quaternion.Lerp(myTransform.rotation, Quaternion.RotateTowards(myTransform.rotation, Quaternion.LookRotation(target.position - transform.position), 90), rotationSpeed);
-                 *    //transform.LookAt(target.position);
-                 *    transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, 90, 270);
-                 *
-                 *    if (needsWeirdAngThing == true)
-                 *        transform.eulerAngles = new Vector3(transform.eulerAngles.x, 270, 90);
-                 *    else
-                 *        transform.eulerAngles = new Vector3(transform.eulerAngles.x, 90, 270);
-                 *
-                 *    transform.Rotate(0, 180, 0);
-                 *}*/
             }
 
             //Move towards the player's position.
-            this.transform.position += this.transform.up * moveSpeed * Time.deltaTime;
+            this.transform.position += this.transform.up * this.GetComponent<AgentManager>().currentSpeed * Time.deltaTime;
         }
     }
 }
