@@ -14,6 +14,7 @@ public class HealthScript : MonoBehaviour
 	public Texture BlueberryHealthbar;
 	public float soundplayer = 5f;
 	GameObject BlueTint;
+	GameObject BlueTint2;
 	public Color tintColour;
 	
 	
@@ -23,6 +24,7 @@ public class HealthScript : MonoBehaviour
 	{
 
 		BlueTint = GameObject.FindGameObjectWithTag ("Blue Tint"); 
+		BlueTint2 = GameObject.FindGameObjectWithTag ("Blue Tint 2"); 
 
 
 	}
@@ -44,30 +46,56 @@ public class HealthScript : MonoBehaviour
 
 				}
 
-		if (this.GetComponent<CollisionManager>().infected == true && this.tag == "Player") 
+		if (this.GetComponent<CollisionManager>().infected == true && this.name == "Player 1") 
 		
 		{
 
-			BlueTint.renderer.enabled = true;
+			BlueTint.GetComponent<Renderer>().enabled = true;
 
 		}
 						
-		else if (this.tag == "Player" && this.GetComponent<CollisionManager>().infected == false)
+		else if (this.name == "Player 1" && this.GetComponent<CollisionManager>().infected == false)
 
-			BlueTint.renderer.enabled = false;
+			BlueTint.GetComponent<Renderer>().enabled = false;
 
-		    tintColour = BlueTint.renderer.material.color;
+		    tintColour = BlueTint.GetComponent<Renderer>().material.color;
 
 		//Lose health if infected
 		if (this.GetComponent<CollisionManager>().infected == true && health > 0)
 		{
 			health -= 0.03f;
 
-		    tintColour.a += 1;
+			tintColour.a = (100f-health)/100f;
 
-			// BlueTint.renderer.material.color = tintColour;
+			BlueTint.GetComponent<SpriteRenderer>().material.color = tintColour;
+
 
 		}
+
+		if (this.GetComponent<CollisionManager>().infected == true && this.name == "Player 2") 
+
+		{
+			BlueTint2.GetComponent<Renderer>().enabled = true;
+		}
+
+		else if (this.name == "Player 2" && this.GetComponent<CollisionManager>().infected == false)
+			
+	    BlueTint2.GetComponent<Renderer>().enabled = false;
+		
+		tintColour = BlueTint2.GetComponent<Renderer>().material.color;
+
+
+		if (this.GetComponent<CollisionManager>().infected == true && health > 0)
+		{
+			health -= 0.03f;
+			
+			tintColour.a = (100f-health)/100f;
+			
+			BlueTint2.GetComponent<SpriteRenderer>().material.color = tintColour;
+			
+		}
+
+
 		
 		
 		if (this.GetComponent<CollisionManager>().infected == true && health > 75 && health < 80 && soundplayer <= 0f)
