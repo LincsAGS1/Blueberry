@@ -49,7 +49,6 @@
      <Compile Include="Assets\Scripts\AllActorScripts\CollisionManager.cs" />
      <Compile Include="Assets\Scripts\AllActorScripts\HealthScript.cs" />
      <Compile Include="Assets\Scripts\BedroomGenerator.cs" />
-     <Compile Include="Assets\Scripts\Delay.cs" />
      <Compile Include="Assets\Scripts\Enemy Scripts\EnemyAI.cs" />
      <Compile Include="Assets\Scripts\InputController.cs" />
      <Compile Include="Assets\Scripts\Menu Code\HighScore.cs" />
@@ -63,14 +62,15 @@
      <Compile Include="Assets\Scripts\Player Scripts\PlayerMove.cs" />
      <Compile Include="Assets\Scripts\Powerup.cs" />
      <Compile Include="Assets\Scripts\colourChange.cs" />
+     <Compile Include="Assets\gotoNextScene.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="KinectNet20">
- <HintPath>C:/Users/Alex Rimes/Desktop/Blueberry-Connor-New-Branch/Blueberry-Connor-New-Branch/Blueberry/Assets/Plugins/KinectNet20.dll</HintPath>
+ <HintPath>C:/Users/Alex Rimes/Desktop/Blueberry-Alex's-Branch/Blueberry-Alex's-Branch/Blueberry/Assets/Plugins/KinectNet20.dll</HintPath>
  </Reference>
  <Reference Include="KinectWheels">
- <HintPath>C:/Users/Alex Rimes/Desktop/Blueberry-Connor-New-Branch/Blueberry-Connor-New-Branch/Blueberry/Assets/Plugins/KinectWheels.dll</HintPath>
+ <HintPath>C:/Users/Alex Rimes/Desktop/Blueberry-Alex's-Branch/Blueberry-Alex's-Branch/Blueberry/Assets/Plugins/KinectWheels.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

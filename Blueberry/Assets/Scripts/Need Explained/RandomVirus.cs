@@ -88,9 +88,7 @@ public class RandomVirus : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		chosenpower = ChooseAtRandom(powerups);
-		powerup = powerups[chosenpower];
-		powerposition = new Vector3(Random.Range (-5f, 5f), Random.Range (-5f, 5f), 0f);
+
 		
 		timer += Time.deltaTime;
 
@@ -101,8 +99,17 @@ public class RandomVirus : MonoBehaviour {
 			pickuptimer -= Time.deltaTime;
 		
 		if (pickuptimer <= 0f) {
+			chosenpower = ChooseAtRandom(powerups);
+			powerup = powerups[chosenpower];
+			powerposition = new Vector3(Random.Range (-5f, 5f), Random.Range (-5f, 5f), 0f);
+			while(Physics2D.OverlapCircle(powerposition,0.5f))
+			{
+				powerposition = new Vector3(Random.Range (-5f, 5f), Random.Range (-5f, 5f), 0f);
+			}
+			Debug.Log("hit a wall");
 			Instantiate (powerup, powerposition, Quaternion.identity);
 			pickuptimer = 10 + Random.Range(-5f,5f);
+
 		}
 		
 		

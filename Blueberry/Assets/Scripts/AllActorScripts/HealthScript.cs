@@ -13,18 +13,26 @@ public class HealthScript : MonoBehaviour
 	public Texture healthbar;
 	public Texture BlueberryHealthbar;
 	public float soundplayer = 5f;
+	GameObject BlueTint;
+	public Color tintColour;
 	
 	
 	
 	// Use this for initialization
 	void Start () 
 	{
-		
+
+		BlueTint = GameObject.FindGameObjectWithTag ("Blue Tint"); 
+
+
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+
+
+
 		soundplayer -= Time.deltaTime;
 
 		if (this.gameObject.tag == "AI") {
@@ -36,10 +44,29 @@ public class HealthScript : MonoBehaviour
 
 				}
 
+		if (this.GetComponent<CollisionManager>().infected == true && this.tag == "Player") 
+		
+		{
+
+			BlueTint.renderer.enabled = true;
+
+		}
+						
+		else if (this.tag == "Player" && this.GetComponent<CollisionManager>().infected == false)
+
+			BlueTint.renderer.enabled = false;
+
+		    tintColour = BlueTint.renderer.material.color;
+
 		//Lose health if infected
 		if (this.GetComponent<CollisionManager>().infected == true && health > 0)
 		{
-			health -= 0.01f;		
+			health -= 0.03f;
+
+		    tintColour.a += 1;
+
+			// BlueTint.renderer.material.color = tintColour;
+
 		}
 		
 		
@@ -92,10 +119,18 @@ public class HealthScript : MonoBehaviour
 			if (this.name == "Player 1")
 			{
 				GUI.Label (new Rect (50, 12, 200, 30),"Player 1 Health");
+
+				if (this.GetComponent<CollisionManager>().infected == true)
+					GUI.DrawTexture(new Rect(50,10,1*this.health,80),BlueberryHealthbar, ScaleMode.ScaleToFit, true, 10.0F);
+				else
 				GUI.DrawTexture(new Rect(50,10,1*this.health,80),healthbar, ScaleMode.ScaleToFit, true, 10.0F);
 			}
 			if (this.name == "Player 2")
 			{
+
+				if (this.GetComponent<CollisionManager>().infected == true)
+					GUI.DrawTexture(new Rect(250,12,1*this.health,80),BlueberryHealthbar, ScaleMode.ScaleToFit, true, 10.0F);
+				else
 				GUI.DrawTexture(new Rect(250,10,1*this.health,80),healthbar, ScaleMode.ScaleToFit, true, 10.0F);
 				GUI.Label (new Rect (250, 12, 200, 30),"Player 2 Health");
 			}

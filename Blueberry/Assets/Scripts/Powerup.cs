@@ -14,17 +14,18 @@ public class Powerup : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		timer -= Time.deltaTime;
-		if (timer <= 0f)
-			Destroy (gameObject);
+		//if (timer <= 0f)
+			//Destroy (gameObject);
 	}
 
-	void OnCollisionEnter (Collision other)
+	void OnCollisionEnter2D (Collision2D other)
 	{
-
-		AudioSource.PlayClipAtPoint(sound,transform.position);
-		AudioSource.PlayClipAtPoint(sound,transform.position);
+		Debug.Log ("pick up a power up");
+		AudioSource.PlayClipAtPoint(sound,transform.position,1f);
 		if (other.gameObject.tag == "Player")
-		{}
+		{
+			Destroy(this.gameObject);
+		}
 		//	GameManager.GetComponent<RandomVirus>().points += 15;
 	}
 }

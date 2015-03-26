@@ -8,15 +8,10 @@ public class BedroomGenerator : MonoBehaviour
     public GameObject bin;
     public GameObject deskArea;
 
-    public GameObject enemy1;
-    public GameObject enemy2;
-    public GameObject enemy3;
-    public GameObject enemy4;
+	public GameObject[] enemies;
 
     public GameObject player1;
-    public GameObject player2;
-
-    public GameObject locationChecker;
+	public GameObject player2;
 
     // Use this for initialization
 	void Start () 
@@ -138,32 +133,33 @@ public class BedroomGenerator : MonoBehaviour
                 { bin.transform.position = new Vector3(-7.5f, (centralPosition + bedsideTableOffset), 0); }
             }
         }
-        /*
-        bool player1Pos = false;
-        //generate random position for player, face center of room.
-        while (player1Pos == false)
-        {
-            Vector2 playerPos = new Vector2(Random.Range(-8, 8), Random.Range(-5, 5));
-            locationChecker.transform.position = new Vector3(playerPos.x, playerPos.y, 0);
-            Collider2D locationCollider = locationChecker.GetComponent<Collider2D>();
-
-            //if no obstacles within circle around that point, we've found the player's position
-            if (!locationCollider.IsTouchingLayers())
-            {
-                //move the player there
-                player1.transform.position = new Vector3(playerPos.x, playerPos.y, 0);
-                locationChecker.transform.position = new Vector3(14, 0, 0);
-                player1Pos = true;
-
-                //rotate the player towards the middle
-                Vector3 centerVector = -1 * player1.transform.position;
-                player1.transform.up = centerVector;
-            }
-        }*/
         
-        
-        //generate random position for player 2 (IF PRESENT) facing centre of room
-        /*if (player2present)
+
+		//generate random position for player, face center of room.
+		bool player1Pos = false;
+		while (player1Pos == false)
+		{
+			Vector2 playerPos = new Vector2(Random.Range(-8, 8), Random.Range(-5, 5));
+			
+			//get all colliders in that region
+			Collider2D[] collisions = Physics2D.OverlapCircleAll(playerPos, 0.5f);
+			
+			//if no obstacles within circle around that point, we've found the player's position
+			if (collisions.Length == 0)
+			{
+				//move the player there
+				player1.transform.position = new Vector3(playerPos.x, playerPos.y, 0);
+				player1Pos = true;
+				
+				//rotate the player towards the middle
+				Vector3 centerVector = -1 * player1.transform.position;
+				player1.transform.up = centerVector;
+			}
+		}
+		
+		
+		//generate random position for player 2 (IF PRESENT) facing centre of room
+		/*if (player2present)
         {
             bool player2Pos = false;
             while (player2Pos == false)
@@ -186,97 +182,33 @@ public class BedroomGenerator : MonoBehaviour
                 }
             }
         }*/
-        /*
-        //generate random positions & rotations for the AI
-        bool AIpos = false;
-
-        //player 1
-        while (!AIpos)
-        {
-            Vector2 randomPos = new Vector2(Random.Range(-8, 8), Random.Range(-5, 5));
-            locationChecker.transform.position = new Vector3(randomPos.x, randomPos.y, 0);
-            Collider2D locationCollider = locationChecker.GetComponent<Collider2D>();
-
-            //if no obstacles within circle around that point, we've found the player's position
-            if (!locationCollider.IsTouchingLayers())
-            {
-                //move the there
-                enemy1.transform.position = new Vector3(randomPos.x, randomPos.y, 0);
-                locationChecker.transform.position = new Vector3(14, 0, 0);
-                AIpos = true;
-
-                //rotate the towards the middle
-                Vector3 centerVector = -1 * enemy1.transform.position;
-                enemy1.transform.up = centerVector;
-            }
-        }
-        AIpos = false;
-
-        //player 2
-        while (!AIpos)
-        {
-            Vector2 randomPos = new Vector2(Random.Range(-8, 8), Random.Range(-5, 5));
-            locationChecker.transform.position = new Vector3(randomPos.x, randomPos.y, 0);
-            Collider2D locationCollider = locationChecker.GetComponent<Collider2D>();
-
-            //if no obstacles within circle around that point, we've found the player's position
-            if (!locationCollider.IsTouchingLayers())
-            {
-                //move the there
-                enemy2.transform.position = new Vector3(randomPos.x, randomPos.y, 0);
-                locationChecker.transform.position = new Vector3(14, 0, 0);
-                AIpos = true;
-
-                //rotate the towards the middle
-                Vector3 centerVector = -1 * enemy2.transform.position;
-                enemy1.transform.up = centerVector;
-            }
-        }
-        AIpos = false;
-        
-        //player 3
-        while (!AIpos)
-        {
-            Vector2 randomPos = new Vector2(Random.Range(-8, 8), Random.Range(-5, 5));
-            locationChecker.transform.position = new Vector3(randomPos.x, randomPos.y, 0);
-            Collider2D locationCollider = locationChecker.GetComponent<Collider2D>();
-
-            //if no obstacles within circle around that point, we've found the player's position
-            if (!locationCollider.IsTouchingLayers())
-            {
-                //move the there
-                enemy2.transform.position = new Vector3(randomPos.x, randomPos.y, 0);
-                locationChecker.transform.position = new Vector3(14, 0, 0);
-                AIpos = true;
-
-                //rotate the towards the middle
-                Vector3 centerVector = -1 * enemy3.transform.position;
-                enemy3.transform.up = centerVector;
-            }
-        }
-        AIpos = false;
-
-        //player 4
-        while (!AIpos)
-        {
-            Vector2 randomPos = new Vector2(Random.Range(-8, 8), Random.Range(-5, 5));
-            locationChecker.transform.position = new Vector3(randomPos.x, randomPos.y, 0);
-            Collider2D locationCollider = locationChecker.GetComponent<Collider2D>();
-
-            //if no obstacles within circle around that point, we've found the player's position
-            if (!locationCollider.IsTouchingLayers())
-            {
-                //move the there
-                enemy2.transform.position = new Vector3(randomPos.x, randomPos.y, 0);
-                locationChecker.transform.position = new Vector3(14, 0, 0);
-                AIpos = true;
-
-                //rotate the towards the middle
-                Vector3 centerVector = -1 * enemy4.transform.position;
-                enemy4.transform.up = centerVector;
-            }
-        }
-        AIpos = false;*/
+		
+		//Enemy Positioning
+		for (int i = 0; i < enemies.Length; i++)
+		{
+			//generate random positions & rotations for the AI
+			bool AIpos = false;
+			
+			while (!AIpos)
+			{
+				Vector2 randomPos = new Vector2(Random.Range(-8, 8), Random.Range(-5, 5));
+				
+				//get all colliders in that region
+				Collider2D[] collisions = Physics2D.OverlapCircleAll(randomPos, 0.5f);
+				
+				//if no obstacles within circle around that point, we've found the player's position
+				if (collisions.Length == 0)
+				{
+					//move the there
+					enemies[i].transform.position = new Vector3(randomPos.x, randomPos.y, 0);
+					AIpos = true;
+					
+					//rotate the towards the middle
+					Vector3 centerVector = -1 * enemies[i].transform.position;
+					enemies[i].transform.up = centerVector;
+				}
+			}
+		}
 	}
 	
 	// Update is called once per frame

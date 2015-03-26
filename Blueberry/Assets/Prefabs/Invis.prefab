@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 5
   GameManager: {fileID: 0}
-  sound: {fileID: 0}
+  sound: {fileID: 8300000, guid: 60edfd9e3e3f4a24fb25e318ffe20474, type: 3}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
