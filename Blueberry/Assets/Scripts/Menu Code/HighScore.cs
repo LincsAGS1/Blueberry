@@ -7,6 +7,7 @@ public class HighScore : MonoBehaviour
 	float highScore = 0;
 	string nameString = "Enter Your Name Here!";
 
+
 	void Start () 
 	{
 
@@ -19,8 +20,15 @@ public class HighScore : MonoBehaviour
 		if (gameObject.GetComponent<RandomVirus>().points >= highScore)
 		{
 			highScore = gameObject.GetComponent<RandomVirus>().points;
+<<<<<<< HEAD:Blueberry/Assets/Scripts/HighScore.cs
         }		
 		else 
+=======
+			
+		}
+		
+		if (gameObject.GetComponent<RandomVirus>().points <= highScore)
+>>>>>>> origin/Alex-R-Branch:Blueberry/Assets/Scripts/Menu Code/HighScore.cs
 		{
 			//Do nothing
 		}
