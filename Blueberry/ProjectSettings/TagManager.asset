@@ -2,7 +2,6 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
   tags:
   - AI
   - Obstacle
@@ -11,7 +10,6 @@ TagManager:
   - Invisible
   - SlowTime
   - Pickup
-<<<<<<< HEAD
   - 
   - Bandage
   - 
@@ -47,45 +45,8 @@ TagManager:
   User Layer 29: 
   User Layer 30: 
   User Layer 31: 
-=======
-  - Blue Tint
-  - Bandage
-  - Blue Tint 2
-  layers:
-  - Default
-  - TransparentFX
-  - Ignore Raycast
-  - 
-  - Water
-  - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
->>>>>>> origin/Alex-R-Branch
   m_SortingLayers:
   - name: Default
+    userID: 0
     uniqueID: 0
     locked: 0
