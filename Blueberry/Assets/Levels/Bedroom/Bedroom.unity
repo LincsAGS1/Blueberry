@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1001 &13305178
 Prefab:
@@ -257,7 +258,6 @@ GameObject:
   - 114: {fileID: 294680844}
   - 114: {fileID: 294680843}
   - 114: {fileID: 294680839}
-  - 114: {fileID: 294680841}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player
@@ -303,18 +303,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3855bd8243427284cb6c56eb1757b035, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &294680841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11403752, guid: ee543d705845cca459b304264966d1b9,
-    type: 2}
-  m_PrefabInternal: {fileID: 602541147}
-  m_GameObject: {fileID: 294680837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2492af1257e3d03409de1f40a837b5b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &294680843
@@ -726,7 +714,8 @@ Prefab:
       propertyPath: m_FixedAngle
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: ee543d705845cca459b304264966d1b9, type: 2}
   m_RootGameObject: {fileID: 294680837}
   m_IsPrefabParent: 0
@@ -806,7 +795,6 @@ GameObject:
   - 114: {fileID: 708445796}
   - 114: {fileID: 708445795}
   - 114: {fileID: 708445794}
-  - 114: {fileID: 708445792}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -826,18 +814,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 954805725}
   m_RootOrder: 0
---- !u!114 &708445792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11455188, guid: 8506bf70424522a408ef017dd2b9c480,
-    type: 2}
-  m_PrefabInternal: {fileID: 1491863119}
-  m_GameObject: {fileID: 708445790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2492af1257e3d03409de1f40a837b5b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &708445794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2061,7 +2037,8 @@ Prefab:
       propertyPath: m_FixedAngle
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 8506bf70424522a408ef017dd2b9c480, type: 2}
   m_RootGameObject: {fileID: 708445790}
   m_IsPrefabParent: 0

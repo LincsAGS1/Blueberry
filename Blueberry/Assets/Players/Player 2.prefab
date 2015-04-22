@@ -15,7 +15,6 @@ GameObject:
   - 114: {fileID: 11403758}
   - 114: {fileID: 11403756}
   - 114: {fileID: 11403748}
-  - 114: {fileID: 11403752}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player
@@ -87,17 +86,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3855bd8243427284cb6c56eb1757b035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11403752
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2492af1257e3d03409de1f40a837b5b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11403756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -118,6 +106,7 @@ MonoBehaviour:
   healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
   BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
   soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11403758
 MonoBehaviour:
   m_ObjectHideFlags: 1
