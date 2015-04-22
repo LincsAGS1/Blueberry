@@ -15,6 +15,7 @@ GameObject:
   - 114: {fileID: 11497698}
   - 114: {fileID: 11497694}
   - 114: {fileID: 11497696}
+  - 58: {fileID: 5824768}
   m_Layer: 0
   m_Name: Car
   m_TagString: AI
@@ -49,6 +50,17 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!58 &5824768
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197694}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: 1.01999998
+  m_Center: {x: 0, y: 2.4000001}
 --- !u!58 &5893476
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -95,14 +107,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  dontFeelGood: {fileID: 0}
-  feelingBlue: {fileID: 0}
-  helpMe: {fileID: 0}
-  deathSound: {fileID: 0}
+  dontFeelGood: {fileID: 8300000, guid: dddfb63b53cdf094e90a5247602cb435, type: 3}
+  feelingBlue: {fileID: 8300000, guid: bbd7b77ddd10c0a4f89ed19bcf081d70, type: 3}
+  helpMe: {fileID: 8300000, guid: 6c2ffea218cbe954aba2002d8f2ed8d3, type: 3}
+  deathSound: {fileID: 8300000, guid: f6f6c1d902357cd40ab13275f9f2396d, type: 3}
   pos: {x: 0, y: 0, z: 0}
   healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
   BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
   soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11497698
 MonoBehaviour:
   m_ObjectHideFlags: 1
