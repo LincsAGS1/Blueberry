@@ -2127,6 +2127,7 @@ GameObject:
   - 114: {fileID: 2098763183}
   - 82: {fileID: 2098763185}
   - 114: {fileID: 2098763184}
+  - 114: {fileID: 2098763186}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -2270,6 +2271,17 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &2098763186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2098763181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bbc03ddade11a34d816cad9cc9b1c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2112102939
 GameObject:
   m_ObjectHideFlags: 0

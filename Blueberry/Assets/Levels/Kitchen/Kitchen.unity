@@ -2154,6 +2154,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2067138412}
   - 114: {fileID: 2067138413}
+  - 114: {fileID: 2067138414}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -2202,6 +2203,17 @@ MonoBehaviour:
   - {fileID: 1469107344}
   player1: {fileID: 1493858994}
   player2: {fileID: 1483965993}
+--- !u!114 &2067138414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2067138411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bbc03ddade11a34d816cad9cc9b1c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2124510820
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,26 +2,29 @@
 using System.Collections;
 
 public class gotoNextScene : MonoBehaviour {
-
+     GameObject[] players;
 	// Use this for initialization
 	void Start () {
-	
+	 players = GameObject.FindGameObjectsWithTag("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		int count = 0;
-		foreach (Transform child in transform) {
-			if(child.GetComponent<HealthScript>().health > 0)
-			{
-				count ++;
-			}
+		
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            bool dead = true;
+        foreach(GameObject g in players)
+        {
+            if(!g.GetComponent<AgentManager>().blueberry)
+            {
+                dead = false;
+            }
+        }
+        if(dead)
+            {
+			    //insert level here
+			    Application.LoadLevel(Application.loadedLevel+1);
+            }
 		}
-		Debug.Log (count);
-		//if only one player left
-		if (count == 1) {
-			//insert level here
-			Application.LoadLevel(1);
-		}
-	}
+	
 }

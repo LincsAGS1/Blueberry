@@ -17,3 +17,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu Scene.unity
   - enabled: 0
     path: Assets/Scenes/ScenesForScripts/Highscore Scene.unity
+  - enabled: 1
+    path: Assets/Levels/Bedroom/Bedroom.unity
+  - enabled: 1
+    path: Assets/Levels/Living Room/Living Room.unity
+  - enabled: 1
+    path: Assets/Levels/Kitchen/Kitchen.unity
+  - enabled: 1
+    path: Assets/Levels/Garden/Garden.unity
