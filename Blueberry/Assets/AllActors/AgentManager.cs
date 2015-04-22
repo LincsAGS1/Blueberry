@@ -23,11 +23,14 @@ public class AgentManager : MonoBehaviour
     public bool slowDown = false;
 
     public float powerTimer = 0f;
-	public float invincTimer = 0f;
-    public float speedTimer = 0f;
-    public float slowTimer = 0f;
+    
     public float invisTimer = 0f;
+    public float invincTimer = 0f;
+    public float slowTimer = 0f;
+    public float speedTimer = 0f;
+    
     public float stallTimer = 0f;
+    
     public bool invis = false;
 
     public GameObject[] agents;
@@ -82,16 +85,22 @@ public class AgentManager : MonoBehaviour
         #endregion
 
         #region Powerup Handling
+        if (invincTimer <= 0f)
+        {
+            invincTimer = 0f;
+            collisions = true;
+        }
+
         if (invisTimer <= 0f)
         {
             invisTimer = 0f;
             invis = false;
         }
 
-        if (speedTimer <= 0.1f && this.tag == ("Player"))
+        if (speedTimer <= 0.1f)
             speedUp = false;
 
-        else if (speedTimer > 0f && this.tag == ("Player"))
+        else if (speedTimer > 0f)
             speedUp = true;
 
         if (slowTimer <= 0.1f)
@@ -121,82 +130,78 @@ public class AgentManager : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-		if (collision.gameObject.tag == "SpeedUp") 
-		{
-			//this.gameObject.GetComponent<VirusScript>().
-			speedUp = true;
-			
-			speedTimer = 9.5f;
-			powerTimer = 10f;
-		}
-
-		if (collision.gameObject.tag == "Bandage") 
-		{
-			//this.gameObject.GetComponent<VirusScript>().
-			this.gameObject.GetComponent<HealthScript>().health += 25;
-			if (this.gameObject.GetComponent<HealthScript>().health > 100)
-				this.gameObject.GetComponent<HealthScript>().health = 100;
-
-		}
-		
-		if (collision.gameObject.tag == "Invincible") 
-		{
-			//this.gameObject.GetComponent<VirusScript>().
-			//powertimer = 10f;
-			invincTimer = 10f;
-		}
-		
-		if (collision.gameObject.tag == "SlowTime") 
-		{
-			//this.gameObject.GetComponent<VirusScript>().
-			for (int i = 0; i < agents.Length; i ++)
-			{
-				slowTimer = 9.5f;
-				powerTimer = 10f;
-                slowDown = true;
-			}
-		}
-
-		if (collision.gameObject.tag == "Invisible") 
-		{
-			//this.gameObject.GetComponent<VirusScript>().
-			invis = true;
-			invisTimer = 10f;
-			powerTimer = 10f;
-		}
-
-        if (collision.gameObject.tag == "Vaccine")
+        if (collisions)
         {
-            //Checks that the person who picked up the powerup has the virus, then finds the closest player/AI next to them, and gives the new guy the virus.
-            if (this.gameObject.GetComponent<AgentManager>().infected == true && this.gameObject.GetComponent<AgentManager>().blueberry == false)
+            if (collision.gameObject.tag == "SpeedUp")
             {
+                //this.gameObject.GetComponent<VirusScript>().
+                speedUp = true;
 
-                this.gameObject.GetComponent<AgentManager>().infected = false;
-                GetClosestEnemy(agents).gameObject.GetComponent<AgentManager>().infected = true;
+                speedTimer = 5.0f;
             }
-        }
-        
-        if (collision.collider.tag.Contains("AI") || collision.collider.tag.Contains("Player"))
-        {
-            if (infected == true)
+
+            if (collision.gameObject.tag == "Bandage")
             {
-                if (collisions == true)
+                //this.gameObject.GetComponent<VirusScript>().
+                this.gameObject.GetComponent<HealthScript>().health += 25;
+                if (this.gameObject.GetComponent<HealthScript>().health > 100)
+                    this.gameObject.GetComponent<HealthScript>().health = 100;
+
+            }
+
+            if (collision.gameObject.tag == "Invincible")
+            {
+                collisions = false;
+                invincTimer = 10f;
+            }
+
+            if (collision.gameObject.tag == "SlowTime")
+            {
+                for (int i = 0; i < agents.Length; i++)
                 {
-                   GameObject otherObject = collision.collider.gameObject;
+                    slowTimer = 9.5f;
+                    slowDown = true;
+                }
+            }
 
-					//if (otherObject.GetComponent<AgentManager>().invinctimer <= 0f)
-					//{
-                    otherObject.GetComponent<AgentManager>().infected = true;
+            if (collision.gameObject.tag == "Invisible")
+            {
+                invis = true;
+                invisTimer = 10f;
+            }
 
-                    //Only lose infected status 
-                    if (!blueberry)
-                    { infected = false; } 
+            if (collision.gameObject.tag == "Vaccine")
+            {
+                //Checks that the person who picked up the powerup has the virus, then finds the closest player/AI next to them, and gives the new guy the virus.
+                if (this.gameObject.GetComponent<AgentManager>().infected == true && this.gameObject.GetComponent<AgentManager>().blueberry == false)
+                {
+                    this.gameObject.GetComponent<AgentManager>().infected = false;
+                    GetClosestEnemy(agents).gameObject.GetComponent<AgentManager>().infected = true;
+                }
+            }
 
-                    Debug.Log("Passing to " + collision.collider.name.ToString());
-                    
-                    otherObject.GetComponent<AgentManager>().canMove = false;
-                    otherObject.GetComponent<AgentManager>().collisions = false;
-                    otherObject.GetComponent<AgentManager>().stallTimer = stallTime;
+            if (collision.collider.tag.Contains("AI") || collision.collider.tag.Contains("Player"))
+            {
+                if (infected == true)
+                {
+                    if (collisions == true)
+                    {
+                        GameObject otherObject = collision.collider.gameObject;
+
+                        //if (otherObject.GetComponent<AgentManager>().invinctimer <= 0f)
+                        //{
+                        otherObject.GetComponent<AgentManager>().infected = true;
+
+                        //Only lose infected status 
+                        if (!blueberry)
+                        { infected = false; }
+
+                        Debug.Log("Passing to " + collision.collider.name.ToString());
+
+                        otherObject.GetComponent<AgentManager>().canMove = false;
+                        otherObject.GetComponent<AgentManager>().collisions = false;
+                        otherObject.GetComponent<AgentManager>().stallTimer = stallTime;
+                    }
                 }
             }
         }

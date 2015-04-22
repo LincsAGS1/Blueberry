@@ -89,8 +89,7 @@ namespace Assets.Scripts.LevelGenerators
             }
         
             #endregion
-
-
+            
             //Enemy Positioning
             Debug.Log("Enemy Positions Begin");
             for (int i = 0; i < enemies.Length; i++)

@@ -47,7 +47,7 @@ public class EnemyAI : MonoBehaviour
                     {
 						Vector2 newVector = new Vector2(this.transform.position.x - obj.transform.position.x, this.transform.position.y - obj.transform.position.y);	
 
-						if (obj.GetComponent<AgentManager>().infected && newVector.magnitude < 4)
+						if (obj.GetComponent<AgentManager>().infected && newVector.magnitude < 4 && obj.GetComponent<AgentManager>().invis == false)
 						{
 							Debug.Log ("infected");
 							

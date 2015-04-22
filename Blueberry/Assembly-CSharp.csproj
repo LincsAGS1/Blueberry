@@ -64,10 +64,10 @@
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="KinectNet20">
- <HintPath>C:/Users/computing/Documents/GitHub/Blueberry/Blueberry/Assets/Plugins/KinectNet20.dll</HintPath>
+ <HintPath>C:/Users/FlamingGear/Development/GitHub/Blueberry/Blueberry/Assets/Plugins/KinectNet20.dll</HintPath>
  </Reference>
  <Reference Include="KinectWheels">
- <HintPath>C:/Users/computing/Documents/GitHub/Blueberry/Blueberry/Assets/Plugins/KinectWheels.dll</HintPath>
+ <HintPath>C:/Users/FlamingGear/Development/GitHub/Blueberry/Blueberry/Assets/Plugins/KinectWheels.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

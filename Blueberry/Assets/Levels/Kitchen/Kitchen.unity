@@ -87,7 +87,7 @@ GameObject:
   - 61: {fileID: 84245437}
   - 61: {fileID: 84245436}
   - 61: {fileID: 84245435}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Walls
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -290,10 +290,10 @@ MonoBehaviour:
   speedUp: 0
   slowDown: 0
   powerTimer: 0
-  invincTimer: 0
-  speedTimer: 0
-  slowTimer: 0
   invisTimer: 0
+  invincTimer: 0
+  slowTimer: 0
+  speedTimer: 0
   stallTimer: 0
   invis: 0
   agents: []
@@ -464,10 +464,10 @@ MonoBehaviour:
   speedUp: 0
   slowDown: 0
   powerTimer: 0
-  invincTimer: 0
-  speedTimer: 0
-  slowTimer: 0
   invisTimer: 0
+  invincTimer: 0
+  slowTimer: 0
+  speedTimer: 0
   stallTimer: 0
   invis: 0
   agents: []
@@ -555,7 +555,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 349075066}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BottomLeft
   m_TagString: Obstacle
   m_Icon: {fileID: -1016138426, guid: 0000000000000000d000000000000000, type: 0}
@@ -582,7 +582,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 423343749}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Corners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -812,7 +812,7 @@ GameObject:
   - 124: {fileID: 714320615}
   - 81: {fileID: 714320614}
   - 114: {fileID: 714320619}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -903,7 +903,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 942162032}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TopRight
   m_TagString: Obstacle
   m_Icon: {fileID: -1016138426, guid: 0000000000000000d000000000000000, type: 0}
@@ -1013,10 +1013,10 @@ MonoBehaviour:
   speedUp: 0
   slowDown: 0
   powerTimer: 0
-  invincTimer: 0
-  speedTimer: 0
-  slowTimer: 0
   invisTimer: 0
+  invincTimer: 0
+  slowTimer: 0
+  speedTimer: 0
   stallTimer: 0
   invis: 0
   agents: []
@@ -1337,10 +1337,10 @@ MonoBehaviour:
   speedUp: 0
   slowDown: 0
   powerTimer: 0
-  invincTimer: 0
-  speedTimer: 0
-  slowTimer: 0
   invisTimer: 0
+  invincTimer: 0
+  slowTimer: 0
+  speedTimer: 0
   stallTimer: 0
   invis: 0
   agents: []
@@ -1513,10 +1513,10 @@ MonoBehaviour:
   speedUp: 0
   slowDown: 0
   powerTimer: 0
-  invincTimer: 0
-  speedTimer: 0
-  slowTimer: 0
   invisTimer: 0
+  invincTimer: 0
+  slowTimer: 0
+  speedTimer: 0
   stallTimer: 0
   invis: 0
   agents: []
@@ -1665,10 +1665,10 @@ MonoBehaviour:
   speedUp: 0
   slowDown: 0
   powerTimer: 0
-  invincTimer: 0
-  speedTimer: 0
-  slowTimer: 0
   invisTimer: 0
+  invincTimer: 0
+  slowTimer: 0
+  speedTimer: 0
   stallTimer: 0
   invis: 0
   agents: []
@@ -1819,6 +1819,30 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 187630, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 112344, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 112352, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 112350, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 112348, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 112346, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
   m_RootGameObject: {fileID: 84245433}
@@ -1865,7 +1889,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1582189084}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TopLeft
   m_TagString: Obstacle
   m_Icon: {fileID: -1016138426, guid: 0000000000000000d000000000000000, type: 0}
@@ -2080,7 +2104,7 @@ GameObject:
   - 4: {fileID: 2045159591}
   - 212: {fileID: 2045159593}
   - 114: {fileID: 2045159592}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: GameController
   m_Icon: {fileID: 0}
@@ -2222,7 +2246,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2124510821}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BottomRight
   m_TagString: Obstacle
   m_Icon: {fileID: -1016138426, guid: 0000000000000000d000000000000000, type: 0}
