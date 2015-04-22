@@ -89,7 +89,7 @@ GameObject:
   - 61: {fileID: 84245435}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +103,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1787281545}
   m_Father: {fileID: 2067138412}
   m_RootOrder: 1
 --- !u!61 &84245435
@@ -207,10 +208,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 265313858}
   - 212: {fileID: 265313863}
+  - 50: {fileID: 265313865}
   - 61: {fileID: 265313862}
+  - 58: {fileID: 265313864}
   - 114: {fileID: 265313861}
-  - 114: {fileID: 265313860}
   - 114: {fileID: 265313859}
+  - 114: {fileID: 265313860}
   m_Layer: 0
   m_Name: Car
   m_TagString: AI
@@ -226,7 +229,7 @@ Transform:
   m_GameObject: {fileID: 265313857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.9099998, y: -.680000007, z: 23.7900009}
-  m_LocalScale: {x: .200000003, y: .200000003, z: 1}
+  m_LocalScale: {x: .100000001, y: .100000001, z: 1}
   m_Children: []
   m_Father: {fileID: 1555938931}
   m_RootOrder: 4
@@ -242,9 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd2b7dc092572c47ad2ae507e80169d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   rotationLerpScale: .200000003
-  canMove: 1
 --- !u!114 &265313860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,7 +264,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
+  soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &265313861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,24 +277,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 265313857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bcb22fc1eab7934683cb0180f9226fa, type: 3}
+  m_Script: {fileID: 11500000, guid: efd38093e2f375c4293d099fb98416b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisions: 0
+  collisions: 1
   blueberry: 0
   infected: 0
-  powertimer: 0
-  invinctimer: 0
-  speedtimer: 0
-  slowtimer: 0
-  invistimer: 0
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
+  currentSpeed: 1
+  canMove: 1
+  speedUp: 0
+  slowDown: 0
+  powerTimer: 0
+  invincTimer: 0
+  speedTimer: 0
+  slowTimer: 0
+  invisTimer: 0
+  stallTimer: 0
   invis: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
-  newinfected: {fileID: 0}
-  playersList: []
-  Players: []
-  Playerslocation: []
+  agents: []
+  agentList: []
 --- !u!61 &265313862
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -326,6 +332,34 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 48d8b75ef5fece7418aa45773f59ec43, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!58 &265313864
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5893476, guid: 5e06869987ddf184abe4d09c8a4275a0,
+    type: 2}
+  m_PrefabInternal: {fileID: 439958551}
+  m_GameObject: {fileID: 265313857}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: 2
+  m_Center: {x: 0, y: 0}
+--- !u!50 &265313865
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5039012, guid: 5e06869987ddf184abe4d09c8a4275a0,
+    type: 2}
+  m_PrefabInternal: {fileID: 439958551}
+  m_GameObject: {fileID: 265313857}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1 &267890344
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,10 +369,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 267890345}
   - 212: {fileID: 267890350}
+  - 50: {fileID: 267890352}
   - 61: {fileID: 267890349}
+  - 58: {fileID: 267890351}
   - 114: {fileID: 267890348}
-  - 114: {fileID: 267890347}
   - 114: {fileID: 267890346}
+  - 114: {fileID: 267890347}
   m_Layer: 0
   m_Name: Police Car
   m_TagString: AI
@@ -354,7 +390,7 @@ Transform:
   m_GameObject: {fileID: 267890344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.98999977, y: -.49000001, z: 23.7900009}
-  m_LocalScale: {x: .200000003, y: .200000003, z: 1}
+  m_LocalScale: {x: .100000001, y: .100000001, z: 1}
   m_Children: []
   m_Father: {fileID: 1555938931}
   m_RootOrder: 2
@@ -370,9 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd2b7dc092572c47ad2ae507e80169d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   rotationLerpScale: .200000003
-  canMove: 1
 --- !u!114 &267890347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,7 +425,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
+  soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &267890348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,24 +438,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 267890344}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bcb22fc1eab7934683cb0180f9226fa, type: 3}
+  m_Script: {fileID: 11500000, guid: efd38093e2f375c4293d099fb98416b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisions: 0
+  collisions: 1
   blueberry: 0
   infected: 0
-  powertimer: 0
-  invinctimer: 0
-  speedtimer: 0
-  slowtimer: 0
-  invistimer: 0
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
+  currentSpeed: 1
+  canMove: 1
+  speedUp: 0
+  slowDown: 0
+  powerTimer: 0
+  invincTimer: 0
+  speedTimer: 0
+  slowTimer: 0
+  invisTimer: 0
+  stallTimer: 0
   invis: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
-  newinfected: {fileID: 0}
-  playersList: []
-  Players: []
-  Playerslocation: []
+  agents: []
+  agentList: []
 --- !u!61 &267890349
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -454,6 +493,34 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 78b1fd5fc94664340ad2e88e6c5d889d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!58 &267890351
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5893382, guid: 3bf294ca3e88dbe46a2b63bce2073111,
+    type: 2}
+  m_PrefabInternal: {fileID: 264251569}
+  m_GameObject: {fileID: 267890344}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: 2
+  m_Center: {x: 0, y: 0}
+--- !u!50 &267890352
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5033328, guid: 3bf294ca3e88dbe46a2b63bce2073111,
+    type: 2}
+  m_PrefabInternal: {fileID: 264251569}
+  m_GameObject: {fileID: 267890344}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1001 &439958551
 Prefab:
   m_ObjectHideFlags: 0
@@ -660,6 +727,7 @@ GameObject:
   - 92: {fileID: 714320616}
   - 124: {fileID: 714320615}
   - 81: {fileID: 714320614}
+  - 114: {fileID: 714320619}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -732,6 +800,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &714320619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 714320613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712c5f38e958ba34e905769631d20b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1037020146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 112350, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 1540375552}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1037020147}
+  m_Layer: 0
+  m_Name: TopRight
+  m_TagString: Obstacle
+  m_Icon: {fileID: -1016138426, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1037020147
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 412350, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 1540375552}
+  m_GameObject: {fileID: 1037020146}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1787281545}
+  m_RootOrder: 0
 --- !u!1 &1038099453
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,10 +847,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 1038099454}
   - 212: {fileID: 1038099459}
+  - 50: {fileID: 1038099461}
   - 61: {fileID: 1038099458}
+  - 58: {fileID: 1038099460}
   - 114: {fileID: 1038099457}
-  - 114: {fileID: 1038099456}
   - 114: {fileID: 1038099455}
+  - 114: {fileID: 1038099456}
   m_Layer: 0
   m_Name: Taxi
   m_TagString: AI
@@ -760,7 +868,7 @@ Transform:
   m_GameObject: {fileID: 1038099453}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.75, y: -.400000006, z: 23.7900009}
-  m_LocalScale: {x: .200000003, y: .200000003, z: 1}
+  m_LocalScale: {x: .100000001, y: .100000001, z: 1}
   m_Children: []
   m_Father: {fileID: 1555938931}
   m_RootOrder: 3
@@ -776,9 +884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd2b7dc092572c47ad2ae507e80169d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   rotationLerpScale: .200000003
-  canMove: 1
 --- !u!114 &1038099456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -797,7 +903,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
+  soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1038099457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,24 +916,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1038099453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bcb22fc1eab7934683cb0180f9226fa, type: 3}
+  m_Script: {fileID: 11500000, guid: efd38093e2f375c4293d099fb98416b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisions: 0
+  collisions: 1
   blueberry: 0
   infected: 0
-  powertimer: 0
-  invinctimer: 0
-  speedtimer: 0
-  slowtimer: 0
-  invistimer: 0
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
+  currentSpeed: 1
+  canMove: 1
+  speedUp: 0
+  slowDown: 0
+  powerTimer: 0
+  invincTimer: 0
+  speedTimer: 0
+  slowTimer: 0
+  invisTimer: 0
+  stallTimer: 0
   invis: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
-  newinfected: {fileID: 0}
-  playersList: []
-  Players: []
-  Playerslocation: []
+  agents: []
+  agentList: []
 --- !u!61 &1038099458
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -860,6 +971,34 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 30b4fccffa667234b8d405e0b2490252, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!58 &1038099460
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5835732, guid: 17b4082829e36224e957282ffe4a9ffd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1458144808}
+  m_GameObject: {fileID: 1038099453}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: 2
+  m_Center: {x: 0, y: 0}
+--- !u!50 &1038099461
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5035732, guid: 17b4082829e36224e957282ffe4a9ffd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1458144808}
+  m_GameObject: {fileID: 1038099453}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1001 &1304646149
 Prefab:
   m_ObjectHideFlags: 0
@@ -1019,10 +1158,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 1469107345}
   - 212: {fileID: 1469107350}
+  - 50: {fileID: 1469107352}
   - 61: {fileID: 1469107349}
+  - 58: {fileID: 1469107351}
   - 114: {fileID: 1469107348}
-  - 114: {fileID: 1469107347}
   - 114: {fileID: 1469107346}
+  - 114: {fileID: 1469107347}
   m_Layer: 0
   m_Name: Firetruck
   m_TagString: AI
@@ -1038,7 +1179,7 @@ Transform:
   m_GameObject: {fileID: 1469107344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.9700003, y: -.519999981, z: 23.7900009}
-  m_LocalScale: {x: .200000003, y: .200000003, z: 1}
+  m_LocalScale: {x: .100000001, y: .100000001, z: 1}
   m_Children: []
   m_Father: {fileID: 1555938931}
   m_RootOrder: 5
@@ -1054,9 +1195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd2b7dc092572c47ad2ae507e80169d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   rotationLerpScale: .200000003
-  canMove: 1
 --- !u!114 &1469107347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1075,7 +1214,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
+  soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1469107348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1085,24 +1227,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1469107344}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bcb22fc1eab7934683cb0180f9226fa, type: 3}
+  m_Script: {fileID: 11500000, guid: efd38093e2f375c4293d099fb98416b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisions: 0
+  collisions: 1
   blueberry: 0
   infected: 0
-  powertimer: 0
-  invinctimer: 0
-  speedtimer: 0
-  slowtimer: 0
-  invistimer: 0
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
+  currentSpeed: 1
+  canMove: 1
+  speedUp: 0
+  slowDown: 0
+  powerTimer: 0
+  invincTimer: 0
+  speedTimer: 0
+  slowTimer: 0
+  invisTimer: 0
+  stallTimer: 0
   invis: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
-  newinfected: {fileID: 0}
-  playersList: []
-  Players: []
-  Playerslocation: []
+  agents: []
+  agentList: []
 --- !u!61 &1469107349
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1113,8 +1257,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 2.04999995, y: 4.96000004}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: 2.5, y: 6.80000019}
+  m_Center: {x: 0, y: -.200000003}
 --- !u!212 &1469107350
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1138,6 +1282,34 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 157dc9b1be2f49b429fd03ba7005a7d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!58 &1469107351
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5898800, guid: 829174dbfa14b004abd8c2e8e26b18c0,
+    type: 2}
+  m_PrefabInternal: {fileID: 506586427}
+  m_GameObject: {fileID: 1469107344}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: 2
+  m_Center: {x: 0, y: 0}
+--- !u!50 &1469107352
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5098800, guid: 829174dbfa14b004abd8c2e8e26b18c0,
+    type: 2}
+  m_PrefabInternal: {fileID: 506586427}
+  m_GameObject: {fileID: 1469107344}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1 &1483965993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,8 +1325,6 @@ GameObject:
   - 114: {fileID: 1483965999}
   - 114: {fileID: 1483965998}
   - 114: {fileID: 1483965997}
-  - 114: {fileID: 1483965996}
-  - 114: {fileID: 1483965995}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player
@@ -1174,35 +1344,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1555938931}
   m_RootOrder: 1
---- !u!114 &1483965995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11403752, guid: ee543d705845cca459b304264966d1b9,
-    type: 2}
-  m_PrefabInternal: {fileID: 516492367}
-  m_GameObject: {fileID: 1483965993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2492af1257e3d03409de1f40a837b5b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1483965996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11403754, guid: ee543d705845cca459b304264966d1b9,
-    type: 2}
-  m_PrefabInternal: {fileID: 516492367}
-  m_GameObject: {fileID: 1483965993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f51a4c513bfe3c4a8fd67550ce1eaf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 5
-  invinctimer: 0
-  GameManager: {fileID: 0}
-  Virustimer: 0
-  canMove: 1
 --- !u!114 &1483965997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1216,11 +1357,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 1483966000}
-  kinectEnabled: 0
-  controllerEnabled: 1
   speed: .0500000007
-  player1: 1
-  player2: 1
+  playerNo: 2
+  debugControls: 1
 --- !u!114 &1483965998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1239,7 +1378,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
+  soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1483965999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1249,24 +1391,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1483965993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bcb22fc1eab7934683cb0180f9226fa, type: 3}
+  m_Script: {fileID: 11500000, guid: efd38093e2f375c4293d099fb98416b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisions: 0
+  collisions: 1
   blueberry: 0
   infected: 0
-  powertimer: 0
-  invinctimer: 0
-  speedtimer: 0
-  slowtimer: 0
-  invistimer: 0
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
+  currentSpeed: 1
+  canMove: 1
+  speedUp: 0
+  slowDown: 0
+  powerTimer: 0
+  invincTimer: 0
+  speedTimer: 0
+  slowTimer: 0
+  invisTimer: 0
+  stallTimer: 0
   invis: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
-  newinfected: {fileID: 0}
-  playersList: []
-  Players: []
-  Playerslocation: []
+  agents: []
+  agentList: []
 --- !u!114 &1483966000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1345,8 +1489,6 @@ GameObject:
   - 114: {fileID: 1493858999}
   - 114: {fileID: 1493858998}
   - 114: {fileID: 1493858997}
-  - 114: {fileID: 1493858996}
-  - 114: {fileID: 1493858995}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -1354,35 +1496,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1493858995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11455188, guid: 8506bf70424522a408ef017dd2b9c480,
-    type: 2}
-  m_PrefabInternal: {fileID: 1304646149}
-  m_GameObject: {fileID: 1493858994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2492af1257e3d03409de1f40a837b5b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1493858996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11455186, guid: 8506bf70424522a408ef017dd2b9c480,
-    type: 2}
-  m_PrefabInternal: {fileID: 1304646149}
-  m_GameObject: {fileID: 1493858994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f51a4c513bfe3c4a8fd67550ce1eaf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 5
-  invinctimer: 0
-  GameManager: {fileID: 0}
-  Virustimer: 0
-  canMove: 1
 --- !u!114 &1493858997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1396,11 +1509,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 1493859000}
-  kinectEnabled: 1
-  controllerEnabled: 0
   speed: .0500000007
-  player1: 1
-  player2: 1
+  playerNo: 1
+  debugControls: 1
 --- !u!114 &1493858998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1419,7 +1530,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
+  soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1493858999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1429,24 +1543,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1493858994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bcb22fc1eab7934683cb0180f9226fa, type: 3}
+  m_Script: {fileID: 11500000, guid: efd38093e2f375c4293d099fb98416b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisions: 0
+  collisions: 1
   blueberry: 0
   infected: 0
-  powertimer: 0
-  invinctimer: 0
-  speedtimer: 0
-  slowtimer: 0
-  invistimer: 0
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
+  currentSpeed: 1
+  canMove: 1
+  speedUp: 0
+  slowDown: 0
+  powerTimer: 0
+  invincTimer: 0
+  speedTimer: 0
+  slowTimer: 0
+  invisTimer: 0
+  stallTimer: 0
   invis: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
-  newinfected: {fileID: 0}
-  playersList: []
-  Players: []
-  Playerslocation: []
+  agents: []
+  agentList: []
 --- !u!114 &1493859000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1522,6 +1638,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1555938931}
   m_RootOrder: 0
+--- !u!1 &1517957475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 112344, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 1540375552}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1517957476}
+  m_Layer: 0
+  m_Name: BottomLeft
+  m_TagString: Obstacle
+  m_Icon: {fileID: -1016138426, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1517957476
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 412344, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 1540375552}
+  m_GameObject: {fileID: 1517957475}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8, y: -5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1787281545}
+  m_RootOrder: 3
 --- !u!1 &1522508405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1693,6 +1836,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 00428aaeae4e5bc4aad8ae2d68c46e3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1635583378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 112348, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 1540375552}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1635583379}
+  m_Layer: 0
+  m_Name: TopLeft
+  m_TagString: Obstacle
+  m_Icon: {fileID: -1016138426, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1635583379
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 412348, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 1540375552}
+  m_GameObject: {fileID: 1635583378}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1787281545}
+  m_RootOrder: 1
 --- !u!1 &1719438612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,6 +1987,64 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d8e0465df7a63ea458cf539c674fa36b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1787281544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 112352, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 1540375552}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1787281545}
+  m_Layer: 0
+  m_Name: Corners
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1787281545
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 412352, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 1540375552}
+  m_GameObject: {fileID: 1787281544}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1037020147}
+  - {fileID: 1635583379}
+  - {fileID: 1933067449}
+  - {fileID: 1517957476}
+  m_Father: {fileID: 84245434}
+  m_RootOrder: 0
+--- !u!1 &1933067448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 112346, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 1540375552}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1933067449}
+  m_Layer: 0
+  m_Name: BottomRight
+  m_TagString: Obstacle
+  m_Icon: {fileID: -1016138426, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1933067449
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 412346, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 1540375552}
+  m_GameObject: {fileID: 1933067448}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8, y: -5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1787281545}
+  m_RootOrder: 2
 --- !u!1 &2045159590
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,28 +2085,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d304e84256ef1d4981186795ffa7b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: []
-  InitBlueberry: 0
-  Startvirus: {fileID: 0}
-  blueberry: 0
+  InitInfected: 0
   points: 0
   pointsthisround: 0
-  playersList: []
-  powerup: {fileID: 0}
-  powerposition: {x: 0, y: 0, z: 0}
-  pickuptimer: 5
   highscores: 
   testname: T. Est
-  powerups: []
-  poweruplist: []
-  prefab: {fileID: 159462, guid: 0195d5fc94a8cc64fa2a923dfc79a971, type: 2}
-  prefab1: {fileID: 100000, guid: f806e73c202c1894f9f5da2ea838e35a, type: 2}
-  prefab2: {fileID: 100000, guid: fca30e7564dd85f4d80cd9d6cbe54e61, type: 2}
-  prefab3: {fileID: 100000, guid: 1ff8b9020b5eba04d81ff75b21bfbb6a, type: 2}
-  prefab4: {fileID: 100000, guid: 952a0637b56aae84aaf8c5e99ffb1e53, type: 2}
-  prefab5: {fileID: 100000, guid: 88a8c62c0754d1f42b254bb6fead2cb2, type: 2}
-  chosenpower: 0
+  players: []
   player: {fileID: 0}
+  powerposition: {x: 0, y: 0, z: 0}
+  pickuptimer: 5
+  powerup: {fileID: 0}
+  powerups: []
+  chosenPower: 0
+  musicvolume: .5
 --- !u!212 &2045159593
 SpriteRenderer:
   m_ObjectHideFlags: 0

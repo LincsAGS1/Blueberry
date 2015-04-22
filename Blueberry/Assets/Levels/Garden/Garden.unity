@@ -211,6 +211,7 @@ GameObject:
   - 92: {fileID: 393068665}
   - 124: {fileID: 393068664}
   - 81: {fileID: 393068663}
+  - 114: {fileID: 393068668}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -283,6 +284,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &393068668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 393068662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712c5f38e958ba34e905769631d20b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &446094094
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,10 +304,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 446094095}
   - 212: {fileID: 446094100}
+  - 50: {fileID: 446094102}
   - 61: {fileID: 446094099}
+  - 58: {fileID: 446094101}
   - 114: {fileID: 446094098}
-  - 114: {fileID: 446094097}
   - 114: {fileID: 446094096}
+  - 114: {fileID: 446094097}
   m_Layer: 0
   m_Name: Car
   m_TagString: AI
@@ -311,7 +325,7 @@ Transform:
   m_GameObject: {fileID: 446094094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.9099998, y: -.680000007, z: 23.7900009}
-  m_LocalScale: {x: .200000003, y: .200000003, z: 1}
+  m_LocalScale: {x: .100000001, y: .100000001, z: 1}
   m_Children: []
   m_Father: {fileID: 551391418}
   m_RootOrder: 4
@@ -327,9 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd2b7dc092572c47ad2ae507e80169d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   rotationLerpScale: .200000003
-  canMove: 1
 --- !u!114 &446094097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,7 +360,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
+  soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &446094098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,24 +373,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 446094094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bcb22fc1eab7934683cb0180f9226fa, type: 3}
+  m_Script: {fileID: 11500000, guid: efd38093e2f375c4293d099fb98416b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisions: 0
+  collisions: 1
   blueberry: 0
   infected: 0
-  powertimer: 0
-  invinctimer: 0
-  speedtimer: 0
-  Players: []
-  slowtimer: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
-  invistimer: 0
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
+  currentSpeed: 1
+  canMove: 1
+  speedUp: 0
+  slowDown: 0
+  powerTimer: 0
+  invincTimer: 0
+  speedTimer: 0
+  slowTimer: 0
+  invisTimer: 0
+  stallTimer: 0
   invis: 0
-  Playerslocation: []
-  newinfected: {fileID: 0}
-  playersList1: []
+  agents: []
+  agentList: []
 --- !u!61 &446094099
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -411,6 +428,34 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 48d8b75ef5fece7418aa45773f59ec43, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!58 &446094101
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5893476, guid: 5e06869987ddf184abe4d09c8a4275a0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1057685891}
+  m_GameObject: {fileID: 446094094}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: 2
+  m_Center: {x: 0, y: 0}
+--- !u!50 &446094102
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5039012, guid: 5e06869987ddf184abe4d09c8a4275a0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1057685891}
+  m_GameObject: {fileID: 446094094}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1 &528580783
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,10 +465,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 528580784}
   - 212: {fileID: 528580789}
+  - 50: {fileID: 528580791}
   - 61: {fileID: 528580788}
+  - 58: {fileID: 528580790}
   - 114: {fileID: 528580787}
-  - 114: {fileID: 528580786}
   - 114: {fileID: 528580785}
+  - 114: {fileID: 528580786}
   m_Layer: 0
   m_Name: Firetruck
   m_TagString: AI
@@ -439,7 +486,7 @@ Transform:
   m_GameObject: {fileID: 528580783}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.9700003, y: -.519999981, z: 23.7900009}
-  m_LocalScale: {x: .200000003, y: .200000003, z: 1}
+  m_LocalScale: {x: .100000001, y: .100000001, z: 1}
   m_Children: []
   m_Father: {fileID: 551391418}
   m_RootOrder: 5
@@ -455,9 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd2b7dc092572c47ad2ae507e80169d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   rotationLerpScale: .200000003
-  canMove: 1
 --- !u!114 &528580786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,7 +521,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
+  soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &528580787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,24 +534,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 528580783}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bcb22fc1eab7934683cb0180f9226fa, type: 3}
+  m_Script: {fileID: 11500000, guid: efd38093e2f375c4293d099fb98416b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisions: 0
+  collisions: 1
   blueberry: 0
   infected: 0
-  powertimer: 0
-  invinctimer: 0
-  speedtimer: 0
-  Players: []
-  slowtimer: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
-  invistimer: 0
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
+  currentSpeed: 1
+  canMove: 1
+  speedUp: 0
+  slowDown: 0
+  powerTimer: 0
+  invincTimer: 0
+  speedTimer: 0
+  slowTimer: 0
+  invisTimer: 0
+  stallTimer: 0
   invis: 0
-  Playerslocation: []
-  newinfected: {fileID: 0}
-  playersList1: []
+  agents: []
+  agentList: []
 --- !u!61 &528580788
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -514,8 +564,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 2.04999995, y: 4.96000004}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: 2.5, y: 6.80000019}
+  m_Center: {x: 0, y: -.200000003}
 --- !u!212 &528580789
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -539,6 +589,34 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 157dc9b1be2f49b429fd03ba7005a7d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!58 &528580790
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5898800, guid: 829174dbfa14b004abd8c2e8e26b18c0,
+    type: 2}
+  m_PrefabInternal: {fileID: 825852221}
+  m_GameObject: {fileID: 528580783}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: 2
+  m_Center: {x: 0, y: 0}
+--- !u!50 &528580791
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5098800, guid: 829174dbfa14b004abd8c2e8e26b18c0,
+    type: 2}
+  m_PrefabInternal: {fileID: 825852221}
+  m_GameObject: {fileID: 528580783}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1 &551391417
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,10 +659,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 708560442}
   - 212: {fileID: 708560441}
+  - 50: {fileID: 708560444}
   - 61: {fileID: 708560440}
+  - 58: {fileID: 708560443}
   - 114: {fileID: 708560439}
-  - 114: {fileID: 708560438}
   - 114: {fileID: 708560437}
+  - 114: {fileID: 708560438}
   m_Layer: 0
   m_Name: Police Car
   m_TagString: AI
@@ -604,9 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd2b7dc092572c47ad2ae507e80169d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   rotationLerpScale: .200000003
-  canMove: 1
 --- !u!114 &708560438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,7 +703,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
+  soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &708560439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,24 +716,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 708560436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bcb22fc1eab7934683cb0180f9226fa, type: 3}
+  m_Script: {fileID: 11500000, guid: efd38093e2f375c4293d099fb98416b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisions: 0
+  collisions: 1
   blueberry: 0
   infected: 0
-  powertimer: 0
-  invinctimer: 0
-  speedtimer: 0
-  Players: []
-  slowtimer: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
-  invistimer: 0
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
+  currentSpeed: 1
+  canMove: 1
+  speedUp: 0
+  slowDown: 0
+  powerTimer: 0
+  invincTimer: 0
+  speedTimer: 0
+  slowTimer: 0
+  invisTimer: 0
+  stallTimer: 0
   invis: 0
-  Playerslocation: []
-  newinfected: {fileID: 0}
-  playersList1: []
+  agents: []
+  agentList: []
 --- !u!61 &708560440
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -696,10 +779,69 @@ Transform:
   m_GameObject: {fileID: 708560436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.98999977, y: -.49000001, z: 23.7900009}
-  m_LocalScale: {x: .200000003, y: .200000003, z: 1}
+  m_LocalScale: {x: .100000001, y: .100000001, z: 1}
   m_Children: []
   m_Father: {fileID: 551391418}
   m_RootOrder: 2
+--- !u!58 &708560443
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5893382, guid: 3bf294ca3e88dbe46a2b63bce2073111,
+    type: 2}
+  m_PrefabInternal: {fileID: 918290120}
+  m_GameObject: {fileID: 708560436}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: 2
+  m_Center: {x: 0, y: 0}
+--- !u!50 &708560444
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5033328, guid: 3bf294ca3e88dbe46a2b63bce2073111,
+    type: 2}
+  m_PrefabInternal: {fileID: 918290120}
+  m_GameObject: {fileID: 708560436}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+--- !u!1 &727089492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 112352, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 999210453}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 727089493}
+  m_Layer: 0
+  m_Name: Corners
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &727089493
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 412352, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 999210453}
+  m_GameObject: {fileID: 727089492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 865344948}
+  - {fileID: 752314037}
+  - {fileID: 1714296256}
+  - {fileID: 2061423756}
+  m_Father: {fileID: 1231439854}
+  m_RootOrder: 0
 --- !u!1001 &748074671
 Prefab:
   m_ObjectHideFlags: 0
@@ -709,15 +851,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 403748, guid: ee543d705845cca459b304264966d1b9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 11.9460001
+      value: 11.75
       objectReference: {fileID: 0}
     - target: {fileID: 403748, guid: ee543d705845cca459b304264966d1b9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -.189999998
+      value: 1.52999997
       objectReference: {fileID: 0}
     - target: {fileID: 403748, guid: ee543d705845cca459b304264966d1b9, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 25.7900009
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 403748, guid: ee543d705845cca459b304264966d1b9, type: 2}
       propertyPath: m_LocalRotation.x
@@ -741,17 +883,48 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 403748, guid: ee543d705845cca459b304264966d1b9, type: 2}
       propertyPath: m_LocalScale.x
-      value: .0200000014
+      value: .100000001
       objectReference: {fileID: 0}
     - target: {fileID: 403748, guid: ee543d705845cca459b304264966d1b9, type: 2}
       propertyPath: m_LocalScale.y
-      value: .0200000014
+      value: .100000001
       objectReference: {fileID: 0}
+    - target: {fileID: 11403748, guid: ee543d705845cca459b304264966d1b9, type: 2}
+      propertyPath: inputController
+      value: 
+      objectReference: {fileID: 1411638902}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee543d705845cca459b304264966d1b9, type: 2}
   m_RootGameObject: {fileID: 1411638895}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &752314036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 112348, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 999210453}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 752314037}
+  m_Layer: 0
+  m_Name: TopLeft
+  m_TagString: Obstacle
+  m_Icon: {fileID: -1016138426, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &752314037
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 412348, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 999210453}
+  m_GameObject: {fileID: 752314036}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 727089493}
+  m_RootOrder: 1
 --- !u!1001 &825852221
 Prefab:
   m_ObjectHideFlags: 0
@@ -805,10 +978,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 864103955}
   - 212: {fileID: 864103960}
+  - 50: {fileID: 864103962}
   - 61: {fileID: 864103959}
+  - 58: {fileID: 864103961}
   - 114: {fileID: 864103958}
-  - 114: {fileID: 864103957}
   - 114: {fileID: 864103956}
+  - 114: {fileID: 864103957}
   m_Layer: 0
   m_Name: Taxi
   m_TagString: AI
@@ -824,7 +999,7 @@ Transform:
   m_GameObject: {fileID: 864103954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.75, y: -.400000006, z: 23.7900009}
-  m_LocalScale: {x: .200000003, y: .200000003, z: 1}
+  m_LocalScale: {x: .100000001, y: .100000001, z: 1}
   m_Children: []
   m_Father: {fileID: 551391418}
   m_RootOrder: 3
@@ -840,9 +1015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd2b7dc092572c47ad2ae507e80169d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   rotationLerpScale: .200000003
-  canMove: 1
 --- !u!114 &864103957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -861,7 +1034,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
+  soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &864103958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,24 +1047,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 864103954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bcb22fc1eab7934683cb0180f9226fa, type: 3}
+  m_Script: {fileID: 11500000, guid: efd38093e2f375c4293d099fb98416b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisions: 0
+  collisions: 1
   blueberry: 0
   infected: 0
-  powertimer: 0
-  invinctimer: 0
-  speedtimer: 0
-  Players: []
-  slowtimer: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
-  invistimer: 0
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
+  currentSpeed: 1
+  canMove: 1
+  speedUp: 0
+  slowDown: 0
+  powerTimer: 0
+  invincTimer: 0
+  speedTimer: 0
+  slowTimer: 0
+  invisTimer: 0
+  stallTimer: 0
   invis: 0
-  Playerslocation: []
-  newinfected: {fileID: 0}
-  playersList1: []
+  agents: []
+  agentList: []
 --- !u!61 &864103959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -924,6 +1102,61 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 30b4fccffa667234b8d405e0b2490252, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!58 &864103961
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5835732, guid: 17b4082829e36224e957282ffe4a9ffd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1539893897}
+  m_GameObject: {fileID: 864103954}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: 2
+  m_Center: {x: 0, y: 0}
+--- !u!50 &864103962
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5035732, guid: 17b4082829e36224e957282ffe4a9ffd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1539893897}
+  m_GameObject: {fileID: 864103954}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+--- !u!1 &865344947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 112350, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 999210453}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 865344948}
+  m_Layer: 0
+  m_Name: TopRight
+  m_TagString: Obstacle
+  m_Icon: {fileID: -1016138426, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &865344948
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 412350, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 999210453}
+  m_GameObject: {fileID: 865344947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 727089493}
+  m_RootOrder: 0
 --- !u!1001 &918290120
 Prefab:
   m_ObjectHideFlags: 0
@@ -1027,8 +1260,6 @@ GameObject:
   - 114: {fileID: 1032262319}
   - 114: {fileID: 1032262318}
   - 114: {fileID: 1032262317}
-  - 114: {fileID: 1032262316}
-  - 114: {fileID: 1032262315}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -1048,35 +1279,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 551391418}
   m_RootOrder: 0
---- !u!114 &1032262315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11455188, guid: 8506bf70424522a408ef017dd2b9c480,
-    type: 2}
-  m_PrefabInternal: {fileID: 1373366889}
-  m_GameObject: {fileID: 1032262313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2492af1257e3d03409de1f40a837b5b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1032262316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11455186, guid: 8506bf70424522a408ef017dd2b9c480,
-    type: 2}
-  m_PrefabInternal: {fileID: 1373366889}
-  m_GameObject: {fileID: 1032262313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f51a4c513bfe3c4a8fd67550ce1eaf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 5
-  invinctimer: 0
-  GameManager: {fileID: 0}
-  Virustimer: 0
-  canMove: 1
 --- !u!114 &1032262317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1090,11 +1292,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 1032262320}
-  kinectEnabled: 1
-  controllerEnabled: 0
   speed: .0500000007
-  player1: 1
-  player2: 1
+  playerNo: 1
+  debugControls: 1
 --- !u!114 &1032262318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1113,7 +1313,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
+  soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1032262319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,24 +1326,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1032262313}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bcb22fc1eab7934683cb0180f9226fa, type: 3}
+  m_Script: {fileID: 11500000, guid: efd38093e2f375c4293d099fb98416b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisions: 0
+  collisions: 1
   blueberry: 0
   infected: 0
-  powertimer: 0
-  invinctimer: 0
-  speedtimer: 0
-  Players: []
-  slowtimer: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
-  invistimer: 0
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
+  currentSpeed: 1
+  canMove: 1
+  speedUp: 0
+  slowDown: 0
+  powerTimer: 0
+  invincTimer: 0
+  speedTimer: 0
+  slowTimer: 0
+  invisTimer: 0
+  stallTimer: 0
   invis: 0
-  Playerslocation: []
-  newinfected: {fileID: 0}
-  playersList1: []
+  agents: []
+  agentList: []
 --- !u!114 &1032262320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,7 +1579,7 @@ GameObject:
   - 61: {fileID: 1231439855}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1388,7 +1593,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 727089493}
   m_Father: {fileID: 2098763182}
   m_RootOrder: 1
 --- !u!61 &1231439855
@@ -1560,8 +1766,6 @@ GameObject:
   - 114: {fileID: 1411638901}
   - 114: {fileID: 1411638900}
   - 114: {fileID: 1411638899}
-  - 114: {fileID: 1411638898}
-  - 114: {fileID: 1411638897}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player
@@ -1576,40 +1780,11 @@ Transform:
   m_PrefabInternal: {fileID: 748074671}
   m_GameObject: {fileID: 1411638895}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.9460001, y: -.189999998, z: 25.7900009}
-  m_LocalScale: {x: .0200000014, y: .0200000014, z: 1}
+  m_LocalPosition: {x: 11.75, y: 1.52999997, z: 2}
+  m_LocalScale: {x: .100000001, y: .100000001, z: 1}
   m_Children: []
   m_Father: {fileID: 551391418}
   m_RootOrder: 1
---- !u!114 &1411638897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11403752, guid: ee543d705845cca459b304264966d1b9,
-    type: 2}
-  m_PrefabInternal: {fileID: 748074671}
-  m_GameObject: {fileID: 1411638895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2492af1257e3d03409de1f40a837b5b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1411638898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11403754, guid: ee543d705845cca459b304264966d1b9,
-    type: 2}
-  m_PrefabInternal: {fileID: 748074671}
-  m_GameObject: {fileID: 1411638895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f51a4c513bfe3c4a8fd67550ce1eaf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 5
-  invinctimer: 0
-  GameManager: {fileID: 0}
-  Virustimer: 0
-  canMove: 1
 --- !u!114 &1411638899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1623,11 +1798,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 1411638902}
-  kinectEnabled: 0
-  controllerEnabled: 1
   speed: .0500000007
-  player1: 1
-  player2: 1
+  playerNo: 2
+  debugControls: 1
 --- !u!114 &1411638900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1646,7 +1819,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
+  soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1411638901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1656,24 +1832,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1411638895}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bcb22fc1eab7934683cb0180f9226fa, type: 3}
+  m_Script: {fileID: 11500000, guid: efd38093e2f375c4293d099fb98416b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisions: 0
+  collisions: 1
   blueberry: 0
   infected: 0
-  powertimer: 0
-  invinctimer: 0
-  speedtimer: 0
-  Players: []
-  slowtimer: 0
-  gamecontroller: {fileID: 0}
-  holder: {fileID: 0}
-  invistimer: 0
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
+  currentSpeed: 1
+  canMove: 1
+  speedUp: 0
+  slowDown: 0
+  powerTimer: 0
+  invincTimer: 0
+  speedTimer: 0
+  slowTimer: 0
+  invisTimer: 0
+  stallTimer: 0
   invis: 0
-  Playerslocation: []
-  newinfected: {fileID: 0}
-  playersList1: []
+  agents: []
+  agentList: []
 --- !u!114 &1411638902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1781,6 +1959,33 @@ Prefab:
   m_RootGameObject: {fileID: 864103954}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1714296255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 112346, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 999210453}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1714296256}
+  m_Layer: 0
+  m_Name: BottomRight
+  m_TagString: Obstacle
+  m_Icon: {fileID: -1016138426, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1714296256
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 412346, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 999210453}
+  m_GameObject: {fileID: 1714296255}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8, y: -5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 727089493}
+  m_RootOrder: 2
 --- !u!1 &2051898603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,6 +2018,33 @@ Transform:
   - {fileID: 1336559951}
   m_Father: {fileID: 2098763182}
   m_RootOrder: 2
+--- !u!1 &2061423755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 112344, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 999210453}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2061423756}
+  m_Layer: 0
+  m_Name: BottomLeft
+  m_TagString: Obstacle
+  m_Icon: {fileID: -1016138426, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2061423756
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 412344, guid: fd15605e12d917b4c89d43e36ba3e93c, type: 2}
+  m_PrefabInternal: {fileID: 999210453}
+  m_GameObject: {fileID: 2061423755}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8, y: -5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 727089493}
+  m_RootOrder: 3
 --- !u!1 &2079468989
 GameObject:
   m_ObjectHideFlags: 0

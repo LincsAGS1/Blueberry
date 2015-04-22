@@ -62,27 +62,35 @@ namespace Assets.Scripts.LevelGenerators
             Debug.Log("Player 1 Position Done");
 
 
+      
+
+
             //generate random position for player 2 (IF PRESENT) facing centre of room
             /*if (player2present)
-            {
+            {*/
                 bool player2Pos = false;
                 while (player2Pos == false)
+            {
+
+                Vector2 playerPos = new Vector2(Random.Range(-8, 8), Random.Range(-5, 5));
+
+                //get all colliders in that region
+                Collider2D[] collisions = Physics2D.OverlapCircleAll(playerPos, 0.5f, mask);
+
+                //if no obstacles within circle around that point, we've found the player's position
+                if (collisions.Length == 0)
                 {
-                    Vector2 playerPos = new Vector2(Random.Range(-8, 8), Random.Range(-5, 5));
+                    //move the player there
+                    player2.transform.position = new Vector3(playerPos.x, playerPos.y, 0);
+                    player2Pos = true;
 
-                    //if no obstacles within circle around that point, we've found the player's position
-                    if (!locationCollider.IsTouchingLayers())
-                    {
-                        //move the player there
-                        player2.transform.position = new Vector3(playerPos.x, playerPos.y, 0);
-                        player2Pos = true;
-
-                        //rotate the player towards the middle
-                        Vector3 centerVector = -1 * player2.transform.position;
-                        player2.transform.up = centerVector;
-                    }
+                    //rotate the player towards the middle
+                    Vector3 centerVector = -1 * player2.transform.position;
+                    player2.transform.up = centerVector;
                 }
-            }*/
+            }
+            Debug.Log("Player 2 Position Done");
+           
             #endregion
 
             

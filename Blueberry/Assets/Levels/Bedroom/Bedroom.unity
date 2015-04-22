@@ -143,11 +143,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 114711636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1989363252}
-  m_RootOrder: 0
+  m_Father: {fileID: 2051898604}
+  m_RootOrder: 4
 --- !u!61 &114711638
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -204,8 +204,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 118900868}
-  m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106829}
-  m_LocalPosition: {x: -12.1800003, y: -5.88999987, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.4399996, y: 9.19999981, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2051898604}
@@ -219,7 +219,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 3.29999995, y: 5.69999981}
+  m_Size: {x: 5.71999979, y: 3.30999994}
   m_Center: {x: 0, y: 0}
 --- !u!212 &118900871
 SpriteRenderer:
@@ -446,6 +446,7 @@ GameObject:
   - 92: {fileID: 393068665}
   - 124: {fileID: 393068664}
   - 81: {fileID: 393068663}
+  - 114: {fileID: 393068668}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -518,6 +519,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &393068668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 393068662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712c5f38e958ba34e905769631d20b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &455120308
 Prefab:
   m_ObjectHideFlags: 0
@@ -1453,11 +1465,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1089363411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1989363252}
-  m_RootOrder: 1
+  m_Father: {fileID: 2051898604}
+  m_RootOrder: 5
 --- !u!58 &1089363413
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2311,35 +2323,6 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!1 &1989363251
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1989363252}
-  m_Layer: 0
-  m_Name: Desk Area
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1989363252
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1989363251}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 114711637}
-  - {fileID: 1089363412}
-  m_Father: {fileID: 2051898604}
-  m_RootOrder: 4
 --- !u!1 &2051898603
 GameObject:
   m_ObjectHideFlags: 0
@@ -2369,7 +2352,8 @@ Transform:
   - {fileID: 118900869}
   - {fileID: 1336559951}
   - {fileID: 2079468990}
-  - {fileID: 1989363252}
+  - {fileID: 114711637}
+  - {fileID: 1089363412}
   m_Father: {fileID: 2098763182}
   m_RootOrder: 1
 --- !u!1 &2079468989
@@ -2443,6 +2427,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2098763182}
   - 114: {fileID: 2098763183}
+  - 114: {fileID: 2098763184}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -2471,7 +2456,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2098763181}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c14e71fae00ded4ab06947479576fee, type: 3}
   m_Name: 
@@ -2479,11 +2464,37 @@ MonoBehaviour:
   bed: {fileID: 118900868}
   bedsideTable: {fileID: 1336559950}
   bin: {fileID: 2079468989}
-  deskArea: {fileID: 1989363251}
+  deskArea: {fileID: 0}
   enemies:
   - {fileID: 1136851198}
   - {fileID: 1049228526}
   - {fileID: 842316439}
   - {fileID: 1956529747}
+  player1: {fileID: 708445790}
+  player2: {fileID: 294680837}
+--- !u!114 &2098763184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2098763181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172377c2d6cbd1b429acc6e85b2b3c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 118900868}
+  - {fileID: 1336559950}
+  - {fileID: 2079468989}
+  - {fileID: 114711636}
+  - {fileID: 1089363411}
+  nearWall: 0101000100
+  randomRot: 0000010001
+  enemies:
+  - {fileID: 842316439}
+  - {fileID: 1136851198}
+  - {fileID: 1956529747}
+  - {fileID: 1049228526}
   player1: {fileID: 708445790}
   player2: {fileID: 294680837}

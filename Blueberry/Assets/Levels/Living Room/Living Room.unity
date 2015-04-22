@@ -140,9 +140,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
-  BlueberryHealthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
   soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11715020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +159,7 @@ MonoBehaviour:
   collisions: 1
   blueberry: 0
   infected: 0
-  blueberrySprite: {fileID: 0}
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
   currentSpeed: 1
   canMove: 1
   speedUp: 0
@@ -522,9 +523,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
-  BlueberryHealthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
   soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &265974061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,7 +542,7 @@ MonoBehaviour:
   collisions: 1
   blueberry: 0
   infected: 0
-  blueberrySprite: {fileID: 0}
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
   currentSpeed: 1
   canMove: 1
   speedUp: 0
@@ -682,9 +684,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
-  BlueberryHealthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
   soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &294316376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,7 +703,7 @@ MonoBehaviour:
   collisions: 1
   blueberry: 0
   infected: 0
-  blueberrySprite: {fileID: 0}
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
   currentSpeed: 1
   canMove: 1
   speedUp: 0
@@ -789,6 +792,7 @@ GameObject:
   - 92: {fileID: 393068665}
   - 124: {fileID: 393068664}
   - 81: {fileID: 393068663}
+  - 114: {fileID: 393068668}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -861,6 +865,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &393068668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 393068662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712c5f38e958ba34e905769631d20b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &416224352
 Prefab:
   m_ObjectHideFlags: 0
@@ -1000,7 +1015,6 @@ GameObject:
   - 114: {fileID: 515632402}
   - 114: {fileID: 515632401}
   - 114: {fileID: 515632400}
-  - 114: {fileID: 515632398}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -1008,18 +1022,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &515632398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11455188, guid: 8506bf70424522a408ef017dd2b9c480,
-    type: 2}
-  m_PrefabInternal: {fileID: 1194619563}
-  m_GameObject: {fileID: 515632397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2492af1257e3d03409de1f40a837b5b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &515632400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1034,8 +1036,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 515632403}
   speed: .0500000007
-  playerNo: 0
-  debugControls: 0
+  playerNo: 1
+  debugControls: 1
 --- !u!114 &515632401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1054,9 +1056,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
-  BlueberryHealthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
   soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &515632402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1072,7 +1075,7 @@ MonoBehaviour:
   collisions: 1
   blueberry: 0
   infected: 0
-  blueberrySprite: {fileID: 0}
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
   currentSpeed: 1
   canMove: 1
   speedUp: 0
@@ -1176,7 +1179,6 @@ GameObject:
   - 114: {fileID: 617754888}
   - 114: {fileID: 617754887}
   - 114: {fileID: 617754886}
-  - 114: {fileID: 617754884}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player
@@ -1196,18 +1198,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1547542624}
   m_RootOrder: 1
---- !u!114 &617754884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11403752, guid: ee543d705845cca459b304264966d1b9,
-    type: 2}
-  m_PrefabInternal: {fileID: 89645444}
-  m_GameObject: {fileID: 617754882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2492af1257e3d03409de1f40a837b5b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &617754886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1222,8 +1212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 617754889}
   speed: .0500000007
-  playerNo: 0
-  debugControls: 0
+  playerNo: 2
+  debugControls: 1
 --- !u!114 &617754887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1242,9 +1232,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
-  BlueberryHealthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
   soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &617754888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1260,7 +1251,7 @@ MonoBehaviour:
   collisions: 1
   blueberry: 0
   infected: 0
-  blueberrySprite: {fileID: 0}
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
   currentSpeed: 1
   canMove: 1
   speedUp: 0
@@ -1700,9 +1691,10 @@ MonoBehaviour:
   helpMe: {fileID: 0}
   deathSound: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  healthbar: {fileID: 0}
-  BlueberryHealthbar: {fileID: 0}
+  healthbar: {fileID: 2800000, guid: 9b94bd39f934de8428c9e5d794a22d64, type: 3}
+  BlueberryHealthbar: {fileID: 2800000, guid: c35a42017fd3eb844a281e7ab7355ffb, type: 3}
   soundplayer: 5
+  tintColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1177835719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1718,7 +1710,7 @@ MonoBehaviour:
   collisions: 1
   blueberry: 0
   infected: 0
-  blueberrySprite: {fileID: 0}
+  blueberrySprite: {fileID: 21300000, guid: 1aba004c38312ec41a6937aac61e1797, type: 3}
   currentSpeed: 1
   canMove: 1
   speedUp: 0
