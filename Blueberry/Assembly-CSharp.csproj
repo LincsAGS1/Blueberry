@@ -57,16 +57,17 @@
      <Compile Include="Assets\Scripts\InputController.cs" />
      <Compile Include="Assets\Scripts\Music.cs" />
      <Compile Include="Assets\Scripts\RandomVirus.cs" />
+     <Compile Include="Assets\Scripts\Scaling.cs" />
      <Compile Include="Assets\Scripts\colourChange.cs" />
      <Compile Include="Assets\gotoNextScene.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="KinectNet20">
- <HintPath>C:/Users/computing/Documents/GitHub/Blueberry/Blueberry/Assets/Plugins/KinectNet20.dll</HintPath>
+ <HintPath>C:/Users/computing/Desktop/Blueberry-master (2)/Blueberry-master/Blueberry/Assets/Plugins/KinectNet20.dll</HintPath>
  </Reference>
  <Reference Include="KinectWheels">
- <HintPath>C:/Users/computing/Documents/GitHub/Blueberry/Blueberry/Assets/Plugins/KinectWheels.dll</HintPath>
+ <HintPath>C:/Users/computing/Desktop/Blueberry-master (2)/Blueberry-master/Blueberry/Assets/Plugins/KinectWheels.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
