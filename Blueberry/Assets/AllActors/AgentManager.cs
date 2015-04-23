@@ -136,8 +136,8 @@ public class AgentManager : MonoBehaviour
             {
                 //this.gameObject.GetComponent<VirusScript>().
                 speedUp = true;
-
                 speedTimer = 5.0f;
+                Destroy(collision.gameObject);
             }
 
             if (collision.gameObject.tag == "Bandage")
@@ -146,13 +146,14 @@ public class AgentManager : MonoBehaviour
                 this.gameObject.GetComponent<HealthScript>().health += 25;
                 if (this.gameObject.GetComponent<HealthScript>().health > 100)
                     this.gameObject.GetComponent<HealthScript>().health = 100;
-
+                Destroy(collision.gameObject);
             }
 
             if (collision.gameObject.tag == "Invincible")
             {
                 collisions = false;
                 invincTimer = 10f;
+                Destroy(collision.gameObject);
             }
 
             if (collision.gameObject.tag == "SlowTime")
@@ -162,22 +163,25 @@ public class AgentManager : MonoBehaviour
                     slowTimer = 9.5f;
                     slowDown = true;
                 }
+                Destroy(collision.gameObject);
             }
 
             if (collision.gameObject.tag == "Invisible")
             {
                 invis = true;
                 invisTimer = 10f;
+                Destroy(collision.gameObject);
             }
 
             if (collision.gameObject.tag == "Vaccine")
             {
                 //Checks that the person who picked up the powerup has the virus, then finds the closest player/AI next to them, and gives the new guy the virus.
-                if (this.gameObject.GetComponent<AgentManager>().infected == true && this.gameObject.GetComponent<AgentManager>().blueberry == false)
+                if (this.gameObject.GetComponent<AgentManager>().infected)
                 {
                     this.gameObject.GetComponent<AgentManager>().infected = false;
                     GetClosestEnemy(agents).gameObject.GetComponent<AgentManager>().infected = true;
                 }
+                Destroy(collision.gameObject);
             }
 
             if (collision.collider.tag.Contains("AI") || collision.collider.tag.Contains("Player"))
@@ -192,8 +196,7 @@ public class AgentManager : MonoBehaviour
                         {
                         	otherObject.GetComponent<AgentManager>().infected = true;
 							invincTimer = 2;
-							if (!blueberry)
-							{ infected = false; }
+							infected = false;
 						}
 
                         //Only lose infected status 

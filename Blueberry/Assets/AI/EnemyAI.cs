@@ -146,7 +146,7 @@ public class EnemyAI : MonoBehaviour
                 //Add all uninfected targets to list of vectors FROM agent TO target
                 foreach (GameObject obj in targets)
                 {
-                    if (obj.GetComponent<AgentManager>().infected != true)
+                    if (obj.GetComponent<AgentManager>().infected != true && obj.GetComponent<AgentManager>().invis == false)
                     {
                         Vector2 newVec = new Vector2(obj.transform.position.x - this.transform.position.x,
                                                      obj.transform.position.y - this.transform.position.y);

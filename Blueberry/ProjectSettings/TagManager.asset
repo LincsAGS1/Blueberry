@@ -9,12 +9,14 @@ TagManager:
   - Invincible
   - Invisible
   - SlowTime
-  - Pickup
+  - SpeedUp
   - 
   - Bandage
   - tint
   - tint 2
   - corner
+  - 
+  - Pickup
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
