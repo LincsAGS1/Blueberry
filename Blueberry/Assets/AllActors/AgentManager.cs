@@ -122,7 +122,7 @@ public class AgentManager : MonoBehaviour
         if (blueberry)
         {
             this.GetComponent<SpriteRenderer>().sprite = blueberrySprite;
-            this.GetComponent<BoxCollider2D>().enabled = false;
+            //this.GetComponent<BoxCollider2D>().enabled = false;
             this.GetComponent<CircleCollider2D>().enabled = true;
             this.GetComponent<CircleCollider2D>().radius = 2.0f;
         }
@@ -188,13 +188,16 @@ public class AgentManager : MonoBehaviour
                     {
                         GameObject otherObject = collision.collider.gameObject;
 
-                        //if (otherObject.GetComponent<AgentManager>().invinctimer <= 0f)
-                        //{
-                        otherObject.GetComponent<AgentManager>().infected = true;
+                        if (otherObject.GetComponent<AgentManager>().invincTimer <= 0f)
+                        {
+                        	otherObject.GetComponent<AgentManager>().infected = true;
+							invincTimer = 2;
+							if (!blueberry)
+							{ infected = false; }
+						}
 
                         //Only lose infected status 
-                        if (!blueberry)
-                        { infected = false; }
+                        
 
                         Debug.Log("Passing to " + collision.collider.name.ToString());
 

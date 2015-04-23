@@ -22,6 +22,11 @@ public class gotoNextScene : MonoBehaviour {
         }
         if(dead)
             {
+			Debug.Log("score = " + RandomVirus.points);
+			PlayerPrefs.SetInt("Score",RandomVirus.points);
+			PlayerPrefs.SetInt("Score2",RandomVirus.points2);
+			Debug.Log(PlayerPrefs.GetInt("Score"));
+
 			    //insert level here
 			    Application.LoadLevel(Application.loadedLevel+1);
             }
